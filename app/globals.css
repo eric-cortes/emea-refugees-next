@@ -153,8 +153,7 @@ video:focus-visible {
   margin: 2rem 0 1rem;
 }
 
-.map-thumb,
-.return-to-map {
+.map-thumb {
   position: fixed;
   left: 1rem;
   bottom: 1rem;
@@ -173,11 +172,8 @@ video:focus-visible {
   height: 90%;
 }
 .return-to-map {
+  position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  opacity: 1;
   border-radius: 50%;
 }
 
@@ -231,20 +227,21 @@ video:focus-visible {
 .route-info {
   position: absolute;
   bottom: 2rem;
-  left: 0;
-  right: 0;
+  left: 2rem;
   display: flex;
-  justify-content: space-around;
+  gap: 1.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
-  text-align: center;
-  font-size: 2rem;
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 600;
   z-index: 3;
 }
 .route-info .pre {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.7rem;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   opacity: 0.8;
@@ -261,11 +258,35 @@ video:focus-visible {
 .city-article .meta span {
   color: var(--teal);
 }
+@media (min-width: 768px) {
+  .city-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .city-split .map-country {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100dvh;
+  }
+  .city-split .city-article {
+    max-width: none;
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 4rem 3rem;
+    background: #26292b;
+  }
+  .city-split .country-svg {
+    width: 100%;
+  }
+}
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 0.5rem;
-  margin: 2rem -4rem;
+  margin: 2rem 0;
 }
 .image-cell {
   position: relative;
@@ -277,35 +298,15 @@ video:focus-visible {
 }
 .float-image {
   position: relative;
-  width: 240px;
+  width: 100%;
   aspect-ratio: 4 / 3;
-  margin-bottom: 1rem;
-}
-.float-image.left {
-  float: left;
-  margin-right: 1.5rem;
-}
-.float-image.right {
-  float: right;
-  margin-left: 1.5rem;
+  margin: 0 0 1rem;
 }
 .clearfix::after {
   content: '';
   display: block;
   clear: both;
 }
-@media (max-width: 767px) {
-  .image-grid {
-    margin: 2rem 0;
-    grid-template-columns: 1fr;
-  }
-  .float-image {
-    float: none !important;
-    width: 100%;
-    margin: 0 0 1rem !important;
-  }
-}
-
 @keyframes lookit {
   to {
     stroke-width: 18px;

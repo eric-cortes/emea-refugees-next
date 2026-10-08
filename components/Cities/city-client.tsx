@@ -23,7 +23,7 @@ export default function CityClient({ city }: CityClientProps) {
   const floatRight = city.images[1]
 
   return (
-    <>
+    <div className="city-split">
       <section className="map-country">
         <h4>{t('country')}</h4>
         <h4 className="dark" aria-hidden>
@@ -56,25 +56,25 @@ export default function CityClient({ city }: CityClientProps) {
         </div>
         <div className="image-grid">
           <div className="image-cell full">
-            <Image src={asset(hero)} alt={alt} fill sizes="100vw" className="object-cover" />
+            <Image src={asset(hero)} alt={alt} fill loading="eager" sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </div>
           {rest.map((src, index) => (
             <div key={index} className="image-cell">
-              <Image src={asset(src)} alt={alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+              <Image src={asset(src)} alt={alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
             </div>
           ))}
         </div>
         <div className="inner clearfix">
           <div className="float-image left">
-            <Image src={asset(floatLeft)} alt="" fill sizes="240px" className="object-cover" />
+            <Image src={asset(floatLeft)} alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </div>
           <p>{t('p3')}</p>
           <div className="float-image right">
-            <Image src={asset(floatRight)} alt="" fill sizes="240px" className="object-cover" />
+            <Image src={asset(floatRight)} alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </div>
           <p>{t('p4')}</p>
         </div>
       </article>
-    </>
+    </div>
   )
 }
