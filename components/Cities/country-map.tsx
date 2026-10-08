@@ -1,0 +1,18 @@
+import { WORLD_PATHS } from '@/constants/world-paths'
+
+interface CountryMapProps {
+  cx: number
+  cy: number
+}
+
+export default function CountryMap({ cx, cy }: CountryMapProps) {
+  return (
+    <svg viewBox="0 0 1000 1360" preserveAspectRatio="xMinYMid meet" xmlns="http://www.w3.org/2000/svg" className="country-svg" aria-hidden>
+      {WORLD_PATHS.map((country, index) => (
+        <path key={index} d={country.d} />
+      ))}
+      <circle cx={cx} cy={cy} r={16} className="country-dot" />
+      <circle cx={cx} cy={cy} r={10} className="country-dot-small" />
+    </svg>
+  )
+}

@@ -1,0 +1,34 @@
+{
+  "site": {
+    "title": "#DieVerdrängtenFlüchtlinge",
+    "subtitle": "Eine Reise von Lesbos nach Berlin",
+    "description": "Eine interaktive Reise entlang der Fluchtroute von Lesbos nach Berlin."
+  },
+  "nav": {
+    "menu": "Menü",
+    "close": "Menü schließen",
+    "home": "Intro",
+    "map": "Karte",
+    "language": "Sprache",
+    "english": "Englisch",
+    "german": "Deutsch"
+  },
+  "intro": {
+    "explore": "Entdecken",
+    "videoLabel": "Intro-Video"
+  },
+  "footer": {
+    "copyright": "© VICE Media Ltd",
+    "social": "Soziale Netzwerke"
+  },
+  "share": {
+    "twitter": "Auf Twitter teilen",
+    "facebook": "Auf Facebook teilen"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "text": "Diese Seite gibt es noch nicht.",
+    "back": "Zurück zur Karte"
+  },
+  "floatingTitle": "Die Verdrängten Flüchtlinge"
+}

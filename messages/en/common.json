@@ -1,0 +1,34 @@
+{
+  "site": {
+    "title": "#DieVerdrängtenFlüchtlinge",
+    "subtitle": "A Journey from Lesbos to Berlin",
+    "description": "An interactive journey along the refugee route from Lesbos to Berlin."
+  },
+  "nav": {
+    "menu": "Menu",
+    "close": "Close menu",
+    "home": "Intro",
+    "map": "Map",
+    "language": "Language",
+    "english": "English",
+    "german": "German"
+  },
+  "intro": {
+    "explore": "Explore",
+    "videoLabel": "Intro video"
+  },
+  "footer": {
+    "copyright": "© VICE Media Ltd",
+    "social": "Social links"
+  },
+  "share": {
+    "twitter": "Share on Twitter",
+    "facebook": "Share on Facebook"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "This page does not exist yet.",
+    "back": "Back to the map"
+  },
+  "floatingTitle": "Displaced Refugees"
+}

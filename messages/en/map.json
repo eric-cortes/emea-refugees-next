@@ -1,0 +1,22 @@
+{
+  "title": "The Route",
+  "returnToMap": "Return to Map",
+  "dot": {
+    "openCity": "Open {city}",
+    "goToCity": "Go to {city}"
+  },
+  "drawer": {
+    "close": "Close",
+    "body": "Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis."
+  },
+  "project": {
+    "heading": "The Project",
+    "body1": "IOM's Missing Migrants Project tracks deaths of migrants, including refugees and asylum-seekers, who have gone missing along mixed migration routes worldwide. The research behind this project began with the October 2013 tragedies, when at least 368 individuals died in two shipwrecks near the Italian island of Lampedusa. Since then, Missing Migrants Project has developed into an important hub and advocacy source of information that media, researchers, and the general public access for the latest information.",
+    "body2": "With a count surpassing 30,000 lives lost during migration since 2014, IOM calls on all the world's governments to address what it describes as \"an epidemic of crime and abuse.\"",
+    "share": "Share this link & information:",
+    "link": "missingmigrants.iom.int"
+  },
+  "credits": {
+    "heading": "Credits"
+  }
+}
