@@ -26,8 +26,8 @@
     "imageAlt": "Photo from Berlin",
     "stats": {
       "distance": "Distance to Berlin",
-      "stranded2016": "Stranded refugees Feb 2016",
-      "stranded2020": "Stranded refugees Feb 2020"
+      "stranded2016": "Stranded refugees<br></br>Feb 2016",
+      "stranded2020": "Stranded refugees<br></br>Feb 2020"
     }
   },
   "meta": {

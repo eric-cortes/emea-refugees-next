@@ -1,332 +1,57 @@
 @import 'tailwindcss';
 
-:root {
-  --bg: #2f3336;
-  --teal: #41c7c7;
-  --red: #fe6a6a;
-  --land: #52585d;
-}
+@theme {
+  --color-bg: #2f3336;
+  --color-teal: #41c7c7;
+  --color-red: #fe6a6a;
+  --color-land: #52585d;
+  --color-panel: #26292b;
 
-html,
-body {
-  margin: 0;
-  min-height: 100%;
-  background: var(--bg);
-  color: #fff;
-  font-family: Georgia, 'Times New Roman', serif;
-}
+  --animate-fade-in: fade-in 1.2s ease both;
+  --animate-scale-up: scale-up 3s ease both;
+  --animate-draw: draw 6s 1.5s forwards;
+  --animate-lookit: lookit 1.8s infinite;
 
-a:focus-visible,
-button:focus-visible,
-[role='button']:focus-visible,
-video:focus-visible {
-  outline: 3px solid var(--teal);
-  outline-offset: 3px;
-}
-
-.site-main {
-  position: relative;
-  z-index: 1;
-}
-
-.intro {
-  position: fixed;
-  inset: 0;
-  background: #000;
-}
-.intro-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.intro-overlay {
-  position: absolute;
-  inset: auto 0 8vh 0;
-  text-align: center;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
-}
-.intro-overlay h1 {
-  font-size: clamp(1.5rem, 5vw, 3.5rem);
-  margin: 0;
-}
-.intro-link {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.6rem 1.8rem;
-  border: 2px solid #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  background: rgba(0, 0, 0, 0.4);
-}
-.intro-link:hover {
-  background: #fff;
-  color: #000;
-  text-shadow: none;
-}
-
-.not-found {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  background: var(--bg);
-  color: #fff;
-}
-
-.map-stage {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  background: url('/emea/assets/images/map/texture.jpg') center / cover no-repeat fixed;
-  animation: fade-in 1.2s ease both;
-}
-.europe-map-full {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.countries {
-  fill: var(--land);
-}
-#DE,
-#BA,
-#SY {
-  fill: #181818;
-}
-#AT,
-#GR {
-  fill: #222;
-}
-.route-line {
-  fill: none;
-  stroke: var(--teal);
-  stroke-width: 0.7;
-  opacity: 0.8;
-  stroke-dasharray: 2300;
-  stroke-dashoffset: 2300;
-  animation: draw 6s 1.5s forwards;
-}
-.europe {
-  fill: var(--teal);
-  stroke: var(--teal);
-  opacity: 0.4;
-}
-.europe.red {
-  fill: var(--red);
-  stroke: var(--red);
-}
-.europe.route {
-  animation: lookit 1.8s infinite;
-}
-.europe-small {
-  fill: var(--teal);
-  stroke: transparent;
-  stroke-width: 15px;
-}
-.europe-small.red {
-  fill: var(--red);
-}
-.map-dot,
-[role='button'].map-dot {
-  cursor: pointer;
-}
-.map-dot-static {
-  pointer-events: none;
-}
-
-.map-text,
-.city-article {
-  max-width: 44rem;
-  margin: 0 auto;
-  padding: 4rem 1.25rem;
-  line-height: 1.7;
-}
-.map-text a,
-.city-article a {
-  color: var(--teal);
-}
-.inner h2 {
-  font-size: 1.6rem;
-  margin: 2rem 0 1rem;
-}
-
-.map-thumb {
-  position: fixed;
-  left: 1rem;
-  bottom: 1rem;
-  z-index: 30;
-  width: 85px;
-  height: 85px;
-  border-radius: 50%;
-  background: #000;
-  opacity: 0.9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.map-thumb svg {
-  width: 90%;
-  height: 90%;
-}
-.return-to-map {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-}
-
-.map-country {
-  position: relative;
-  height: 80vh;
-  overflow: hidden;
-  background: var(--bg);
-}
-.map-country h4 {
-  position: absolute;
-  top: 18vh;
-  width: 100%;
-  margin: 0;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 3em;
-  color: #fff;
-  z-index: 2;
-}
-.map-country h4.dark {
-  color: #000;
-  opacity: 0.35;
-  transform: translate(3px, 3px);
-  z-index: 1;
-}
-.map-country .svg-wrapper {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.country-svg {
-  display: block;
-  width: 50%;
-  height: 100%;
-  fill: var(--land);
-  animation: scale-up 3s ease both;
-}
-@media (max-width: 767px) {
-  .country-svg {
-    width: 100%;
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes scale-up {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+  }
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes lookit {
+    to {
+      stroke-width: 18px;
+      stroke: transparent;
+    }
   }
 }
-.country-dot {
-  fill: var(--teal);
-  opacity: 0.5;
-}
-.country-dot-small {
-  fill: var(--teal);
-}
-.route-info {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  font-size: 1.25rem;
-  font-weight: 600;
-  z-index: 3;
-}
-.route-info .pre {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.8;
-}
 
-.city-article header h1 {
-  font-size: 3rem;
-  margin: 0.5rem 0;
-}
-.city-article .share {
-  display: flex;
-  gap: 1rem;
-}
-.city-article .meta span {
-  color: var(--teal);
-}
-@media (min-width: 768px) {
-  .city-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-  }
-  .city-split .map-country {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    height: 100dvh;
-  }
-  .city-split .city-article {
-    max-width: none;
+@layer base {
+  html,
+  body {
     margin: 0;
-    min-height: 100vh;
-    min-height: 100dvh;
-    padding: 4rem 3rem;
-    background: #26292b;
+    min-height: 100%;
+    background: var(--color-bg);
+    color: #fff;
+    font-family: Georgia, 'Times New Roman', serif;
   }
-  .city-split .country-svg {
-    width: 100%;
-  }
-}
-.image-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.5rem;
-  margin: 2rem 0;
-}
-.image-cell {
-  position: relative;
-  aspect-ratio: 4 / 3;
-}
-.image-cell.full {
-  grid-column: 1 / -1;
-  aspect-ratio: 16 / 7;
-}
-.float-image {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  margin: 0 0 1rem;
-}
-.clearfix::after {
-  content: '';
-  display: block;
-  clear: both;
-}
-@keyframes lookit {
-  to {
-    stroke-width: 18px;
-    stroke: transparent;
-  }
-}
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-}
-@keyframes scale-up {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
+
+  a:focus-visible,
+  button:focus-visible,
+  [role='button']:focus-visible,
+  video:focus-visible {
+    outline: 3px solid var(--color-teal);
+    outline-offset: 3px;
   }
 }
 
@@ -336,8 +61,5 @@ video:focus-visible {
   *::after {
     animation: none !important;
     transition: none !important;
-  }
-  .route-line {
-    stroke-dashoffset: 0;
   }
 }

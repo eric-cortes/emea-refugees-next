@@ -9,7 +9,7 @@ export default function IntroClient() {
   const router = useRouter()
 
   return (
-    <main className="intro">
+    <main className="fixed inset-0 bg-black">
       <video
         src={asset('/assets/video/short.mp4')}
         autoPlay
@@ -17,12 +17,12 @@ export default function IntroClient() {
         playsInline
         aria-label={t('intro.videoLabel')}
         onEnded={() => router.push('/map')}
-        className="intro-video"
+        className="h-full w-full object-cover"
       />
-      <div className="intro-overlay">
-        <h1>{t('site.title')}</h1>
+      <div className="absolute inset-x-0 bottom-[8vh] text-center [text-shadow:0_2px_12px_rgba(0,0,0,0.7)]">
+        <h1 className="text-[length:clamp(1.5rem,5vw,3.5rem)]">{t('site.title')}</h1>
         <p>{t('site.subtitle')}</p>
-        <Link href="/map" className="intro-link">
+        <Link href="/map" className="mt-6 inline-block border-2 border-white bg-black/40 px-[1.8rem] py-[0.6rem] tracking-[0.2em] uppercase hover:bg-white hover:text-black hover:[text-shadow:none]">
           {t('intro.explore')}
         </Link>
       </div>

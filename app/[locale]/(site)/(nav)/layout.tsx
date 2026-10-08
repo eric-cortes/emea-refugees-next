@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { setRequestLocale } from 'next-intl/server'
-import { Footer, Sidebar } from '@/components/Layout'
+import { Sidebar } from '@/components/Layout'
 
 interface Props {
   children: ReactNode
@@ -14,8 +14,7 @@ export default async function NavLayout({ children, params }: Props) {
   return (
     <>
       <Sidebar />
-      <div className="site-main">{children}</div>
-      <Footer />
+      <div className="relative z-1">{children}</div>
     </>
   )
 }

@@ -23,20 +23,20 @@ export default function CityClient({ city }: CityClientProps) {
   const floatRight = city.images[1]
 
   return (
-    <div className="city-split">
-      <section className="map-country">
-        <h4>{t('country')}</h4>
-        <h4 className="dark" aria-hidden>
+    <div className="md:grid md:grid-cols-2 md:items-start">
+      <section className="relative h-[80vh] overflow-hidden bg-bg md:sticky md:top-0 md:h-dvh">
+        <h4 className="absolute top-[18vh] z-2 m-0 w-full text-center text-[3em] text-white uppercase">{t('country')}</h4>
+        <h4 className="absolute top-[18vh] z-1 m-0 w-full translate-x-[3px] translate-y-[3px] text-center text-[3em] text-black uppercase opacity-35" aria-hidden>
           {t('country')}
         </h4>
-        <div className="svg-wrapper">
+        <div className="absolute inset-0 overflow-hidden">
           <CountryMap cx={820} cy={470} />
         </div>
         {city.stats && <RouteInfo slug={city.slug} stats={city.stats} />}
       </section>
-      <article className="city-article">
+      <article className="mx-auto max-w-[44rem] px-5 py-16 leading-[1.7] md:m-0 md:min-h-dvh md:max-w-none md:bg-panel md:px-12 [&_a]:text-teal">
         <header>
-          <div className="share">
+          <div className="flex gap-4">
             <a href="https://twitter.com/" aria-label={tShare('twitter')}>
               <FaTwitter size={22} aria-hidden />
             </a>
@@ -44,35 +44,39 @@ export default function CityClient({ city }: CityClientProps) {
               <FaFacebook size={22} aria-hidden />
             </a>
           </div>
-          <h1>{t('title')}</h1>
-          <p className="meta">
-            {t('byLabel')} <span>{t('author')}</span> | {t('date')}
+          <h1 className="my-2 text-[3rem]">{t('title')}</h1>
+          <p>
+            {t('byLabel')} <span className="text-teal">{t('author')}</span> | {t('date')}
           </p>
         </header>
-        <div className="inner">
-          <h2>{t('heading')}</h2>
+        <div>
+          <h2 className="mt-8 mb-4 text-[1.6rem]">{t('heading')}</h2>
           <p>{t('p1')}</p>
           <p>{t('p2')}</p>
         </div>
-        <div className="image-grid">
-          <div className="image-cell full">
-            <Image src={asset(hero)} alt={alt} fill loading="eager" sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+        <div className="my-8 grid grid-cols-3 gap-x-3 gap-y-11">
+          <div className="col-span-3">
+            <Image src={asset(hero)} alt={alt} width={0} height={0} loading="eager" sizes="(min-width: 768px) 50vw, 100vw" className="block h-auto w-full" />
           </div>
           {rest.map((src, index) => (
-            <div key={index} className="image-cell">
-              <Image src={asset(src)} alt={alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+            <div key={index}>
+              <Image src={asset(src)} alt={alt} width={0} height={0} sizes="(min-width: 768px) 17vw, 33vw" className="block h-auto w-full" />
             </div>
           ))}
         </div>
-        <div className="inner clearfix">
-          <div className="float-image left">
-            <Image src={asset(floatLeft)} alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-          </div>
-          <p>{t('p3')}</p>
-          <div className="float-image right">
-            <Image src={asset(floatRight)} alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-          </div>
-          <p>{t('p4')}</p>
+        <div className="flow-root">
+          <p>
+            <span className="relative top-1 float-left mr-8 mb-8 block w-full max-w-[40%]">
+              <Image src={asset(floatLeft)} alt="" width={0} height={0} sizes="(min-width: 768px) 20vw, 40vw" className="block h-auto w-full" />
+            </span>
+            {t('p3')}
+          </p>
+          <p>
+            <span className="relative top-1 float-right mb-8 ml-8 block w-full max-w-[40%]">
+              <Image src={asset(floatRight)} alt="" width={0} height={0} sizes="(min-width: 768px) 20vw, 40vw" className="block h-auto w-full" />
+            </span>
+            {t('p4')}
+          </p>
         </div>
       </article>
     </div>

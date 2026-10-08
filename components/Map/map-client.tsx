@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { CITIES, getCity, getRoutePoints, type City } from '@/constants/cities'
 import { Link } from '@/i18n/navigation'
+import { cn } from '@/utils/cn'
 import CityDrawer from './city-drawer'
 import EuropeMap from './europe-map'
 import { useMapAspect } from './use-map-aspect'
@@ -12,11 +13,11 @@ import { useMapAspect } from './use-map-aspect'
 const DRAWER_CITIES = ['lampedusa']
 
 function Dot({ city }: { city: City }) {
-  const cls = city.type === 'stop' ? 'red' : 'route'
+  const stop = city.type === 'stop'
   return (
     <>
-      <circle className={`europe ${cls}`} cx={city.cx} cy={city.cy} r={3.28} />
-      <circle className={`europe-small ${city.type === 'stop' ? 'red' : ''}`} cx={city.cx} cy={city.cy} r={3.28} />
+      <circle className={cn('opacity-40', stop ? 'fill-red stroke-red' : 'fill-teal stroke-teal animate-lookit')} cx={city.cx} cy={city.cy} r={3.28} />
+      <circle className={cn('stroke-transparent [stroke-width:15px]', stop ? 'fill-red' : 'fill-teal')} cx={city.cx} cy={city.cy} r={3.28} />
     </>
   )
 }
@@ -51,9 +52,9 @@ export default function MapClient() {
 
   return (
     <>
-      <div className="map-stage">
-        <EuropeMap className="europe-map-full" preserveAspectRatio={aspect}>
-          <polyline className="route-line" points={getRoutePoints()} />
+      <div className="relative h-dvh w-full animate-fade-in bg-[url('/emea/assets/images/map/texture.jpg')] bg-fixed bg-cover bg-center bg-no-repeat">
+        <EuropeMap className="block h-full w-full" preserveAspectRatio={aspect}>
+          <polyline className="animate-draw fill-none stroke-teal opacity-80 [stroke-dasharray:2300] [stroke-dashoffset:2300] [stroke-width:0.7] motion-reduce:[stroke-dashoffset:0]" points={getRoutePoints()} />
           {CITIES.map(city => {
             if (city.hasPage) {
               return (
@@ -61,7 +62,7 @@ export default function MapClient() {
                   key={city.slug}
                   href={`/cities/${city.slug}`}
                   aria-label={t('dot.goToCity', { city: tc(city.slug) })}
-                  className="map-dot"
+                  className="cursor-pointer"
                 >
                   <Dot city={city} />
                 </Link>
@@ -78,7 +79,7 @@ export default function MapClient() {
                   tabIndex={0}
                   aria-label={t('dot.openCity', { city: tc(city.slug) })}
                   aria-haspopup="dialog"
-                  className="map-dot"
+                  className="cursor-pointer"
                   onClick={() => setOpenPane(city.slug)}
                   onKeyDown={event => onDotKey(event, city.slug)}
                 >
@@ -87,7 +88,7 @@ export default function MapClient() {
               )
             }
             return (
-              <g key={city.slug} className="map-dot-static" aria-hidden>
+              <g key={city.slug} className="pointer-events-none" aria-hidden>
                 <Dot city={city} />
               </g>
             )

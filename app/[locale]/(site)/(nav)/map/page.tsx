@@ -24,15 +24,15 @@ export default async function MapPage({ params }: Props) {
 
   return (
     <>
-      <Suspense fallback={<div className="map-stage" />}>
+      <Suspense fallback={<div className="relative h-dvh w-full animate-fade-in bg-[url('/emea/assets/images/map/texture.jpg')] bg-fixed bg-cover bg-center bg-no-repeat" />}>
         <MapClient />
       </Suspense>
-      <article className="map-text">
+      <article className="mx-auto max-w-[44rem] px-5 py-16 leading-[1.7] [&_a]:text-teal">
         <header>
           <h1>{t('title')}</h1>
         </header>
-        <section className="inner">
-          <h2>{t('project.heading')}</h2>
+        <section>
+          <h2 className="mt-8 mb-4 text-[1.6rem]">{t('project.heading')}</h2>
           <p>{t('project.body1')}</p>
           <p>{t('project.body2')}</p>
           <p>{t('project.share')}</p>
@@ -41,7 +41,7 @@ export default async function MapPage({ params }: Props) {
               {t('project.link')}
             </a>
           </p>
-          <h2>{t('credits.heading')}</h2>
+          <h2 className="mt-8 mb-4 text-[1.6rem]">{t('credits.heading')}</h2>
           <ul>
             <li>
               <a href="https://www.vice.com/de/contributor/alexandra-stanic">Alexandra Stanic</a>
