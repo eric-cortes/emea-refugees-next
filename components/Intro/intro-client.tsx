@@ -1,12 +1,13 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { Link, useRouter } from '@/i18n/navigation'
+import TransitionLink from '@/components/Layout/transition-link'
+import { useRouteTransition } from '@/components/Layout/route-transition-boundary'
 import { asset } from '@/utils/asset'
 
 export default function IntroClient() {
   const t = useTranslations('common')
-  const router = useRouter()
+  const { startRouteTransition } = useRouteTransition()
 
   return (
     <main className="fixed inset-0 bg-black">
@@ -16,15 +17,15 @@ export default function IntroClient() {
         muted
         playsInline
         aria-label={t('intro.videoLabel')}
-        onEnded={() => router.push('/map')}
+        onEnded={() => startRouteTransition('/map/')}
         className="h-full w-full object-cover"
       />
       <div className="absolute inset-x-0 bottom-[8vh] text-center [text-shadow:0_2px_12px_rgba(0,0,0,0.7)]">
         <h1 className="text-[length:clamp(1.5rem,5vw,3.5rem)]">{t('site.title')}</h1>
         <p>{t('site.subtitle')}</p>
-        <Link href="/map" className="mt-6 inline-block border-2 border-white bg-black/40 px-[1.8rem] py-[0.6rem] tracking-[0.2em] uppercase hover:bg-white hover:text-black hover:[text-shadow:none]">
+        <TransitionLink href="/map" className="mt-6 inline-block border-2 border-white bg-black/40 px-[1.8rem] py-[0.6rem] tracking-[0.2em] uppercase hover:bg-white hover:text-black hover:[text-shadow:none]">
           {t('intro.explore')}
-        </Link>
+        </TransitionLink>
       </div>
     </main>
   )

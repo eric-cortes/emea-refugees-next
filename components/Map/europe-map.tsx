@@ -6,6 +6,7 @@ interface EuropeMapProps {
   children?: ReactNode
   decorative?: boolean
   preserveAspectRatio?: string
+  viewBox?: string
 }
 
 const FILL_BY_ID: Record<string, string> = {
@@ -16,10 +17,10 @@ const FILL_BY_ID: Record<string, string> = {
   GR: 'fill-[#222]',
 }
 
-export default function EuropeMap({ className, children, decorative = false, preserveAspectRatio }: EuropeMapProps) {
+export default function EuropeMap({ className, children, decorative = false, preserveAspectRatio, viewBox = '0 0 1000 684' }: EuropeMapProps) {
   return (
     <svg
-      viewBox="0 0 1000 684"
+      viewBox={viewBox}
       preserveAspectRatio={preserveAspectRatio}
       xmlns="http://www.w3.org/2000/svg"
       className={className}

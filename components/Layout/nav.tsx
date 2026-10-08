@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { RxCross2, RxHamburgerMenu } from 'react-icons/rx'
-import { Link, usePathname } from '@/i18n/navigation'
+import { usePathname } from '@/i18n/navigation'
+import TransitionLink from '@/components/Layout/transition-link'
 import { routing } from '@/i18n/routing'
 import { cn } from '@/utils/cn'
 
@@ -43,20 +44,20 @@ export default function Nav() {
         </button>
         <ul className="flex flex-col items-center gap-4 text-2xl uppercase tracking-[0.2em]">
           <li>
-            <Link href="/" onClick={() => setOpen(false)}>
+            <TransitionLink href="/" onClick={() => setOpen(false)}>
               {t('home')}
-            </Link>
+            </TransitionLink>
           </li>
           <li>
-            <Link href="/map" onClick={() => setOpen(false)}>
+            <TransitionLink href="/map" onClick={() => setOpen(false)}>
               {t('map')}
-            </Link>
+            </TransitionLink>
           </li>
         </ul>
         <ul aria-label={t('language')} className="flex gap-4 text-sm uppercase tracking-widest">
           {routing.locales.map(l => (
             <li key={l}>
-              <Link
+              <TransitionLink
                 href={pathname}
                 locale={l}
                 hrefLang={l}
@@ -66,7 +67,7 @@ export default function Nav() {
                 className={cn('px-2 py-1', l === locale ? 'border-b-2 border-white' : 'opacity-70')}
               >
                 {l}
-              </Link>
+              </TransitionLink>
             </li>
           ))}
         </ul>

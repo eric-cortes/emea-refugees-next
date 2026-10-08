@@ -27,7 +27,7 @@ export default async function MapPage({ params }: Props) {
       <Suspense fallback={<div className="relative h-dvh w-full animate-fade-in bg-[url('/emea/assets/images/map/texture.jpg')] bg-fixed bg-cover bg-center bg-no-repeat" />}>
         <MapClient />
       </Suspense>
-      <article className="mx-auto max-w-[44rem] px-5 py-16 leading-[1.7] [&_a]:text-teal">
+      <article className="mx-auto max-w-[44rem] animate-fade-in px-5 py-16 leading-normal [&_a]:text-teal min-[801px]:absolute min-[801px]:top-4 min-[801px]:right-4 min-[801px]:z-20 min-[801px]:mx-0 min-[801px]:w-[30%] min-[801px]:max-w-none">
         <header>
           <h1>{t('title')}</h1>
         </header>

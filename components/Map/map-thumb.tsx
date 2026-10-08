@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/navigation'
+import TransitionLink from '@/components/Layout/transition-link'
 import EuropeMap from './europe-map'
 
 export default function MapThumb() {
@@ -7,10 +7,10 @@ export default function MapThumb() {
 
   return (
     <div className="fixed bottom-4 left-4 z-30 flex size-[85px] items-center justify-center rounded-full bg-black opacity-90">
-      <EuropeMap decorative className="size-[90%]" />
-      <Link href="/map" className="absolute inset-0 rounded-full" aria-label={t('returnToMap')}>
+      <EuropeMap decorative viewBox="0 0 670 443" className="size-[90%]" />
+      <TransitionLink href="/map" className="absolute inset-0 rounded-full" aria-label={t('returnToMap')}>
         <span className="sr-only">{t('returnToMap')}</span>
-      </Link>
+      </TransitionLink>
     </div>
   )
 }

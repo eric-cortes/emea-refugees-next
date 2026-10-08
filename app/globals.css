@@ -43,7 +43,7 @@
     min-height: 100%;
     background: var(--color-bg);
     color: #fff;
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   a:focus-visible,

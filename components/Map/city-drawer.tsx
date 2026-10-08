@@ -109,7 +109,7 @@ export default function CityDrawer({ citySlug, title, videoSrc, onClose }: CityD
                 src={asset(videoSrc)}
               />
             )}
-            <p className="mt-6 leading-relaxed text-white/80">{t('body')}</p>
+            <p className="mt-6 leading-normal text-white/80">{t('body')}</p>
           </motion.aside>
         </>
       )}
