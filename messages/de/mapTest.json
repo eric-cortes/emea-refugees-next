@@ -1,0 +1,27 @@
+{
+  "title": "Geländetest: {country}",
+  "metaDescription": "Ein 3D-Reliefmodell von {country}.",
+  "hint": "Ziehen zum Drehen.",
+  "canvasLabel": "Interaktives 3D-Reliefmodell von {country}",
+  "countries": {
+    "germany": "Deutschland",
+    "bosnia": "Bosnien und Herzegowina"
+  },
+  "credit": "Höhendaten: Mapzen Terrain Tiles. Europe terrain data produced using Copernicus data and information funded by the European Union - EU-DEM layers. SRTM and GMTED2010 terrain data courtesy of the U.S. Geological Survey. Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric Administration. Grenzen: Natural Earth.",
+  "reset": "Ansicht zurücksetzen",
+  "height": {
+    "label": "Höhenmaßstab",
+    "exaggerated": "Überhöht ×{factor}",
+    "real": "Echte Höhe",
+    "noteExaggerated": "Höhe ×{factor} überhöht · Entfernungen unverändert",
+    "noteReal": "Maßstabsgetreu"
+  },
+  "status": {
+    "loading": "Gelände wird geladen...",
+    "error": "Das Gelände konnte nicht geladen werden.",
+    "retry": "Erneut versuchen",
+    "unsupported": "Dein Browser oder Gerät unterstützt kein WebGL, das für die 3D-Ansicht nötig ist.",
+    "lost": "Die 3D-Ansicht wurde unterbrochen.",
+    "reload": "Ansicht neu laden"
+  }
+}

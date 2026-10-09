@@ -1,7 +1,7 @@
 import { getRequestConfig } from 'next-intl/server'
 import { isLocale, routing } from '@/i18n/routing'
 
-const NAMESPACES = ['common', 'map', 'cities'] as const
+const NAMESPACES = ['common', 'map', 'cities', 'mapTest'] as const
 
 export default getRequestConfig(async ({ requestLocale }) => {
   const requested = await requestLocale

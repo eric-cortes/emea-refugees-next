@@ -15,6 +15,8 @@ export interface City {
   images: string[]
   video?: string
   stats?: CityStats
+  lat?: number
+  lng?: number
 }
 
 const VIDEO = '/assets/video/short.mp4'
@@ -37,9 +39,11 @@ export const CITIES: City[] = [
       '/assets/images/berlin/pic09.jpg',
     ],
     stats: { distance: 2446, stranded2016: 946, stranded2020: 1446 },
+    lat: 52.52,
+    lng: 13.405,
   },
   { slug: 'vienna', cx: 272.93, cy: 197.4, type: 'route', hasPage: false, images: [] },
-  { slug: 'sarajevo', cx: 302.96, cy: 267.37, type: 'route', hasPage: false, images: [] },
+  { slug: 'sarajevo', cx: 302.96, cy: 267.37, type: 'route', hasPage: false, images: [], lat: 43.8563, lng: 18.4131 },
   { slug: 'athen', cx: 379.96, cy: 356.37, type: 'route', hasPage: false, images: [] },
   { slug: 'lesbos', cx: 410.95, cy: 337.38, type: 'route', hasPage: false, images: [] },
   { slug: 'damascus', cx: 545.94, cy: 422.38, type: 'route', hasPage: false, images: [] },
