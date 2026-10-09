@@ -5,7 +5,11 @@
   "canvasLabel": "Interactive 3D relief model of {country}",
   "countries": {
     "germany": "Germany",
-    "bosnia": "Bosnia and Herzegovina"
+    "bosnia": "Bosnia and Herzegovina",
+    "austria": "Austria",
+    "greece": "Greece",
+    "lesbos": "Lesbos",
+    "syria": "Syria"
   },
   "reset": "Reset view",
   "legend": {

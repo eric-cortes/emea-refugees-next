@@ -39,7 +39,8 @@ export default function TransitionLink({ href, onClick, replace, ...rest }: Tran
       return
     }
 
-    const isBlankTarget = event.currentTarget.target && event.currentTarget.target !== '_self'
+    const target = event.currentTarget.getAttribute('target')
+    const isBlankTarget = target && target !== '_self'
     if (isBlankTarget || event.currentTarget.hasAttribute('download')) {
       return
     }

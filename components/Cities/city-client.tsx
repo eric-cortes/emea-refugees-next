@@ -8,6 +8,7 @@ import { getRegionForCity } from '@/constants/regions'
 import { asset } from '@/utils/asset'
 import { useMediaQuery } from '@/utils/use-media-query'
 import { TerrainCanvasClient } from '@/components/TerrainMap'
+import EuropeMap from '@/components/Map/europe-map'
 import CountryMap from './country-map'
 import RouteInfo from './route-info'
 
@@ -31,7 +32,14 @@ export default function CityClient({ city }: CityClientProps) {
     <div className="md:grid md:grid-cols-2 md:items-start">
       <section className="relative h-[80vh] overflow-hidden bg-bg md:sticky md:top-0 md:h-dvh">
         <div className={region ? 'absolute inset-0 overflow-hidden md:hidden' : 'absolute inset-0 overflow-hidden'}>
-          <CountryMap cx={820} cy={470} />
+          {city.slug === 'berlin' ? (
+            <CountryMap cx={820} cy={470} />
+          ) : (
+            <EuropeMap decorative preserveAspectRatio="xMidYMid meet" className="block h-full w-full animate-scale-up fill-land">
+              <circle cx={city.cx} cy={city.cy} r={8} className="fill-teal opacity-50" />
+              <circle cx={city.cx} cy={city.cy} r={5} className="fill-teal" />
+            </EuropeMap>
+          )}
         </div>
         {region && desktop && (
           <div className="absolute inset-0">
