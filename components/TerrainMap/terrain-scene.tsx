@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, type ComponentRef, type RefObject } from 'react'
 import { invalidate, useFrame, useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import { MathUtils, Vector3, type Group, type Object3D, type PerspectiveCamera } from 'three'
+import { MathUtils, Spherical, Vector3, type Group, type Object3D, type PerspectiveCamera } from 'three'
 import type { Region } from '@/constants/regions'
 import { projectLaea } from '@/utils/laea'
 import { usePrefersReducedMotion } from '@/utils/use-prefers-reduced-motion'
@@ -13,6 +13,9 @@ import { sampleElevation, type HeightmapData } from './load-heightmap'
 
 const DURATION_MS = 600
 const RESET_DURATION_MS = 700
+const INTRO_DURATION_MS = 800
+const INTRO_DISTANCE = 1.15
+const INTRO_POLAR = MathUtils.degToRad(35)
 const BACKGROUND = '#2f3336'
 const FIT_MARGIN = 1.06
 const START_DIRECTION = new Vector3(0, 3, 1).normalize()
@@ -102,6 +105,10 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
   const startPosition = useRef(new Vector3())
   const startTarget = useRef(new Vector3())
   const resetAnimation = useRef<ResetAnimation | null>(null)
+  const introAnimation = useRef<{ from: Spherical; start: number } | null>(null)
+  const introTo = useMemo(() => new Spherical(), [])
+  const introResult = useMemo(() => new Spherical(), [])
+  const introOffset = useMemo(() => new Vector3(), [])
 
   const onViewChangeRef = useRef(onViewChange)
   const lastView = useRef<ViewState | null>(null)
@@ -168,7 +175,15 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
     } else {
       fitted.current = true
       orbit.target.copy(startTarget.current)
-      camera.position.copy(startPosition.current)
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const from = new Spherical().setFromVector3(startPosition.current.clone().sub(startTarget.current))
+        from.radius = fit.distance * INTRO_DISTANCE
+        from.phi = INTRO_POLAR
+        camera.position.setFromSpherical(from).add(startTarget.current)
+        introAnimation.current = { from, start: performance.now() }
+      } else {
+        camera.position.copy(startPosition.current)
+      }
     }
     orbit.update()
     reportView()
@@ -187,6 +202,7 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
     if (!orbit) return
     const stop = () => {
       resetAnimation.current = null
+      introAnimation.current = null
     }
     orbit.addEventListener('start', stop)
     return () => orbit.removeEventListener('start', stop)
@@ -198,6 +214,7 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
     lastResetSignal.current = resetSignal
     const orbit = controls.current
     if (!orbit) return
+    introAnimation.current = null
     if (reducedMotion) {
       resetAnimation.current = null
       camera.position.copy(startPosition.current)
@@ -229,6 +246,23 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
   useFrame(() => {
     const reset = resetAnimation.current
     const orbit = controls.current
+    const intro = introAnimation.current
+    if (intro && orbit) {
+      const progress = Math.min(1, (performance.now() - intro.start) / INTRO_DURATION_MS)
+      const eased = easeInOut(progress)
+      introTo.setFromVector3(introOffset.copy(startPosition.current).sub(startTarget.current))
+      introResult.set(
+        intro.from.radius + (introTo.radius - intro.from.radius) * eased,
+        intro.from.phi + (introTo.phi - intro.from.phi) * eased,
+        introTo.theta
+      )
+      camera.position.setFromSpherical(introResult).add(startTarget.current)
+      orbit.target.copy(startTarget.current)
+      orbit.update()
+      if (progress >= 1) introAnimation.current = null
+      else invalidate()
+    }
+
     if (reset && orbit) {
       const progress = Math.min(1, (performance.now() - reset.start) / RESET_DURATION_MS)
       const eased = easeInOut(progress)
