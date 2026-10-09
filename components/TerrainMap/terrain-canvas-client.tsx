@@ -5,7 +5,7 @@ import TerrainStatus from './terrain-status'
 
 const TerrainCanvas = dynamic(() => import('./terrain-canvas'), {
   ssr: false,
-  loading: () => <TerrainStatus state="loading" />,
+  loading: () => <TerrainStatus state="loading" progress={10} />,
 })
 
 interface Props {

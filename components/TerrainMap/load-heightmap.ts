@@ -9,11 +9,32 @@ export interface HeightmapData {
   mask: Uint8Array
 }
 
-export async function loadHeightmap(region: Region): Promise<HeightmapData> {
+async function readBlob(response: Response, onProgress?: (fraction: number) => void): Promise<Blob> {
+  const total = Number(response.headers.get('Content-Length'))
+  if (!response.body || !Number.isFinite(total) || total <= 0) {
+    const blob = await response.blob()
+    onProgress?.(1)
+    return blob
+  }
+
+  const reader = response.body.getReader()
+  const chunks: Uint8Array<ArrayBuffer>[] = []
+  let received = 0
+  for (;;) {
+    const { done, value } = await reader.read()
+    if (done) break
+    chunks.push(value as Uint8Array<ArrayBuffer>)
+    received += value.byteLength
+    onProgress?.(Math.min(received / total, 1))
+  }
+  return new Blob(chunks, { type: response.headers.get('Content-Type') ?? '' })
+}
+
+export async function loadHeightmap(region: Region, onProgress?: (fraction: number) => void): Promise<HeightmapData> {
   const response = await fetch(region.heightmap)
   if (!response.ok) throw new Error(`Heightmap request failed: ${response.status}`)
 
-  const blob = await response.blob()
+  const blob = await readBlob(response, onProgress)
   const bitmap = await createImageBitmap(blob, { colorSpaceConversion: 'none', premultiplyAlpha: 'none' })
   const { width, height } = bitmap
   if (width !== region.width || height !== region.height) {

@@ -43,6 +43,7 @@ export default function TerrainCanvas({ regionId, zoom = true }: Props) {
 
   const [state, setState] = useState<TerrainStatusState | 'ready'>('loading')
   const [loaded, setLoaded] = useState<Loaded | null>(null)
+  const [progress, setProgress] = useState(10)
   const [attempt, setAttempt] = useState(0)
   const [resetSignal, setResetSignal] = useState(0)
   const [view, setView] = useState<ViewState>({ azimuth: 0, kmPerPixel: 0 })
@@ -58,9 +59,20 @@ export default function TerrainCanvas({ regionId, zoom = true }: Props) {
         return
       }
       try {
-        const heightmap = await loadHeightmap(region)
+        setProgress(10)
+        const heightmap = await loadHeightmap(region, fraction => {
+          if (!cancelled) setProgress(Math.round(10 + fraction * 60))
+        })
+        if (cancelled) return
+        setProgress(85)
+        await new Promise(requestAnimationFrame)
         if (cancelled) return
         const terrain = buildTerrainGeometry(heightmap, region, region.exaggeration)
+        setProgress(100)
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          await new Promise(resolve => setTimeout(resolve, 500))
+          if (cancelled) return
+        }
         setLoaded({ heightmap, terrain })
         setState('ready')
       } catch {
@@ -82,6 +94,7 @@ export default function TerrainCanvas({ regionId, zoom = true }: Props) {
   const retry = useCallback(() => {
     setLoaded(null)
     setState('loading')
+    setProgress(10)
     setAttempt(value => value + 1)
   }, [])
 
@@ -123,7 +136,7 @@ export default function TerrainCanvas({ regionId, zoom = true }: Props) {
           />
         </Canvas>
       ) : (
-        <TerrainStatus state={state === 'ready' ? 'loading' : state} onRetry={retry} />
+        <TerrainStatus state={state === 'ready' ? 'loading' : state} progress={progress} onRetry={retry} />
       )}
 
       {ready && (
