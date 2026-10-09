@@ -55,3 +55,7 @@ export const REGIONS: Region[] = [
 export function getRegion(id: string): Region | undefined {
   return REGIONS.find(region => region.id === id)
 }
+
+export function getRegionForCity(slug: string): Region | undefined {
+  return REGIONS.find(region => region.marker === slug)
+}

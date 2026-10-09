@@ -1,9 +1,9 @@
 'use client'
 
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, type ComponentRef } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, type ComponentRef, type RefObject } from 'react'
 import { invalidate, useFrame, useThree } from '@react-three/fiber'
-import { Html, OrbitControls } from '@react-three/drei'
-import { MathUtils, Vector3, type Group, type PerspectiveCamera } from 'three'
+import { OrbitControls } from '@react-three/drei'
+import { MathUtils, Vector3, type Group, type Object3D, type PerspectiveCamera } from 'three'
 import type { Region } from '@/constants/regions'
 import { projectLaea } from '@/utils/laea'
 import { usePrefersReducedMotion } from '@/utils/use-prefers-reduced-motion'
@@ -20,7 +20,6 @@ const START_DIRECTION = new Vector3(0, 3, 1).normalize()
 interface MarkerSpec {
   lat: number
   lng: number
-  label: string
 }
 
 export interface ViewState {
@@ -35,6 +34,8 @@ interface Props {
   exaggeration: number
   resetSignal: number
   marker: MarkerSpec
+  labelRef: RefObject<HTMLSpanElement | null>
+  zoom?: boolean
   onViewChange?: (view: ViewState) => void
 }
 
@@ -88,10 +89,12 @@ function fitCamera(terrain: TerrainGeometryData, region: Region, fov: number, as
 
 const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2)
 
-export default function TerrainScene({ terrain, heightmap, region, exaggeration, resetSignal, marker, onViewChange }: Props) {
+export default function TerrainScene({ terrain, heightmap, region, exaggeration, resetSignal, marker, labelRef, zoom = true, onViewChange }: Props) {
   const reducedMotion = usePrefersReducedMotion()
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null)
   const markerGroup = useRef<Group>(null)
+  const labelAnchor = useRef<Object3D>(null)
+  const labelPoint = useMemo(() => new Vector3(), [])
   const current = useRef(exaggeration)
   const animation = useRef<Animation | null>(null)
   const camera = useThree(state => state.camera) as PerspectiveCamera
@@ -243,6 +246,18 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
     if (t >= 1) animation.current = null
   })
 
+  useFrame(() => {
+    const anchor = labelAnchor.current
+    const label = labelRef.current
+    if (!anchor || !label) return
+    camera.updateMatrixWorld()
+    anchor.getWorldPosition(labelPoint).project(camera)
+    const x = ((labelPoint.x + 1) / 2) * size.width
+    const y = ((1 - labelPoint.y) / 2) * size.height
+    label.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`
+    label.style.visibility = labelPoint.z < 1 ? 'visible' : 'hidden'
+  })
+
   const scale = regionScale(region)
 
   return (
@@ -262,12 +277,7 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
             <coneGeometry args={[2.2, 8, 20]} />
             <meshStandardMaterial color="#1f2326" roughness={0.6} />
           </mesh>
-          <Html position={[0, 10, 0]} center zIndexRange={[10, 0]} style={{ pointerEvents: 'none' }}>
-            <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-black/70 px-2.5 py-0.5 text-xs text-white select-none">
-              {marker.label}
-              <span aria-hidden className="h-2 w-2 rounded-full bg-teal" />
-            </span>
-          </Html>
+          <object3D ref={labelAnchor} position={[0, 10, 0]} />
         </group>
       </group>
 
@@ -275,6 +285,7 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
         ref={controls}
         makeDefault
         enablePan={false}
+        enableZoom={zoom}
         minDistance={fit.distance * 0.25}
         maxDistance={fit.distance * 1.5}
         enableDamping

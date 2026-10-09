@@ -4,7 +4,10 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { FaFacebook, FaTwitter } from 'react-icons/fa'
 import type { City } from '@/constants/cities'
+import { getRegionForCity } from '@/constants/regions'
 import { asset } from '@/utils/asset'
+import { useMediaQuery } from '@/utils/use-media-query'
+import { TerrainCanvasClient } from '@/components/TerrainMap'
 import CountryMap from './country-map'
 import RouteInfo from './route-info'
 
@@ -21,17 +24,20 @@ export default function CityClient({ city }: CityClientProps) {
   const [hero, ...rest] = GRID_ORDER.map(index => city.images[index % city.images.length])
   const floatLeft = city.images[2]
   const floatRight = city.images[1]
+  const region = getRegionForCity(city.slug)
+  const desktop = useMediaQuery('(min-width: 768px)')
 
   return (
     <div className="md:grid md:grid-cols-2 md:items-start">
       <section className="relative h-[80vh] overflow-hidden bg-bg md:sticky md:top-0 md:h-dvh">
-        <h4 className="absolute top-[18vh] z-2 m-0 w-full text-center text-[3em] text-white uppercase">{t('country')}</h4>
-        <h4 className="absolute top-[18vh] z-1 m-0 w-full translate-x-[3px] translate-y-[3px] text-center text-[3em] text-black uppercase opacity-35" aria-hidden>
-          {t('country')}
-        </h4>
-        <div className="absolute inset-0 overflow-hidden">
+        <div className={region ? 'absolute inset-0 overflow-hidden md:hidden' : 'absolute inset-0 overflow-hidden'}>
           <CountryMap cx={820} cy={470} />
         </div>
+        {region && desktop && (
+          <div className="absolute inset-0">
+            <TerrainCanvasClient regionId={region.id} zoom={false} />
+          </div>
+        )}
         {city.stats && <RouteInfo slug={city.slug} stats={city.stats} />}
       </section>
       <article className="mx-auto max-w-[44rem] px-5 py-16 leading-normal md:m-0 md:min-h-dvh md:max-w-none md:bg-panel md:px-12 [&_a]:text-teal">
