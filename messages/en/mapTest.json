@@ -1,20 +1,22 @@
 {
   "title": "Terrain test: {country}",
   "metaDescription": "A 3D relief model of {country}.",
-  "hint": "Drag to rotate.",
+  "hint": "Drag to rotate, scroll to zoom.",
   "canvasLabel": "Interactive 3D relief model of {country}",
   "countries": {
     "germany": "Germany",
     "bosnia": "Bosnia and Herzegovina"
   },
-  "credit": "Elevation: Mapzen Terrain Tiles. Europe terrain data produced using Copernicus data and information funded by the European Union - EU-DEM layers. SRTM and GMTED2010 terrain data courtesy of the U.S. Geological Survey. Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric Administration. Borders: Natural Earth.",
   "reset": "Reset view",
-  "height": {
-    "label": "Height scale",
-    "exaggerated": "Exaggerated ×{factor}",
-    "real": "True height",
-    "noteExaggerated": "Height exaggerated ×{factor} · distances unchanged",
-    "noteReal": "True scale"
+  "legend": {
+    "title": "Elevation"
+  },
+  "compass": {
+    "label": "North",
+    "north": "N"
+  },
+  "scale": {
+    "label": "Scale at map centre"
   },
   "status": {
     "loading": "Loading terrain...",

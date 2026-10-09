@@ -31,7 +31,7 @@ export const REGIONS: Region[] = [
     elevationOffset: 100,
     elevationScale: 10,
     exaggeration: 6,
-    slabThickness: 4000,
+    slabThickness: 20000,
     marker: 'berlin',
   },
   {
@@ -46,8 +46,8 @@ export const REGIONS: Region[] = [
     maxY: 2498837.996745214,
     elevationOffset: 100,
     elevationScale: 10,
-    exaggeration: 2,
-    slabThickness: 4000,
+    exaggeration: 4,
+    slabThickness: 14000,
     marker: 'sarajevo',
   },
 ]

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useLayoutEffect, useMemo, useRef, type ComponentRef } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, type ComponentRef } from 'react'
 import { invalidate, useFrame, useThree } from '@react-three/fiber'
 import { Html, OrbitControls } from '@react-three/drei'
 import { MathUtils, Vector3, type Group, type PerspectiveCamera } from 'three'
@@ -15,12 +15,17 @@ const DURATION_MS = 600
 const RESET_DURATION_MS = 700
 const BACKGROUND = '#2f3336'
 const FIT_MARGIN = 1.06
-const START_DIRECTION = new Vector3(0, 1, 1).normalize()
+const START_DIRECTION = new Vector3(0, 3, 1).normalize()
 
 interface MarkerSpec {
   lat: number
   lng: number
   label: string
+}
+
+export interface ViewState {
+  azimuth: number
+  kmPerPixel: number
 }
 
 interface Props {
@@ -30,6 +35,7 @@ interface Props {
   exaggeration: number
   resetSignal: number
   marker: MarkerSpec
+  onViewChange?: (view: ViewState) => void
 }
 
 interface Animation {
@@ -82,7 +88,7 @@ function fitCamera(terrain: TerrainGeometryData, region: Region, fov: number, as
 
 const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2)
 
-export default function TerrainScene({ terrain, heightmap, region, exaggeration, resetSignal, marker }: Props) {
+export default function TerrainScene({ terrain, heightmap, region, exaggeration, resetSignal, marker, onViewChange }: Props) {
   const reducedMotion = usePrefersReducedMotion()
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null)
   const markerGroup = useRef<Group>(null)
@@ -93,6 +99,31 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
   const startPosition = useRef(new Vector3())
   const startTarget = useRef(new Vector3())
   const resetAnimation = useRef<ResetAnimation | null>(null)
+
+  const onViewChangeRef = useRef(onViewChange)
+  const lastView = useRef<ViewState | null>(null)
+  useEffect(() => {
+    onViewChangeRef.current = onViewChange
+  }, [onViewChange])
+
+  const reportView = useCallback(() => {
+    const orbit = controls.current
+    const callback = onViewChangeRef.current
+    if (!orbit || !callback) return
+    const azimuth = orbit.getAzimuthalAngle()
+    const distance = camera.position.distanceTo(orbit.target)
+    const kmPerPixel = (2 * distance * Math.tan(MathUtils.degToRad(camera.fov) / 2)) / Math.max(1, size.height)
+    const last = lastView.current
+    if (
+      last &&
+      Math.abs(azimuth - last.azimuth) <= MathUtils.degToRad(0.5) &&
+      Math.abs(kmPerPixel - last.kmPerPixel) <= last.kmPerPixel * 0.005
+    ) {
+      return
+    }
+    lastView.current = { azimuth, kmPerPixel }
+    callback({ azimuth, kmPerPixel })
+  }, [camera, size.height])
 
   const markerSpot = useMemo(() => {
     const { x, y } = projectLaea(marker.lat, marker.lng)
@@ -137,8 +168,16 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
       camera.position.copy(startPosition.current)
     }
     orbit.update()
+    reportView()
     invalidate()
-  }, [fit, camera])
+  }, [fit, camera, reportView])
+
+  useEffect(() => {
+    const orbit = controls.current
+    if (!orbit) return
+    orbit.addEventListener('change', reportView)
+    return () => orbit.removeEventListener('change', reportView)
+  }, [reportView])
 
   useEffect(() => {
     const orbit = controls.current
@@ -224,7 +263,10 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
             <meshStandardMaterial color="#1f2326" roughness={0.6} />
           </mesh>
           <Html position={[0, 10, 0]} center zIndexRange={[10, 0]} style={{ pointerEvents: 'none' }}>
-            <span className="whitespace-nowrap rounded-full bg-black/70 px-2.5 py-0.5 text-xs text-white select-none">{marker.label}</span>
+            <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-black/70 px-2.5 py-0.5 text-xs text-white select-none">
+              {marker.label}
+              <span aria-hidden className="h-2 w-2 rounded-full bg-teal" />
+            </span>
           </Html>
         </group>
       </group>
@@ -233,7 +275,8 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
         ref={controls}
         makeDefault
         enablePan={false}
-        enableZoom={false}
+        minDistance={fit.distance * 0.25}
+        maxDistance={fit.distance * 1.5}
         enableDamping
         dampingFactor={0.08}
         maxPolarAngle={Math.PI / 2}

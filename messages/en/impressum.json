@@ -1,0 +1,12 @@
+{
+  "title": "Imprint",
+  "metaDescription": "Imprint and data sources.",
+  "credits": {
+    "title": "Data sources",
+    "elevation": "Elevation: Mapzen Terrain Tiles.",
+    "europe": "Europe terrain data produced using Copernicus data and information funded by the European Union - EU-DEM layers.",
+    "srtm": "SRTM and GMTED2010 terrain data courtesy of the U.S. Geological Survey.",
+    "etopo": "Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric Administration.",
+    "borders": "Borders: Natural Earth."
+  }
+}

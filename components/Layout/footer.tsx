@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
 import { FaEnvelope, FaFacebook, FaTwitter } from 'react-icons/fa'
+import TransitionLink from '@/components/Layout/transition-link'
 
 const SOCIAL_LINKS = [
   { name: 'Twitter', href: 'https://twitter.com/', Icon: FaTwitter },
@@ -22,6 +23,9 @@ export default function Footer() {
         ))}
       </ul>
       <p>{t('copyright')}</p>
+      <TransitionLink href="/impressum" className="text-xs hover:text-white">
+        {t('imprint')}
+      </TransitionLink>
     </footer>
   )
 }

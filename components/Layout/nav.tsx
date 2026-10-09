@@ -71,6 +71,13 @@ export default function Nav() {
             </li>
           ))}
         </ul>
+        <TransitionLink
+          href="/impressum"
+          onClick={() => setOpen(false)}
+          className="text-xs uppercase tracking-widest opacity-70 hover:opacity-100"
+        >
+          {t('imprint')}
+        </TransitionLink>
       </div>
     </nav>
   )

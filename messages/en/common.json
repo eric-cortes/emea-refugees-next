@@ -9,6 +9,7 @@
     "close": "Close menu",
     "home": "Intro",
     "map": "Map",
+    "imprint": "Imprint",
     "language": "Language",
     "english": "English",
     "german": "German"
@@ -19,7 +20,8 @@
   },
   "footer": {
     "copyright": "© VICE Media Ltd",
-    "social": "Social links"
+    "social": "Social links",
+    "imprint": "Imprint"
   },
   "share": {
     "twitter": "Share on Twitter",
