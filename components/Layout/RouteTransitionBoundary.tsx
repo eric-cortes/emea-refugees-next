@@ -83,15 +83,9 @@ export default function RouteTransitionBoundary({ children }: RouteTransitionBou
     [normalizedPathname, phase, prefersReducedMotion, router]
   )
 
-  useEffect(() => {
-    if (phase !== 'navigating' || !targetPath) {
-      return
-    }
-
-    if (normalizedPathname === normalizePathname(targetPath)) {
-      setPhase('fadingIn')
-    }
-  }, [normalizedPathname, phase, targetPath])
+  if (phase === 'navigating' && targetPath && normalizedPathname === normalizePathname(targetPath)) {
+    setPhase('fadingIn')
+  }
 
   useEffect(() => {
     if (phase !== 'navigating') {
@@ -107,18 +101,9 @@ export default function RouteTransitionBoundary({ children }: RouteTransitionBou
     }
   }, [phase])
 
-  // Keep navigation independent from Framer Motion lifecycle callbacks. This
-  // also makes reduced-motion transitions deterministic when animations are
-  // shortened or skipped by the user's preference.
   useEffect(() => {
     if (phase === 'fadingOut' && targetPath) {
       const delay = prefersReducedMotion ? 0 : FADE_OUT_SECONDS * 1000
-      if (delay === 0) {
-        setPhase('navigating')
-        if (transitionMode === 'replace') router.replace(targetPath)
-        else router.push(targetPath)
-        return
-      }
       const timeoutId = window.setTimeout(() => {
         setPhase('navigating')
         if (transitionMode === 'replace') {
@@ -132,11 +117,6 @@ export default function RouteTransitionBoundary({ children }: RouteTransitionBou
 
     if (phase === 'fadingIn') {
       const delay = prefersReducedMotion ? 0 : FADE_IN_SECONDS * 1000
-      if (delay === 0) {
-        setPhase('idle')
-        setTargetPath(null)
-        return
-      }
       const timeoutId = window.setTimeout(() => {
         setPhase('idle')
         setTargetPath(null)

@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type AnimationEvent, type KeyboardEvent } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type AnimationEvent, type KeyboardEvent } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { CITIES, getCity, getRoutePoints, type City } from '@/constants/cities'
@@ -9,6 +9,7 @@ import TransitionLink from '@/components/Layout/TransitionLink'
 import { MapDot, Pill, PILL_CLASS, PILL_INTERACTIVE_CLASS } from '@/components/UI'
 import { asset } from '@/utils/asset'
 import { cn } from '@/utils/cn'
+import { usePrefersReducedMotion } from '@/utils/use-prefers-reduced-motion'
 import CityDrawer from './CityDrawer'
 import EuropeMap from './EuropeMap'
 import { useMapAspect } from './use-map-aspect'
@@ -24,18 +25,6 @@ const PILL_POSITION_CLASS = 'absolute -translate-x-1/2 -translate-y-1/2'
 const DASH_LENGTH = 2300
 const FADE_MS = 700
 const LABEL_DELAY_MS = 2000
-
-const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)'
-
-function subscribeReducedMotion(onChange: () => void) {
-  const query = window.matchMedia(REDUCED_MOTION_QUERY)
-  query.addEventListener('change', onChange)
-  return () => query.removeEventListener('change', onChange)
-}
-
-function getReducedMotion() {
-  return window.matchMedia(REDUCED_MOTION_QUERY).matches
-}
 
 type PillPositions = Record<string, { x: number; y: number }>
 
@@ -56,7 +45,7 @@ export default function MapClient() {
   const [dotsGone, setDotsGone] = useState(false)
   const [positions, setPositions] = useState<PillPositions | null>(null)
 
-  const reducedMotion = useSyncExternalStore(subscribeReducedMotion, getReducedMotion, () => false)
+  const reducedMotion = usePrefersReducedMotion()
 
   useLayoutEffect(() => {
     if (!drawn && !reducedMotion) return

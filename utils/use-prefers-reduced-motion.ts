@@ -1,8 +1,28 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 
 const QUERY = '(prefers-reduced-motion: reduce)'
+
+function subscribe(onChange: () => void) {
+  if (!window.matchMedia) {
+    return () => undefined
+  }
+
+  const mediaQueryList = window.matchMedia(QUERY)
+  mediaQueryList.addEventListener('change', onChange)
+  return () => {
+    mediaQueryList.removeEventListener('change', onChange)
+  }
+}
+
+function getSnapshot() {
+  return window.matchMedia ? window.matchMedia(QUERY).matches : false
+}
+
+function getServerSnapshot() {
+  return false
+}
 
 /**
  * Tracks the user's `prefers-reduced-motion` preference on the client.
@@ -10,25 +30,5 @@ const QUERY = '(prefers-reduced-motion: reduce)'
  * real value and stays in sync if the OS-level preference changes.
  */
 export function usePrefersReducedMotion(): boolean {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
-
-  useEffect(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) {
-      return
-    }
-
-    const mediaQueryList = window.matchMedia(QUERY)
-    setPrefersReducedMotion(mediaQueryList.matches)
-
-    const handleChange = (event: MediaQueryListEvent) => {
-      setPrefersReducedMotion(event.matches)
-    }
-
-    mediaQueryList.addEventListener('change', handleChange)
-    return () => {
-      mediaQueryList.removeEventListener('change', handleChange)
-    }
-  }, [])
-
-  return prefersReducedMotion
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 }
