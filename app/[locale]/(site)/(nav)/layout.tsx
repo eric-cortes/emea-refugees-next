@@ -14,7 +14,7 @@ export default async function NavLayout({ children, params }: Props) {
   return (
     <>
       <Sidebar />
-      <div className="relative z-1">{children}</div>
+      <div className="relative">{children}</div>
     </>
   )
 }

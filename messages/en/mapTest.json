@@ -6,6 +6,7 @@
   "countries": {
     "germany": "Germany",
     "bosnia": "Bosnia and Herzegovina",
+    "bihac": "Bosnia and Herzegovina",
     "austria": "Austria",
     "greece": "Greece",
     "lesbos": "Lesbos",
@@ -23,7 +24,7 @@
     "label": "Scale at map centre"
   },
   "status": {
-    "loading": "Loading terrain...",
+    "loading": "Loading terrain",
     "error": "The terrain could not be loaded.",
     "retry": "Try again",
     "unsupported": "Your browser or device does not support WebGL, which is needed to show the 3D terrain.",

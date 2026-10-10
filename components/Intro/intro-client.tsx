@@ -23,7 +23,7 @@ export default function IntroClient() {
       <div className="absolute inset-x-0 bottom-[8vh] text-center [text-shadow:0_2px_12px_rgba(0,0,0,0.7)]">
         <h1 className="text-[length:clamp(1.5rem,5vw,3.5rem)]">{t('site.title')}</h1>
         <p>{t('site.subtitle')}</p>
-        <TransitionLink href="/map" className="mt-6 inline-block border-2 border-white bg-black/40 px-[1.8rem] py-[0.6rem] tracking-[0.2em] uppercase hover:bg-white hover:text-black hover:[text-shadow:none]">
+        <TransitionLink href="/map" className="mt-6 inline-block border border-white rounded-md bg-black/40 px-[1.8rem] py-[0.6rem] tracking-[0.2em] uppercase hover:bg-white hover:text-black hover:[text-shadow:none]">
           {t('intro.explore')}
         </TransitionLink>
       </div>

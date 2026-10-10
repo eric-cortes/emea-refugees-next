@@ -6,6 +6,7 @@
   "countries": {
     "germany": "Deutschland",
     "bosnia": "Bosnien und Herzegowina",
+    "bihac": "Bosnien und Herzegowina",
     "austria": "Österreich",
     "greece": "Griechenland",
     "lesbos": "Lesbos",
@@ -23,7 +24,7 @@
     "label": "Maßstab in Kartenmitte"
   },
   "status": {
-    "loading": "Gelände wird geladen...",
+    "loading": "Gelände wird geladen",
     "error": "Das Gelände konnte nicht geladen werden.",
     "retry": "Erneut versuchen",
     "unsupported": "Dein Browser oder Gerät unterstützt kein WebGL, das für die 3D-Ansicht nötig ist.",

@@ -10,7 +10,8 @@
     "rome": "Rome",
     "budapest": "Budapest",
     "prag": "Prague",
-    "warsaw": "Warsaw"
+    "warsaw": "Warsaw",
+    "bihac": "Bihać"
   },
   "berlin": {
     "country": "Germany",
@@ -18,16 +19,15 @@
     "byLabel": "By",
     "author": "Alexandra Stanic",
     "date": "29 January 2020",
-    "heading": "White Savior",
-    "p1": "Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum.",
-    "p2": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.",
-    "p3": "Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet.",
-    "p4": "Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel dui. Maecenas sagittis felis ac sagittis semper.",
+    "heading": "The limit",
+    "p1": "In autumn 2015, Berlin’s registration office, LaGeSo in Moabit, could not cope. People waited outside for days and weeks, from early morning, in the cold. Volunteers from “Moabit hilft” handed out food, water and medical help. In December 2015, the head of the office resigned.",
+    "p2": "In 2015, 1.3 million people asked for asylum in Europe.",
+    "p3": "According to the Border Violence Monitoring Network, Germany said in January 2016 that its capacity was exhausted and limited how many people it took in per day. This started a “domino effect”: one country after another along the route limited entry, until the corridor was gone.",
     "imageAlt": "Photo from Berlin",
-    "stats": {
-      "distance": "Distance to Berlin",
-      "stranded2016": "Stranded refugees<br></br>Feb 2016",
-      "stranded2020": "Stranded refugees<br></br>Feb 2020"
+    "stat": {
+      "suffix": " million",
+      "label": "People who asked for asylum in Europe, 2015",
+      "source": "Border Violence Monitoring Network"
     }
   },
   "vienna": {
@@ -36,16 +36,16 @@
     "byLabel": "By",
     "author": "Alexandra Stanic",
     "date": "29 January 2020",
-    "heading": "White Savior",
-    "p1": "Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum.",
-    "p2": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.",
-    "p3": "Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet.",
-    "p4": "Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel dui. Maecenas sagittis felis ac sagittis semper.",
+    "heading": "Four days",
+    "p1": "In September 2015, Hungary closed its border with Serbia: a fence, 4 metres tall and 175 km long, finished on 15 September. People turned west, to Croatia.",
+    "p2": "Then the countries along the route opened a “corridor”: Greece, North Macedonia, Serbia, Croatia, Slovenia and Austria. With transit papers, people could take buses and trains. From the Greek islands to Vienna took about four days. For a short time, the Border Violence Monitoring Network writes, it was “the only legalised gateway into the continent”.",
+    "p3": "On the night of 4 to 5 September 2015, Austria and Germany let in thousands of people who had been stuck at Budapest’s Keleti station.",
+    "p4": "A week earlier, on 27 August 2015, a truck was found parked on the A4 near Parndorf. Inside were 71 dead people: 59 men, 8 women and 4 children. They had suffocated.",
     "imageAlt": "Photo from Vienna",
-    "stats": {
-      "distance": "Distance to Vienna",
-      "stranded2016": "Stranded refugees<br></br>Feb 2016",
-      "stranded2020": "Stranded refugees<br></br>Feb 2020"
+    "stat": {
+      "suffix": " days",
+      "label": "From the Greek islands to Vienna through the 2015 corridor",
+      "source": "Border Violence Monitoring Network"
     }
   },
   "sarajevo": {
@@ -54,16 +54,32 @@
     "byLabel": "By",
     "author": "Alexandra Stanic",
     "date": "29 January 2020",
-    "heading": "White Savior",
-    "p1": "Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum.",
-    "p2": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.",
-    "p3": "Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet.",
-    "p4": "Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel dui. Maecenas sagittis felis ac sagittis semper.",
+    "heading": "Still moving",
+    "p1": "Ten years after the peak, people still come. From November 2025 to February 2026, the Mixed Migration Centre interviewed 888 people in Sarajevo. 98% were men; 12% started their journey as children. In 2015, most came from Syria. Of the people interviewed, most came from Afghanistan (30%), Morocco (25%) and Algeria (15%). The survey is not representative of everyone on the route.",
+    "p2": "57% came through Bulgaria and Serbia; 88% of them reported danger in the Balkans. In 2025, 13,568 pushbacks from Bulgaria were recorded, and 1,017 violent pushbacks from Croatia into Bosnia.",
+    "p3": "The journey is expensive: on average about €3,800 for people who flew to Türkiye, about €8,800 for people who came overland. Most need smugglers.",
+    "p4": "“I wouldn’t wish this journey on my worst enemy,” said a person interviewed by the Mixed Migration Centre.",
     "imageAlt": "Photo from Sarajevo",
-    "stats": {
-      "distance": "Distance to Sarajevo",
-      "stranded2016": "Stranded refugees<br></br>Feb 2016",
-      "stranded2020": "Stranded refugees<br></br>Feb 2020"
+    "stat": {
+      "label": "Recorded violent pushbacks from Croatia into Bosnia, 2025",
+      "source": "Mixed Migration Centre, 2026"
+    }
+  },
+  "bihac": {
+    "country": "Bosnia and Herzegovina",
+    "title": "Bihać",
+    "byLabel": "By",
+    "author": "Alexandra Stanic",
+    "date": "29 January 2020",
+    "heading": "The game",
+    "p1": "After 2016, the route moved. From late 2017, it went through Bosnia and Herzegovina towards Croatia. In January 2018, UNHCR counted 237 new arrivals in Bosnia; in May 2018, 2,557.",
+    "p2": "From January 2018 to November 2019, about 40,000 people passed through Bosnia. Many stayed in the Una-Sana canton, around Bihać.",
+    "p3": "In February 2020, journalist Alexandra Stanic visited Bihać and Velika Kladuša. People told her that Croatian police beat them, took their phones, shoes and money, and pushed them back to Bosnia without letting them ask for asylum. Naseer, then 25, from Afghanistan, said he had tried 25 times: “I have never had such bad experiences with the police in any other country.”",
+    "p4": "Camp Vučjak was built on a former landfill 10 km from Bihać, with no drinking water. It has since been closed. In 2019, more than 80% of the Border Violence Monitoring Network’s pushback reports showed torture or cruel treatment. On 23 December 2020, the Lipa camp near Bihać burned down; about 1,200 to 1,300 people had lived there.",
+    "imageAlt": "Photo from Bihać",
+    "stat": {
+      "label": "Pushback reports for Bosnia, 2019 (estimate, Centre for Peace Studies)",
+      "source": "VICE, 16 March 2020"
     }
   },
   "athen": {
@@ -72,16 +88,16 @@
     "byLabel": "By",
     "author": "Alexandra Stanic",
     "date": "29 January 2020",
-    "heading": "White Savior",
-    "p1": "Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum.",
-    "p2": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.",
-    "p3": "Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet.",
-    "p4": "Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel dui. Maecenas sagittis felis ac sagittis semper.",
+    "heading": "Stuck",
+    "p1": "From November 2015, crossing got harder. Countries decided day by day how many people to let through, and from which countries.",
+    "p2": "In March 2016, North Macedonia, Croatia and Slovenia closed their borders to people in transit within a few weeks. On 18 March 2016, the EU and Türkiye signed their deal. About 60,000 people were left stuck in the countries along the route.",
+    "p3": "At Idomeni, on the border between Greece and North Macedonia, about 10,000 people were waiting on 2 March. A week later, up to 14,000.",
+    "p4": "The route did not close. People looked for other, more dangerous ways. They call every try “the game”.",
     "imageAlt": "Photo from Athens",
-    "stats": {
-      "distance": "Distance to Athens",
-      "stranded2016": "Stranded refugees<br></br>Feb 2016",
-      "stranded2020": "Stranded refugees<br></br>Feb 2020"
+    "stat": {
+      "prefix": "~",
+      "label": "People stuck in countries along the route after the borders closed, March 2016",
+      "source": "Border Violence Monitoring Network"
     }
   },
   "lesbos": {
@@ -90,37 +106,18 @@
     "byLabel": "By",
     "author": "Alexandra Stanic",
     "date": "29 January 2020",
-    "heading": "White Savior",
-    "p1": "Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum.",
-    "p2": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.",
-    "p3": "Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet.",
-    "p4": "Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel dui. Maecenas sagittis felis ac sagittis semper.",
+    "heading": "The crossing",
+    "p1": "In 2015, most people on the Balkan route started with a short, dangerous boat trip from Türkiye to the Greek islands. In the summer of 2015, more people crossed the Aegean Sea than the central Mediterranean. Most came from Syria, later more from Afghanistan, Iraq and Iran.",
+    "p2": "October 2015 was the record month: 218,394 people reached Europe by sea, about as many as in all of 2014. By 20 October, Greece had passed 500,000 arrivals that year.",
+    "p3": "In 2015, 804 people died or went missing on the Eastern Mediterranean route. From September 2015 to January 2016 alone, it was 950. Near Lesbos, IOM recorded 295 dead and missing in 2015. These are minimum numbers: many deaths are never recorded.",
     "imageAlt": "Photo from Lesbos",
-    "stats": {
-      "distance": "Distance to Lesbos",
-      "stranded2016": "Stranded refugees<br></br>Feb 2016",
-      "stranded2020": "Stranded refugees<br></br>Feb 2020"
-    }
-  },
-  "damascus": {
-    "country": "Syria",
-    "title": "Damascus",
-    "byLabel": "By",
-    "author": "Alexandra Stanic",
-    "date": "29 January 2020",
-    "heading": "White Savior",
-    "p1": "Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum.",
-    "p2": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.",
-    "p3": "Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet.",
-    "p4": "Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel dui. Maecenas sagittis felis ac sagittis semper.",
-    "imageAlt": "Photo from Damascus",
-    "stats": {
-      "distance": "Distance to Damascus",
-      "stranded2016": "Stranded refugees<br></br>Feb 2016",
-      "stranded2020": "Stranded refugees<br></br>Feb 2020"
+    "stat": {
+      "label": "Dead and missing on the Eastern Mediterranean route, 2015",
+      "source": "IOM Missing Migrants Project"
     }
   },
   "meta": {
     "descriptionSuffix": "Part of the journey from Lesbos to Berlin."
-  }
+  },
+  "statSourcePrefix": "Source:"
 }

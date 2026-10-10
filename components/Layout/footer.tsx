@@ -26,6 +26,9 @@ export default function Footer() {
       <TransitionLink href="/impressum" className="text-xs hover:text-white">
         {t('imprint')}
       </TransitionLink>
+      <TransitionLink href="/sources" className="text-xs hover:text-white">
+        {t('sources')}
+      </TransitionLink>
     </footer>
   )
 }

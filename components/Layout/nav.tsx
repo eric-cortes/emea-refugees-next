@@ -7,22 +7,31 @@ import { usePathname } from '@/i18n/navigation'
 import TransitionLink from '@/components/Layout/transition-link'
 import { routing } from '@/i18n/routing'
 import { cn } from '@/utils/cn'
+import { normalizePathname } from '@/utils/normalize-pathname'
 
 export default function Nav() {
   const t = useTranslations('common.nav')
   const locale = useLocale()
   const pathname = usePathname()
-  const [open, setOpen] = useState(false)
+  const currentPath = normalizePathname(pathname)
+  const routeKey = `${locale}:${currentPath}`
+  const [openFor, setOpenFor] = useState<string | null>(null)
+  const open = openFor === routeKey
+  const closeIfCurrent = (href: string) => {
+    if (normalizePathname(href) === currentPath) {
+      setOpenFor(null)
+    }
+  }
 
   return (
     <nav aria-label={t('menu')}>
       <button
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={() => setOpenFor(routeKey)}
         aria-expanded={open}
         aria-controls="site-menu"
         aria-label={t('menu')}
-        className="fixed top-4 right-4 z-[60] flex h-11 w-11 items-center justify-center rounded-full bg-black/70 text-white hover:bg-black"
+        className="fixed top-4 right-4 z-[60] flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-black/70 text-white hover:bg-black"
       >
         <RxHamburgerMenu size={22} aria-hidden />
       </button>
@@ -36,7 +45,7 @@ export default function Nav() {
       >
         <button
           type="button"
-          onClick={() => setOpen(false)}
+          onClick={() => setOpenFor(null)}
           aria-label={t('close')}
           className="absolute top-4 right-4 flex h-11 w-11 items-center justify-center rounded-full hover:bg-white/10"
         >
@@ -44,12 +53,12 @@ export default function Nav() {
         </button>
         <ul className="flex flex-col items-center gap-4 text-2xl uppercase tracking-[0.2em]">
           <li>
-            <TransitionLink href="/" onClick={() => setOpen(false)}>
+            <TransitionLink href="/" onClick={() => closeIfCurrent('/')}>
               {t('home')}
             </TransitionLink>
           </li>
           <li>
-            <TransitionLink href="/map" onClick={() => setOpen(false)}>
+            <TransitionLink href="/map" onClick={() => closeIfCurrent('/map')}>
               {t('map')}
             </TransitionLink>
           </li>
@@ -63,7 +72,11 @@ export default function Nav() {
                 hrefLang={l}
                 aria-current={l === locale ? 'true' : undefined}
                 aria-label={l === 'en' ? t('english') : t('german')}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  if (l === locale) {
+                    setOpenFor(null)
+                  }
+                }}
                 className={cn('px-2 py-1', l === locale ? 'border-b-2 border-white' : 'opacity-70')}
               >
                 {l}
@@ -73,10 +86,17 @@ export default function Nav() {
         </ul>
         <TransitionLink
           href="/impressum"
-          onClick={() => setOpen(false)}
+          onClick={() => closeIfCurrent('/impressum')}
           className="text-xs uppercase tracking-widest opacity-70 hover:opacity-100"
         >
           {t('imprint')}
+        </TransitionLink>
+        <TransitionLink
+          href="/sources"
+          onClick={() => closeIfCurrent('/sources')}
+          className="text-xs uppercase tracking-widest opacity-70 hover:opacity-100"
+        >
+          {t('sources')}
         </TransitionLink>
       </div>
     </nav>

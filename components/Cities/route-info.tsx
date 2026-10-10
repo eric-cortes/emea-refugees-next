@@ -1,31 +1,51 @@
 'use client'
 
 import CountUp from 'react-countup'
-import { useTranslations } from 'next-intl'
-import type { CityStats } from '@/constants/cities'
+import { useLocale, useTranslations } from 'next-intl'
+import type { CityStat } from '@/constants/cities'
+import { usePrefersReducedMotion } from '@/utils/use-prefers-reduced-motion'
 
 interface RouteInfoProps {
   slug: string
-  stats: CityStats
+  stat: CityStat
 }
 
-export default function RouteInfo({ slug, stats }: RouteInfoProps) {
-  const t = useTranslations(`cities.${slug}.stats`)
+export default function RouteInfo({ slug, stat }: RouteInfoProps) {
+  const t = useTranslations(`cities.${slug}.stat`)
+  const tRoot = useTranslations('cities')
+  const locale = useLocale()
+  const german = locale === 'de'
+  const reduceMotion = usePrefersReducedMotion()
+  const decimals = stat.decimals ?? 0
+  const finalValue = new Intl.NumberFormat(german ? 'de-DE' : 'en-US', {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  }).format(stat.value)
 
   return (
-    <ul className="pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 z-3 m-0 flex list-none gap-6 p-0 text-center text-[1.25rem] font-semibold">
-      <li>
-        <CountUp delay={1} end={stats.distance} />
-        <span className="block text-[0.7rem] font-normal tracking-[0.1em] uppercase opacity-80">{t('distance')}</span>
-      </li>
-      <li>
-        <CountUp delay={1} end={stats.stranded2016} />
-        <span className="block whitespace-nowrap text-[0.7rem] font-normal tracking-[0.1em] uppercase opacity-80">{t.rich('stranded2016', { br: () => <br /> })}</span>
-      </li>
-      <li>
-        <CountUp delay={1} end={stats.stranded2020} />
-        <span className="block whitespace-nowrap text-[0.7rem] font-normal tracking-[0.1em] uppercase opacity-80">{t.rich('stranded2020', { br: () => <br /> })}</span>
-      </li>
-    </ul>
+    <div className="pointer-events-none absolute bottom-8 left-1/2 z-3 flex w-[calc(100%-2rem)] max-w-[18rem] -translate-x-1/2 flex-col items-center text-center [overflow-wrap:anywhere]">
+      <p className="m-0 text-[1.25rem] font-semibold">
+        {t.has('prefix') && t('prefix')}
+        <span aria-hidden="true">
+          {reduceMotion ? (
+            finalValue
+          ) : (
+            <CountUp
+              delay={1}
+              end={stat.value}
+              decimals={decimals}
+              separator={german ? '.' : ','}
+              decimal={german ? ',' : '.'}
+            />
+          )}
+        </span>
+        <span className="sr-only">{finalValue}</span>
+        {t.has('suffix') && t('suffix')}
+      </p>
+      <p className="m-0 text-[0.7rem] tracking-[0.1em] uppercase opacity-80">{t('label')}</p>
+      <p className="m-0 mt-1 text-[0.65rem] opacity-60">
+        {tRoot('statSourcePrefix')} {t('source')}
+      </p>
+    </div>
   )
 }

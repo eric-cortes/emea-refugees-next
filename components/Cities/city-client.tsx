@@ -46,9 +46,9 @@ export default function CityClient({ city }: CityClientProps) {
             <TerrainCanvasClient regionId={region.id} zoom={false} />
           </div>
         )}
-        {city.stats && <RouteInfo slug={city.slug} stats={city.stats} />}
+        {city.stat && <RouteInfo slug={city.slug} stat={city.stat} />}
       </section>
-      <article className="mx-auto max-w-[44rem] px-5 py-16 leading-normal md:m-0 md:min-h-dvh md:max-w-none md:bg-panel md:px-12 [&_a]:text-teal">
+      <article className="mx-auto max-w-[44rem] px-5 py-16 leading-normal md:m-4 md:h-[calc(100dvh-2rem)] md:max-w-none md:overflow-y-auto md:relative md:z-[45] md:rounded-2xl md:bg-panel md:px-12 [&_a]:text-teal">
         <header>
           <div className="flex gap-4">
             <a href="https://twitter.com/" aria-label={tShare('twitter')}>
@@ -67,6 +67,8 @@ export default function CityClient({ city }: CityClientProps) {
           <h2 className="mt-8 mb-4 text-[1.6rem]">{t('heading')}</h2>
           <p>{t('p1')}</p>
           <p>{t('p2')}</p>
+          {t.has('p3') && <p>{t('p3')}</p>}
+          {t.has('p4') && <p>{t('p4')}</p>}
         </div>
         <div className="my-8 grid grid-cols-3 gap-x-3 gap-y-11">
           <div className="col-span-3">
@@ -78,19 +80,9 @@ export default function CityClient({ city }: CityClientProps) {
             </div>
           ))}
         </div>
-        <div className="flow-root">
-          <p>
-            <span className="relative top-1 float-left mr-8 mb-8 block w-full max-w-[40%]">
-              <Image src={asset(floatLeft)} alt="" width={0} height={0} sizes="(min-width: 768px) 20vw, 40vw" className="block h-auto w-full rounded-md" />
-            </span>
-            {t('p3')}
-          </p>
-          <p>
-            <span className="relative top-1 float-right mb-8 ml-8 block w-full max-w-[40%]">
-              <Image src={asset(floatRight)} alt="" width={0} height={0} sizes="(min-width: 768px) 20vw, 40vw" className="block h-auto w-full rounded-md" />
-            </span>
-            {t('p4')}
-          </p>
+        <div className="mb-8 grid grid-cols-2 gap-x-3">
+          <Image src={asset(floatLeft)} alt={alt} width={0} height={0} sizes="(min-width: 768px) 25vw, 50vw" className="block h-auto w-full rounded-md" />
+          <Image src={asset(floatRight)} alt={alt} width={0} height={0} sizes="(min-width: 768px) 25vw, 50vw" className="block h-auto w-full rounded-md" />
         </div>
       </article>
     </div>

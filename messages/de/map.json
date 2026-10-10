@@ -7,7 +7,33 @@
   },
   "drawer": {
     "close": "Schließen",
-    "body": "Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis."
+    "source": "Quelle:",
+    "stories": {
+      "damascus": {
+        "text": "Ende 2025 lebten 3,7 Millionen syrische Geflüchtete in den Nachbarländern, 5,5 Millionen Menschen waren innerhalb Syriens vertrieben. Nach dem Sturz Assads am 8. Dezember 2024 kehrten 2025 rund 1,3 Millionen Geflüchtete zurück, etwa dreimal so viele wie 2024. UNHCR warnt: Das heißt nicht, dass Syrien sicher ist.",
+        "source": "UNHCR"
+      },
+      "lampedusa": {
+        "text": "Am 3. Oktober 2013 starben 368 Menschen bei einem einzigen Schiffbruch vor Lampedusa. Seit 2014 sind zwischen Nordafrika und Italien 26.865 Menschen gestorben oder vermisst. Das schlimmste Jahr war 2016 mit 4.574.",
+        "source": "IOM Missing Migrants Project"
+      },
+      "rome": {
+        "text": "2016 erreichten 181.436 Menschen Italien über das Meer, ein Rekord und 18 % mehr als 2015.",
+        "source": "UNHCR, italienisches Innenministerium"
+      },
+      "budapest": {
+        "text": "Anfang September 2015 saßen Tausende Menschen am Budapester Bahnhof Keleti fest. In der Nacht vom 4. auf den 5. September ließen Österreich und Deutschland sie einreisen. Am 15. September stellte Ungarn seinen 175 km langen Zaun an der Grenze zu Serbien fertig.",
+        "source": "Border Violence Monitoring Network, ICMPD"
+      },
+      "prag": {
+        "text": "Tschechien nimmt pro Kopf mehr ukrainische Geflüchtete auf als jedes andere EU-Land: 36 pro 1.000 Einwohner, 393.055 Menschen Ende 2025. Der EU-Schnitt liegt bei 9,7.",
+        "source": "Eurostat"
+      },
+      "warsaw": {
+        "text": "Polen gewährt rund 969.000 Ukrainerinnen und Ukrainern vorübergehenden Schutz, die zweitmeisten in der EU. An der Grenze zu Belarus sind 132 Menschen gestorben oder vermisst, 44 davon auf polnischer Seite.",
+        "source": "Eurostat, IOM Missing Migrants Project"
+      }
+    }
   },
   "project": {
     "heading": "Das Projekt",

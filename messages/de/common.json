@@ -10,6 +10,7 @@
     "home": "Intro",
     "map": "Karte",
     "imprint": "Impressum",
+    "sources": "Quellen",
     "language": "Sprache",
     "english": "Englisch",
     "german": "Deutsch"
@@ -21,7 +22,8 @@
   "footer": {
     "copyright": "© VICE Media Ltd",
     "social": "Soziale Netzwerke",
-    "imprint": "Impressum"
+    "imprint": "Impressum",
+    "sources": "Quellen"
   },
   "share": {
     "twitter": "Auf Twitter teilen",

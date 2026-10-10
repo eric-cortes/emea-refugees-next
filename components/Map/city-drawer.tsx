@@ -65,7 +65,7 @@ export default function CityDrawer({ citySlug, title, videoSrc, onClose }: CityD
           <motion.div
             key="overlay"
             aria-hidden
-            className="fixed inset-0 z-[80] bg-black/60"
+            className="fixed inset-0 z-[50] bg-black/60"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -78,10 +78,10 @@ export default function CityDrawer({ citySlug, title, videoSrc, onClose }: CityD
             role="dialog"
             aria-modal="true"
             aria-labelledby="city-drawer-title"
-            className="fixed top-0 bottom-0 left-0 z-[90] w-full overflow-y-auto bg-[#1b1f22] p-6 text-white md:w-2/5"
-            initial={{ x: reduceMotion ? 0 : '-100%', opacity: reduceMotion ? 0 : 1 }}
+            className="fixed top-4 bottom-4 left-4 right-4 z-[55] overflow-y-auto rounded-2xl bg-[#1b1f22] p-6 text-white md:right-auto md:w-2/5"
+            initial={{ x: reduceMotion ? 0 : '-120%', opacity: reduceMotion ? 0 : 1 }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ x: reduceMotion ? 0 : '-100%', opacity: reduceMotion ? 0 : 1 }}
+            exit={{ x: reduceMotion ? 0 : '-120%', opacity: reduceMotion ? 0 : 1 }}
             transition={{ duration, ease: 'easeOut' }}
             onKeyDown={trapFocus}
           >
@@ -94,7 +94,7 @@ export default function CityDrawer({ citySlug, title, videoSrc, onClose }: CityD
                 type="button"
                 onClick={close}
                 aria-label={t('close')}
-                className="flex h-11 w-11 items-center justify-center rounded-full hover:bg-white/10"
+                className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full hover:bg-white/10"
               >
                 <RxCross2 size={24} aria-hidden />
               </button>
@@ -109,7 +109,14 @@ export default function CityDrawer({ citySlug, title, videoSrc, onClose }: CityD
                 src={asset(videoSrc)}
               />
             )}
-            <p className="mt-6 leading-normal text-white/80">{t('body')}</p>
+            {citySlug && t.has(`stories.${citySlug}.text`) && (
+              <>
+                <p className="mt-6 leading-normal text-white/80">{t(`stories.${citySlug}.text`)}</p>
+                <p className="mt-4 text-sm text-white/50">
+                  {t('source')} {t(`stories.${citySlug}.source`)}
+                </p>
+              </>
+            )}
           </motion.aside>
         </>
       )}
