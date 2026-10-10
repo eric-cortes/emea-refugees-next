@@ -7,6 +7,7 @@ import { usePathname } from '@/i18n/navigation'
 import TransitionLink from '@/components/Layout/transition-link'
 import { routing } from '@/i18n/routing'
 import { cn } from '@/utils/cn'
+import { IconButton } from '@/components/UI'
 import { normalizePathname } from '@/utils/normalize-pathname'
 
 export default function Nav() {
@@ -25,16 +26,16 @@ export default function Nav() {
 
   return (
     <nav aria-label={t('menu')}>
-      <button
-        type="button"
+      <IconButton
+        variant="solid"
         onClick={() => setOpenFor(routeKey)}
         aria-expanded={open}
         aria-controls="site-menu"
         aria-label={t('menu')}
-        className="fixed top-4 right-4 z-[60] flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-black/70 text-white hover:bg-black"
+        className="fixed top-4 right-4 z-[60]"
       >
         <RxHamburgerMenu size={22} aria-hidden />
-      </button>
+      </IconButton>
       <div
         id="site-menu"
         hidden={!open}
@@ -43,14 +44,9 @@ export default function Nav() {
           open ? 'flex' : 'hidden'
         )}
       >
-        <button
-          type="button"
-          onClick={() => setOpenFor(null)}
-          aria-label={t('close')}
-          className="absolute top-4 right-4 flex h-11 w-11 items-center justify-center rounded-full hover:bg-white/10"
-        >
+        <IconButton variant="ghost" onClick={() => setOpenFor(null)} aria-label={t('close')} className="absolute top-4 right-4">
           <RxCross2 size={24} aria-hidden />
-        </button>
+        </IconButton>
         <ul className="flex flex-col items-center gap-4 text-2xl uppercase tracking-[0.2em]">
           <li>
             <TransitionLink href="/" onClick={() => closeIfCurrent('/')}>

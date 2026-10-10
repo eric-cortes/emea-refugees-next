@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { Footer } from '@/components/Layout'
+import { ContentPage, ExternalLink, SectionHeading } from '@/components/UI'
 import { SOURCE_GROUPS } from '@/constants/sources'
 import { isLocale, routing } from '@/i18n/routing'
 import { buildPageMetadata } from '@/utils/seo'
@@ -24,32 +24,26 @@ export default async function SourcesPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations('sources')
+  const tc = await getTranslations('common')
 
   return (
-    <>
-      <main className="min-h-dvh animate-fade-in bg-bg px-5 py-16 leading-normal text-white/80">
-        <article className="mx-auto max-w-[44rem]">
-          <h1 className="text-white">{t('title')}</h1>
-          <p>{t('intro')}</p>
-          {SOURCE_GROUPS.map(group => (
-            <section key={group.key}>
-              <h2 className="mt-8 mb-4 text-[1.6rem] text-white">{t(`groups.${group.key}`)}</h2>
-              <ul className="list-disc space-y-2 pl-5">
-                {group.items.map(item => (
-                  <li key={item.url}>
-                    <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-teal">
-                      {item.title}
-                      <span className="sr-only"> {t('opensInNewTab')}</span>
-                      <span aria-hidden="true"> ↗</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
-        </article>
-      </main>
-      <Footer />
-    </>
+    <ContentPage>
+      <h1 className="text-white">{t('title')}</h1>
+      <p>{t('intro')}</p>
+      {SOURCE_GROUPS.map(group => (
+        <section key={group.key}>
+          <SectionHeading className="text-white">{t(`groups.${group.key}`)}</SectionHeading>
+          <ul className="list-disc space-y-2 pl-5">
+            {group.items.map(item => (
+              <li key={item.url}>
+                <ExternalLink href={item.url} newTabLabel={tc('opensInNewTab')} className="text-teal">
+                  {item.title}
+                </ExternalLink>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </ContentPage>
   )
 }

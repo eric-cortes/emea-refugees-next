@@ -1,3 +1,4 @@
+import { MapDot } from '@/components/UI'
 import { WORLD_PATHS } from '@/constants/world-paths'
 
 interface CountryMapProps {
@@ -11,8 +12,7 @@ export default function CountryMap({ cx, cy }: CountryMapProps) {
       {WORLD_PATHS.map((country, index) => (
         <path key={index} d={country.d} />
       ))}
-      <circle cx={cx} cy={cy} r={16} className="fill-teal opacity-50" />
-      <circle cx={cx} cy={cy} r={10} className="fill-teal" />
+      <MapDot cx={cx} cy={cy} tone="teal" variant="halo" r={10} />
     </svg>
   )
 }

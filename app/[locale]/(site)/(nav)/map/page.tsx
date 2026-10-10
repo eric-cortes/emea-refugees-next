@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { CauseChart, MapClient } from '@/components/Map'
+import { ExternalLink, SectionHeading } from '@/components/UI'
 import { isLocale } from '@/i18n/routing'
 import { buildPageMetadata } from '@/utils/seo'
 
@@ -21,6 +22,7 @@ export default async function MapPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations('map')
+  const tc = await getTranslations('common')
 
   return (
     <>
@@ -32,14 +34,14 @@ export default async function MapPage({ params }: Props) {
           <h1>{t('title')}</h1>
         </header>
         <section>
-          <h2 className="mt-8 mb-4 text-[1.6rem]">{t('project.heading')}</h2>
+          <SectionHeading>{t('project.heading')}</SectionHeading>
           <p>{t('project.body1')}</p>
           <p>{t('project.body2')}</p>
           <p>{t('project.share')}</p>
           <p>
-            <a href="https://missingmigrants.iom.int/" target="_blank" rel="noopener noreferrer">
+            <ExternalLink href="https://missingmigrants.iom.int/" newTabLabel={tc('opensInNewTab')}>
               {t('project.link')}
-            </a>
+            </ExternalLink>
           </p>
           <CauseChart />
         </section>

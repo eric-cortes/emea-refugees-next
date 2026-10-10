@@ -1,4 +1,5 @@
 import { getFormatter, getTranslations } from 'next-intl/server'
+import { SectionHeading } from '@/components/UI'
 import { ROUTE_CAUSES } from '@/constants/causes'
 
 export default async function CauseChart() {
@@ -7,7 +8,7 @@ export default async function CauseChart() {
 
   return (
     <section>
-      <h2 className="mt-8 mb-4 text-[1.6rem]">{t('heading')}</h2>
+      <SectionHeading>{t('heading')}</SectionHeading>
       <p>{t('intro')}</p>
       {ROUTE_CAUSES.map(route => {
         const max = Math.max(...route.causes.map(cause => cause.value))

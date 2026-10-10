@@ -11,6 +11,7 @@ import { useMediaQuery } from '@/utils/use-media-query'
 import { TerrainCanvasClient } from '@/components/TerrainMap'
 import EuropeMap from '@/components/Map/europe-map'
 import CityDrawer from '@/components/Map/city-drawer'
+import { MapDot, SectionHeading } from '@/components/UI'
 import CountryMap from './country-map'
 import RouteInfo from './route-info'
 
@@ -52,8 +53,7 @@ export default function CityClient({ city }: CityClientProps) {
             <CountryMap cx={820} cy={470} />
           ) : (
             <EuropeMap decorative={pois.length === 0} preserveAspectRatio="xMidYMid meet" className="block h-full w-full animate-scale-up fill-land">
-              <circle cx={city.cx} cy={city.cy} r={8} className="fill-teal opacity-50" />
-              <circle cx={city.cx} cy={city.cy} r={5} className="fill-teal" />
+              <MapDot cx={city.cx} cy={city.cy} tone="teal" variant="halo" r={5} />
               {pois.map(item => (
                 <g
                   key={item.id}
@@ -66,7 +66,7 @@ export default function CityClient({ city }: CityClientProps) {
                   onKeyDown={event => onPoiKey(event, item.id)}
                 >
                   <circle cx={item.cx} cy={item.cy} r={14} className="fill-transparent" />
-                  <circle cx={item.cx} cy={item.cy} r={5} className="fill-red" />
+                  <MapDot cx={item.cx} cy={item.cy} tone="red" variant="halo" r={5} />
                 </g>
               ))}
             </EuropeMap>
@@ -95,7 +95,7 @@ export default function CityClient({ city }: CityClientProps) {
           </p>
         </header>
         <div>
-          <h2 className="mt-8 mb-4 text-[1.6rem]">{t('heading')}</h2>
+          <SectionHeading>{t('heading')}</SectionHeading>
           {PARAGRAPH_KEYS.map(key => t.has(key) && <p key={key}>{t(key)}</p>)}
         </div>
         <div className="my-8 grid grid-cols-3 gap-x-3 gap-y-11">

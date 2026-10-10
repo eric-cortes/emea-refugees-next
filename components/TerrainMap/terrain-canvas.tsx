@@ -5,8 +5,10 @@ import { Canvas } from '@react-three/fiber'
 import { useTranslations } from 'next-intl'
 import { RxReset } from 'react-icons/rx'
 import { getCity } from '@/constants/cities'
+import { IconButton, Pill, PILL_CLASS, PILL_INTERACTIVE_CLASS } from '@/components/UI'
 import { getRegion } from '@/constants/regions'
 import { buildTerrainGeometry, type TerrainGeometryData } from './build-terrain-geometry'
+import { cn } from '@/utils/cn'
 import { loadHeightmap, type HeightmapData } from './load-heightmap'
 import { regionScale } from './region-scale'
 import TerrainCompass from './terrain-compass'
@@ -147,12 +149,8 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
 
       {ready && (
         <>
-          <span
-            ref={labelRef}
-            className="pointer-events-none invisible absolute left-0 top-0 z-10 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-black/70 px-2.5 py-0.5 text-xs text-white select-none"
-          >
-            {tc(city.slug)}
-            <span aria-hidden className="h-2 w-2 rounded-full bg-teal" />
+          <span ref={labelRef} className={cn(PILL_CLASS, 'pointer-events-none invisible absolute left-0 top-0 z-10')}>
+            <Pill name={tc(city.slug)} tone="teal" />
           </span>
           {pois.map((poi, index) => (
             <button
@@ -163,10 +161,9 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
               }}
               aria-label={tm('dot.openCity', { city: tc(poi.id) })}
               onClick={() => onPoiSelect?.(poi.id)}
-              className="pointer-events-auto invisible absolute left-0 top-0 z-10 inline-flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full bg-black/70 px-2.5 py-0.5 text-xs text-white select-none"
+              className={cn(PILL_CLASS, PILL_INTERACTIVE_CLASS, 'invisible absolute left-0 top-0 z-10')}
             >
-              {tc(poi.id)}
-              <span aria-hidden className="h-2 w-2 rounded-full bg-red" />
+              <Pill name={tc(poi.id)} tone="red" />
             </button>
           ))}
           <div className="pointer-events-none absolute left-0 top-0 z-20 p-4">
@@ -175,15 +172,16 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
           <div className="pointer-events-none absolute right-0 top-0 z-20 flex items-center gap-2 p-4">
             <TerrainScaleBar kmPerPixel={view.kmPerPixel} />
             <TerrainCompass azimuth={view.azimuth} />
-            <button
-              type="button"
+            <IconButton
+              variant="solid"
+              size="lg"
               onClick={() => setResetSignal(value => value + 1)}
               aria-label={t('reset')}
               title={t('reset')}
-              className="pointer-events-auto flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-black/70 text-white hover:bg-black"
+              className="pointer-events-auto"
             >
               <RxReset aria-hidden />
-            </button>
+            </IconButton>
           </div>
         </>
       )}

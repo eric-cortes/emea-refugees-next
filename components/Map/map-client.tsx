@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { CITIES, getCity, getRoutePoints, type City } from '@/constants/cities'
 import { EUROPE_PATHS } from '@/constants/europe-paths'
 import TransitionLink from '@/components/Layout/transition-link'
+import { MapDot, Pill, PILL_CLASS, PILL_INTERACTIVE_CLASS } from '@/components/UI'
 import { asset } from '@/utils/asset'
 import { cn } from '@/utils/cn'
 import CityDrawer from './city-drawer'
@@ -15,26 +16,10 @@ import { useMapAspect } from './use-map-aspect'
 const DRAWER_CITIES = CITIES.filter(city => city.type === 'stop').map(city => city.slug)
 
 function Dot({ city }: { city: City }) {
-  const stop = city.type === 'stop'
-  return (
-    <>
-      <circle className={cn('opacity-40', stop ? 'fill-red stroke-red' : 'fill-teal stroke-teal animate-lookit')} cx={city.cx} cy={city.cy} r={3.28} />
-      <circle className={cn('stroke-transparent [stroke-width:15px]', stop ? 'fill-red' : 'fill-teal')} cx={city.cx} cy={city.cy} r={3.28} />
-    </>
-  )
+  return <MapDot cx={city.cx} cy={city.cy} tone={city.type === 'stop' ? 'red' : 'teal'} variant="pulse" />
 }
 
-function Pill({ name, stop }: { name: string; stop: boolean }) {
-  return (
-    <>
-      {name}
-      <span aria-hidden className={cn('h-2 w-2 rounded-full', stop ? 'bg-red' : 'bg-teal')} />
-    </>
-  )
-}
-
-const PILL_CLASS = 'absolute inline-flex -translate-x-1/2 -translate-y-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-black/70 px-2.5 py-0.5 text-xs text-white select-none'
-const PILL_CLICK_CLASS = 'pointer-events-auto cursor-pointer hover:bg-black'
+const PILL_POSITION_CLASS = 'absolute -translate-x-1/2 -translate-y-1/2'
 
 const DASH_LENGTH = 2300
 const FADE_MS = 700
@@ -214,14 +199,14 @@ export default function MapClient() {
               const point = positions[city.slug]
               if (!point) return null
               const style = { left: point.x, top: point.y }
-              const content = <Pill name={tc(city.slug)} stop={city.type === 'stop'} />
+              const content = <Pill name={tc(city.slug)} tone={city.type === 'stop' ? 'red' : 'teal'} />
               if (city.hasPage) {
                 return (
                   <TransitionLink
                     key={city.slug}
                     href={`/cities/${city.slug}`}
                     aria-label={t('dot.goToCity', { city: tc(city.slug) })}
-                    className={cn(PILL_CLASS, PILL_CLICK_CLASS)}
+                    className={cn(PILL_CLASS, PILL_INTERACTIVE_CLASS, PILL_POSITION_CLASS)}
                     style={style}
                   >
                     {content}
@@ -238,7 +223,7 @@ export default function MapClient() {
                     }}
                     aria-label={t('dot.openCity', { city: tc(city.slug) })}
                     aria-haspopup="dialog"
-                    className={cn(PILL_CLASS, PILL_CLICK_CLASS)}
+                    className={cn(PILL_CLASS, PILL_INTERACTIVE_CLASS, PILL_POSITION_CLASS)}
                     style={style}
                     onClick={() => setOpenPane(city.slug)}
                   >
@@ -247,7 +232,7 @@ export default function MapClient() {
                 )
               }
               return (
-                <span key={city.slug} aria-hidden className={PILL_CLASS} style={style}>
+                <span key={city.slug} aria-hidden className={cn(PILL_CLASS, PILL_POSITION_CLASS)} style={style}>
                   {content}
                 </span>
               )
