@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import Footer from '@/components/Layout/footer'
+import Footer from '@/components/Layout/Footer'
 
 export interface ContentPageProps {
   children: ReactNode

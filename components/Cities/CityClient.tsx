@@ -9,11 +9,11 @@ import { getRegionForCity } from '@/constants/regions'
 import { asset } from '@/utils/asset'
 import { useMediaQuery } from '@/utils/use-media-query'
 import { TerrainCanvasClient } from '@/components/TerrainMap'
-import EuropeMap from '@/components/Map/europe-map'
-import CityDrawer from '@/components/Map/city-drawer'
+import EuropeMap from '@/components/Map/EuropeMap'
+import CityDrawer from '@/components/Map/CityDrawer'
 import { MapDot, SectionHeading } from '@/components/UI'
-import CountryMap from './country-map'
-import RouteInfo from './route-info'
+import CountryMap from './CountryMap'
+import RouteInfo from './RouteInfo'
 
 interface CityClientProps {
   city: City

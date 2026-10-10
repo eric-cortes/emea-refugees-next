@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl'
-import TransitionLink from '@/components/Layout/transition-link'
-import EuropeMap from './europe-map'
+import TransitionLink from '@/components/Layout/TransitionLink'
+import EuropeMap from './EuropeMap'
 
 export default function MapThumb() {
   const t = useTranslations('map')

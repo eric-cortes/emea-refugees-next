@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import RouteTransitionBoundary from '@/components/Layout/route-transition-boundary'
+import RouteTransitionBoundary from '@/components/Layout/RouteTransitionBoundary'
 
 interface Props {
   children: ReactNode

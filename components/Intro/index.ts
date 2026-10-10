@@ -1,1 +1,1 @@
-export { default as IntroClient } from './intro-client'
+export { default as IntroClient } from './IntroClient'

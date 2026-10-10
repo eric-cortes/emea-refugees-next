@@ -2,7 +2,7 @@
 
 import type { ComponentProps, MouseEvent } from 'react'
 import { Link, usePathname } from '@/i18n/navigation'
-import { useRouteTransition } from '@/components/Layout/route-transition-boundary'
+import { useRouteTransition } from '@/components/Layout/RouteTransitionBoundary'
 import { normalizePathname } from '@/utils/normalize-pathname'
 
 type TransitionLinkProps = ComponentProps<typeof Link>

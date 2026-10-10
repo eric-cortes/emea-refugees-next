@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl'
 import { FaEnvelope, FaFacebook, FaTwitter } from 'react-icons/fa'
-import TransitionLink from '@/components/Layout/transition-link'
+import TransitionLink from '@/components/Layout/TransitionLink'
 
 const SOCIAL_LINKS = [
   { name: 'Twitter', href: 'https://twitter.com/', Icon: FaTwitter },

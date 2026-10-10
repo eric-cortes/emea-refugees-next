@@ -11,11 +11,11 @@ import { buildTerrainGeometry, type TerrainGeometryData } from './build-terrain-
 import { cn } from '@/utils/cn'
 import { loadHeightmap, type HeightmapData } from './load-heightmap'
 import { regionScale } from './region-scale'
-import TerrainCompass from './terrain-compass'
-import TerrainLegend from './terrain-legend'
-import TerrainScaleBar from './terrain-scale-bar'
-import TerrainScene, { type ViewState } from './terrain-scene'
-import TerrainStatus, { type TerrainStatusState } from './terrain-status'
+import TerrainCompass from './TerrainCompass'
+import TerrainLegend from './TerrainLegend'
+import TerrainScaleBar from './TerrainScaleBar'
+import TerrainScene, { type ViewState } from './TerrainScene'
+import TerrainStatus, { type TerrainStatusState } from './TerrainStatus'
 
 interface Props {
   regionId: string

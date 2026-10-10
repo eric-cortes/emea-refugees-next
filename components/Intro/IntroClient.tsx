@@ -1,8 +1,8 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import TransitionLink from '@/components/Layout/transition-link'
-import { useRouteTransition } from '@/components/Layout/route-transition-boundary'
+import TransitionLink from '@/components/Layout/TransitionLink'
+import { useRouteTransition } from '@/components/Layout/RouteTransitionBoundary'
 import { asset } from '@/utils/asset'
 
 export default function IntroClient() {

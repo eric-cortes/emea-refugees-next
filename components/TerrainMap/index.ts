@@ -1,1 +1,1 @@
-export { default as TerrainCanvasClient } from './terrain-canvas-client'
+export { default as TerrainCanvasClient } from './TerrainCanvasClient'

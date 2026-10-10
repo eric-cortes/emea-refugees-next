@@ -1,9 +1,9 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import TerrainStatus from './terrain-status'
+import TerrainStatus from './TerrainStatus'
 
-const TerrainCanvas = dynamic(() => import('./terrain-canvas'), {
+const TerrainCanvas = dynamic(() => import('./TerrainCanvas'), {
   ssr: false,
   loading: () => <TerrainStatus state="loading" progress={10} />,
 })

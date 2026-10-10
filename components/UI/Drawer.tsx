@@ -3,7 +3,7 @@
 import { useEffect, useRef, type KeyboardEvent, type ReactNode } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { RxCross2 } from 'react-icons/rx'
-import IconButton from './icon-button'
+import IconButton from './IconButton'
 
 export interface DrawerProps {
   open: boolean

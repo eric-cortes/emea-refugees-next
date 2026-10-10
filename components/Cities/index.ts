@@ -1,3 +1,3 @@
-export { default as CityClient } from './city-client'
-export { default as CountryMap } from './country-map'
-export { default as RouteInfo } from './route-info'
+export { default as CityClient } from './CityClient'
+export { default as CountryMap } from './CountryMap'
+export { default as RouteInfo } from './RouteInfo'

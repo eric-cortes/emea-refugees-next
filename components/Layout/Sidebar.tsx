@@ -1,5 +1,5 @@
-import FloatingTitle from './floating-title'
-import Nav from './nav'
+import FloatingTitle from './FloatingTitle'
+import Nav from './Nav'
 
 export default function Sidebar() {
   return (
