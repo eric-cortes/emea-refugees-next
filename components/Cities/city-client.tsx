@@ -52,8 +52,8 @@ export default function CityClient({ city }: CityClientProps) {
           {city.slug === 'berlin' ? (
             <CountryMap cx={820} cy={470} />
           ) : (
-            <EuropeMap decorative={pois.length === 0} preserveAspectRatio="xMidYMid meet" className="block h-full w-full animate-scale-up fill-land">
-              <MapDot cx={city.cx} cy={city.cy} tone="teal" variant="halo" r={5} />
+            <EuropeMap decorative={pois.length === 0} viewBox={`${city.cx - 100} ${city.cy - 100} 200 200`} preserveAspectRatio="xMidYMid meet" className="block h-full w-full animate-scale-up fill-land">
+              <MapDot cx={city.cx} cy={city.cy} tone="teal" variant="halo" r={2} />
               {pois.map(item => (
                 <g
                   key={item.id}
@@ -65,8 +65,8 @@ export default function CityClient({ city }: CityClientProps) {
                   onClick={() => setPoi(item.id)}
                   onKeyDown={event => onPoiKey(event, item.id)}
                 >
-                  <circle cx={item.cx} cy={item.cy} r={14} className="fill-transparent" />
-                  <MapDot cx={item.cx} cy={item.cy} tone="red" variant="halo" r={5} />
+                  <circle cx={item.cx} cy={item.cy} r={6} className="fill-transparent" />
+                  <MapDot cx={item.cx} cy={item.cy} tone="red" variant="halo" r={2} />
                 </g>
               ))}
             </EuropeMap>
@@ -96,7 +96,7 @@ export default function CityClient({ city }: CityClientProps) {
         </header>
         <div>
           <SectionHeading>{t('heading')}</SectionHeading>
-          {PARAGRAPH_KEYS.map(key => t.has(key) && <p key={key}>{t(key)}</p>)}
+          <div className="space-y-4">{PARAGRAPH_KEYS.map(key => t.has(key) && <p key={key}>{t(key)}</p>)}</div>
         </div>
         <div className="my-8 grid grid-cols-3 gap-x-3 gap-y-11">
           <div className="col-span-3">

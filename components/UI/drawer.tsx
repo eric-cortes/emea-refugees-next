@@ -64,7 +64,7 @@ export default function Drawer({ open, title, titleId, closeLabel, onClose, onBe
           <motion.div
             key="overlay"
             aria-hidden
-            className="fixed inset-0 z-[50] bg-black/60"
+            className="fixed inset-0 z-[61] bg-black/60"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -77,7 +77,7 @@ export default function Drawer({ open, title, titleId, closeLabel, onClose, onBe
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
-            className="fixed top-4 bottom-4 left-4 right-4 z-[55] overflow-y-auto rounded-2xl bg-[#1b1f22] p-6 text-white md:right-auto md:w-2/5"
+            className="fixed top-4 bottom-4 left-4 right-4 z-[62] overflow-y-auto rounded-2xl bg-[#1b1f22] p-6 text-white md:right-auto md:w-2/5"
             initial={{ x: reduceMotion ? 0 : '-120%', opacity: reduceMotion ? 0 : 1 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: reduceMotion ? 0 : '-120%', opacity: reduceMotion ? 0 : 1 }}

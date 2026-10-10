@@ -35,14 +35,16 @@ export default async function MapPage({ params }: Props) {
         </header>
         <section>
           <SectionHeading>{t('project.heading')}</SectionHeading>
-          <p>{t('project.body1')}</p>
-          <p>{t('project.body2')}</p>
-          <p>{t('project.share')}</p>
-          <p>
-            <ExternalLink href="https://missingmigrants.iom.int/" newTabLabel={tc('opensInNewTab')}>
-              {t('project.link')}
-            </ExternalLink>
-          </p>
+          <div className="space-y-4">
+            <p>{t('project.body1')}</p>
+            <p>{t('project.body2')}</p>
+            <p>{t('project.share')}</p>
+            <p>
+              <ExternalLink href="https://missingmigrants.iom.int/" newTabLabel={tc('opensInNewTab')}>
+                {t('project.link')}
+              </ExternalLink>
+            </p>
+          </div>
           <CauseChart />
         </section>
       </article>
