@@ -11,7 +11,9 @@
     "budapest": "Budapest",
     "prag": "Prag",
     "warsaw": "Warschau",
-    "bihac": "Bihać"
+    "bihac": "Bihać",
+    "evros": "Evros",
+    "drina": "Drina"
   },
   "berlin": {
     "country": "Deutschland",
@@ -21,8 +23,10 @@
     "date": "29 Januar 2020",
     "heading": "Die Grenze",
     "p1": "Im Herbst 2015 war das Berliner Landesamt für Gesundheit und Soziales (LaGeSo) in Moabit überfordert. Die Menschen warteten tage- und wochenlang davor, ab dem frühen Morgen, in der Kälte. Freiwillige von „Moabit hilft“ verteilten Essen, Wasser und medizinische Hilfe. Im Dezember 2015 trat der Leiter des Amtes zurück.",
-    "p2": "2015 suchten 1,3 Millionen Menschen in Europa Asyl.",
-    "p3": "Laut dem Border Violence Monitoring Network erklärte Deutschland im Januar 2016, seine Kapazitäten seien erschöpft, und begrenzte die Zahl der Menschen, die es pro Tag aufnahm. Das löste einen „Dominoeffekt“ aus: Ein Land nach dem anderen entlang der Route schränkte die Einreise ein, bis es den Korridor nicht mehr gab.",
+    "p2": "Berlin brachte Menschen unter, wo es nur ging. Im Januar 2016 lebten 2.500 Menschen in den Hangars des ehemaligen Flughafens Tempelhof, Schauplatz der Berliner Luftbrücke 1948/49. Es gab nicht genug Wasser vor Ort; Busse fuhren die Menschen zum Duschen in öffentliche Bäder.",
+    "p3": "2015 suchten 1,3 Millionen Menschen in Europa Asyl.",
+    "p4": "Deutschland zählte 2015 476.649 Asylanträge und 2016 745.545. Das Erfassungssystem registrierte 2015 rund 1,1 Millionen Ankünfte; ohne Doppelzählungen waren es etwa 890.000 Menschen.",
+    "p5": "Laut dem Border Violence Monitoring Network erklärte Deutschland im Januar 2016, seine Kapazitäten seien erschöpft, und begrenzte die Zahl der Menschen, die es pro Tag aufnahm. Das löste einen „Dominoeffekt“ aus: Ein Land nach dem anderen entlang der Route schränkte die Einreise ein, bis es den Korridor nicht mehr gab.",
     "imageAlt": "Foto aus Berlin",
     "stat": {
       "suffix": " Mio.",
@@ -40,7 +44,9 @@
     "p1": "Im September 2015 schloss Ungarn seine Grenze zu Serbien: ein Zaun, 4 Meter hoch und 175 km lang, fertig am 15. September. Die Menschen wichen nach Westen aus, nach Kroatien.",
     "p2": "Dann öffneten die Länder entlang der Route einen „Korridor“: Griechenland, Nordmazedonien, Serbien, Kroatien, Slowenien und Österreich. Mit Transitpapieren durften die Menschen Bus und Zug nehmen. Von den griechischen Inseln bis Wien dauerte es etwa vier Tage. Für kurze Zeit war es laut dem Border Violence Monitoring Network „der einzige legalisierte Zugang zum Kontinent“.",
     "p3": "In der Nacht vom 4. auf den 5. September 2015 ließen Österreich und Deutschland Tausende Menschen einreisen, die am Budapester Bahnhof Keleti festsaßen.",
-    "p4": "Eine Woche davor, am 27. August 2015, wurde auf der A4 bei Parndorf ein abgestellter Lkw gefunden. Darin: 71 Tote, 59 Männer, 8 Frauen und 4 Kinder. Sie waren erstickt.",
+    "p4": "Am Wiener Hauptbahnhof nannten sich Freiwillige „Train of Hope“. Sie betrieben eine Küche, eine Erste-Hilfe-Station, eine Rechtsberatung und einen Suchdienst für Vermisste. Ihre Listen zeigen Anfang September 2015 1.000 Ankünfte pro Tag, später über 5.000. Allein am 14. September kamen mehr als 5.000 Menschen an.",
+    "p5": "2015 gingen in Österreich 88.340 Asylanträge ein, etwa dreimal so viele wie im Jahr davor. Es gab nicht genug Schlafplätze. Später baute Österreich einen Zaun in Spielfeld, an der Grenze zu Slowenien.",
+    "p6": "Eine Woche davor, am 27. August 2015, wurde auf der A4 bei Parndorf ein abgestellter Lkw gefunden. Darin: 71 Tote, 59 Männer, 8 Frauen und 4 Kinder. Sie waren erstickt.",
     "imageAlt": "Foto aus Wien",
     "stat": {
       "suffix": " Tage",
@@ -58,7 +64,10 @@
     "p1": "Zehn Jahre nach dem Höhepunkt kommen immer noch Menschen. Von November 2025 bis Februar 2026 befragte das Mixed Migration Centre 888 Menschen in Sarajevo. 98 % waren Männer, 12 % begannen ihre Reise als Kinder. 2015 kamen die meisten aus Syrien. Von den Befragten kamen die meisten aus Afghanistan (30 %), Marokko (25 %) und Algerien (15 %). Die Umfrage ist nicht repräsentativ für alle auf der Route.",
     "p2": "57 % kamen über Bulgarien und Serbien; 88 % von ihnen berichteten von Gefahren auf dem Balkan. 2025 wurden 13.568 Pushbacks aus Bulgarien erfasst und 1.017 gewaltsame Pushbacks aus Kroatien nach Bosnien.",
     "p3": "Die Reise ist teuer: im Schnitt etwa 3.800 € für Menschen, die in die Türkei flogen, etwa 8.800 € für die, die über Land kamen. Die meisten brauchen Schlepper.",
-    "p4": "„Diese Reise würde ich nicht einmal meinem schlimmsten Feind wünschen“, sagte eine vom Mixed Migration Centre befragte Person.",
+    "p4": "Die meisten verließen ihr Land aus mehr als einem Grund: 81 % nannten wirtschaftliche Gründe, 28 % Gewalt oder Konflikt. Von 42 Menschen aus dem Sudan sagten 40, sie seien vor Gewalt geflohen.",
+    "p5": "Kaum jemand will in Bosnien bleiben. Die meistgenannten Ziele waren Italien (29 %), Frankreich (19 %), Spanien (15 %) und Deutschland (12 %). Afghanen wenden sich von Deutschland ab, das bei Abschiebungen strenger geworden ist.",
+    "p6": "70 % der Befragten kamen über Serbien nach Bosnien. Die Grenze zwischen beiden Ländern ist die Drina. In der Nacht zum 22. August 2024 kenterte dort bei Ljubovija ein Boot mit rund 30 Menschen. Die IOM zählte 12 Tote, darunter ein Kind.",
+    "p7": "„Diese Reise würde ich nicht einmal meinem schlimmsten Feind wünschen“, sagte eine vom Mixed Migration Centre befragte Person.",
     "imageAlt": "Foto aus Sarajevo",
     "stat": {
       "label": "Erfasste gewaltsame Pushbacks aus Kroatien nach Bosnien, 2025",
@@ -76,6 +85,8 @@
     "p2": "Von Januar 2018 bis November 2019 zogen rund 40.000 Menschen durch Bosnien. Viele blieben im Kanton Una-Sana rund um Bihać.",
     "p3": "Im Februar 2020 besuchte die Journalistin Alexandra Stanic Bihać und Velika Kladuša. Menschen erzählten ihr, dass kroatische Polizisten sie schlugen, ihnen Handys, Schuhe und Geld abnahmen und sie nach Bosnien zurückbrachten, ohne dass sie Asyl beantragen durften. Naseer, damals 25, aus Afghanistan, sagte, er habe es 25 Mal versucht: „Ich habe in keinem anderen Land so schlechte Erfahrungen mit der Polizei gemacht wie hier.“",
     "p4": "Das Camp Vučjak lag auf einer ehemaligen Mülldeponie 10 km von Bihać entfernt, ohne Trinkwasser. Es ist inzwischen geschlossen. 2019 zeigten über 80 % der Pushback-Berichte des Border Violence Monitoring Network Folter oder grausame Behandlung. Am 23. Dezember 2020 brannte das Camp Lipa bei Bihać ab; rund 1.200 bis 1.300 Menschen hatten dort gelebt.",
+    "p5": "Die Grenze verläuft durch Berge und Wald. Viele versuchten, über den Berg Plješevica zu gehen. Im Januar 2019 rettete die kroatische Polizei 15 Menschen, darunter sechs Kinder, aus tiefem Schnee; laut Polizei waren sie „sichtlich unterkühlt“. Seit 2018 sucht die Bergrettung in Bihać immer öfter nach verirrten Menschen auf der Flucht. Die Wälder verbergen auch den Krieg: Bosniens Minenräumzentrum vermutet im Kanton Una-Sana mindestens 20.000 Minen. In Bosnien wurde bisher kein Mensch auf der Flucht durch eine Mine getötet gemeldet. Auf der kroatischen Seite, bei Saborsko, tötete im März 2021 eine Landmine einen Mann aus Pakistan und verletzte zwei weitere.",
+    "p6": "In einer Ecke des Friedhofs von Bihać tragen rund ein Dutzend Gräber von Migranten die Buchstaben „NN“, für nomen nescio: Name unbekannt. Lipa wurde als Aufnahmezentrum für 1.500 Männer neu gebaut. Im April 2025 war es zu etwa 10 % belegt; die Menschen blieben im Schnitt rund zehn Tage.",
     "imageAlt": "Foto aus Bihać",
     "stat": {
       "label": "Pushback-Berichte für Bosnien, 2019 (Schätzung, Centre for Peace Studies)",
@@ -92,7 +103,10 @@
     "p1": "Ab November 2015 wurde es schwieriger, die Grenzen zu passieren. Die Länder entschieden Tag für Tag, wie viele Menschen sie durchließen und aus welchen Ländern.",
     "p2": "Im März 2016 schlossen Nordmazedonien, Kroatien und Slowenien innerhalb weniger Wochen ihre Grenzen für Menschen auf der Durchreise. Am 18. März 2016 unterzeichneten die EU und die Türkei ihr Abkommen. Rund 60.000 Menschen saßen in den Ländern entlang der Route fest.",
     "p3": "In Idomeni, an der Grenze zwischen Griechenland und Nordmazedonien, warteten am 2. März rund 10.000 Menschen. Eine Woche später bis zu 14.000.",
-    "p4": "Die Route war nicht geschlossen. Die Menschen suchten andere, gefährlichere Wege. Jeden Versuch nennen sie „das Game“.",
+    "p4": "Im Frühjahr 2016 campierten Menschen auch im Hafen von Piräus, im März rund 5.000. Im Mai schätzte die griechische Regierung, dass über 54.000 Menschen in Griechenland festsaßen.",
+    "p5": "Am 24. Mai 2016 begann die Polizei, Idomeni zu räumen, wo damals rund 8.400 Menschen lebten. Busse brachten sie in Lager in alten Industriegebäuden bei Thessaloniki. Zwei Tage später fehlten rund 4.000 Menschen in der Zählung: Viele waren auf eigene Faust gegangen.",
+    "p6": "2015 versprach die EU, 160.000 Menschen aus Griechenland und Italien in andere EU-Länder umzusiedeln. Am Ende wurden nur 34.705 umgesiedelt, 21.999 davon aus Griechenland.",
+    "p7": "Die Route war nicht geschlossen. Die Menschen suchten andere, gefährlichere Wege. Jeden Versuch nennen sie „das Game“.",
     "imageAlt": "Foto aus Athen",
     "stat": {
       "prefix": "~",
@@ -110,6 +124,8 @@
     "p1": "2015 begann der Weg über die Balkanroute für die meisten mit einer kurzen, gefährlichen Bootsfahrt von der Türkei auf die griechischen Inseln. Im Sommer 2015 überquerten mehr Menschen die Ägäis als das zentrale Mittelmeer. Die meisten kamen aus Syrien, später mehr aus Afghanistan, dem Irak und dem Iran.",
     "p2": "Oktober 2015 war der Rekordmonat: 218.394 Menschen erreichten Europa über das Meer, fast so viele wie im ganzen Jahr 2014. Bis zum 20. Oktober kamen in Griechenland in diesem Jahr über 500.000 Menschen an.",
     "p3": "2015 starben auf der östlichen Mittelmeerroute 804 Menschen oder gelten als vermisst. Allein von September 2015 bis Januar 2016 waren es 950. Rund um Lesbos zählte die IOM 2015 295 Tote und Vermisste. Das sind Mindestzahlen: Viele Todesfälle werden nie erfasst.",
+    "p4": "An manchen Tagen im Oktober 2015 landeten bis zu 85 Boote auf Lesbos, die meisten Schlauchboote mit rund 50 Menschen. An der engsten Stelle ist das Wasser zwischen der Türkei und der Nordküste der Insel nur etwa 10 km breit. Als keine Busse mehr fuhren, liefen Menschen 70 km quer über die Insel, um sich in Moria registrieren zu lassen.",
+    "p5": "Aus der Registrierstelle Moria wurde ein Lager. Im September 2020 lebten dort rund 13.000 Menschen, auf einer Fläche für knapp 3.000. In der Nacht zum 9. September 2020 zerstörte ein Feuer den größten Teil davon; Tausende schliefen auf der Straße nach Mytilini.",
     "imageAlt": "Foto aus Lesbos",
     "stat": {
       "label": "Tote und Vermisste auf der östlichen Mittelmeerroute, 2015",

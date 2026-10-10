@@ -1,3 +1,4 @@
+export { default as CauseChart } from './cause-chart'
 export { default as CityDrawer } from './city-drawer'
 export { default as EuropeMap } from './europe-map'
 export { default as MapClient } from './map-client'

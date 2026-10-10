@@ -32,7 +32,18 @@
       "warsaw": {
         "text": "Poland hosts about 969,000 Ukrainians under temporary protection, the second most in the EU. At the border with Belarus, 132 people have died or gone missing, 44 of them on the Polish side.",
         "source": "Eurostat, IOM Missing Migrants Project"
+      },
+      "evros": {
+        "text": "The Evros river forms most of the 150 km border between Türkiye and Greece. In summer, most people who die there drown; in winter, the cold kills most, says forensic pathologist Pavlos Pavlidis. Between 2000 and 2017, 352 bodies were found in the region. Only 105 were identified.",
+        "source": "ICRC, 2017"
+      },
+      "drina": {
+        "text": "The Drina forms the border between Serbia and Bosnia. On the night of 22 August 2024, a boat with about 30 people capsized here, near Ljubovija. IOM recorded 12 dead, one of them a child.",
+        "source": "IOM Missing Migrants Project, N1"
       }
+    },
+    "images": {
+      "drina": "Placeholder image, not the Drina"
     }
   },
   "project": {
@@ -42,7 +53,24 @@
     "share": "Share this link & information:",
     "link": "missingmigrants.iom.int"
   },
-  "credits": {
-    "heading": "Credits"
+  "causes": {
+    "heading": "Dead and missing by cause",
+    "intro": "Dead and missing recorded by IOM, 2014 to October 2026 (2026 not complete). These are minimum numbers. They show what was recorded, not how dangerous each route is.",
+    "routes": {
+      "westernBalkans": "Western Balkans route",
+      "turkiyeLand": "Türkiye–Europe land route (incl. Evros)"
+    },
+    "labels": {
+      "vehicle": "Vehicles and hazardous transport",
+      "drowning": "Drowning",
+      "harsh": "Cold and harsh conditions",
+      "violence": "Violence",
+      "unknown": "Mixed or unknown",
+      "accident": "Accidents",
+      "sickness": "Illness, no access to care",
+      "drowningHarsh": "Drowning and cold"
+    },
+    "total": "Total:",
+    "source": "Source: IOM Missing Migrants Project"
   }
 }

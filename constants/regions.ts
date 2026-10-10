@@ -1,5 +1,14 @@
 import { asset } from '@/utils/asset'
 
+export interface RegionPoi {
+  id: string
+  lat: number
+  lng: number
+  cx: number
+  cy: number
+  image: string
+}
+
 export interface Region {
   id: string
   heightmap: string
@@ -15,6 +24,7 @@ export interface Region {
   exaggeration: number
   slabThickness: number
   marker: string
+  pois?: RegionPoi[]
 }
 
 export const REGIONS: Region[] = [
@@ -49,6 +59,7 @@ export const REGIONS: Region[] = [
     exaggeration: 4,
     slabThickness: 14000,
     marker: 'sarajevo',
+    pois: [{ id: 'drina', lat: 44.19, lng: 19.37, cx: 313.83, cy: 260.82, image: '/assets/images/sarajevo/drina-placeholder.webp' }],
   },
   {
     id: 'bihac',

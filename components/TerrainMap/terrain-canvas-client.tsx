@@ -11,8 +11,9 @@ const TerrainCanvas = dynamic(() => import('./terrain-canvas'), {
 interface Props {
   regionId: string
   zoom?: boolean
+  onPoiSelect?: (id: string) => void
 }
 
-export default function TerrainCanvasClient({ regionId, zoom }: Props) {
-  return <TerrainCanvas regionId={regionId} zoom={zoom} />
+export default function TerrainCanvasClient({ regionId, zoom, onPoiSelect }: Props) {
+  return <TerrainCanvas regionId={regionId} zoom={zoom} onPoiSelect={onPoiSelect} />
 }

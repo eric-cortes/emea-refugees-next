@@ -32,7 +32,18 @@
       "warsaw": {
         "text": "Polen gewährt rund 969.000 Ukrainerinnen und Ukrainern vorübergehenden Schutz, die zweitmeisten in der EU. An der Grenze zu Belarus sind 132 Menschen gestorben oder vermisst, 44 davon auf polnischer Seite.",
         "source": "Eurostat, IOM Missing Migrants Project"
+      },
+      "evros": {
+        "text": "Der Fluss Evros bildet den größten Teil der 150 km langen Grenze zwischen der Türkei und Griechenland. Im Sommer ertrinken die meisten, die dort sterben; im Winter tötet vor allem die Kälte, sagt der Rechtsmediziner Pavlos Pavlidis. Zwischen 2000 und 2017 wurden in der Region 352 Leichen gefunden. Nur 105 wurden identifiziert.",
+        "source": "IKRK, 2017"
+      },
+      "drina": {
+        "text": "Die Drina bildet die Grenze zwischen Serbien und Bosnien. In der Nacht zum 22. August 2024 kenterte hier bei Ljubovija ein Boot mit rund 30 Menschen. Die IOM zählte 12 Tote, darunter ein Kind.",
+        "source": "IOM Missing Migrants Project, N1"
       }
+    },
+    "images": {
+      "drina": "Platzhalterbild, nicht die Drina"
     }
   },
   "project": {
@@ -42,7 +53,24 @@
     "share": "Diesen Link & diese Informationen teilen:",
     "link": "missingmigrants.iom.int"
   },
-  "credits": {
-    "heading": "Credits"
+  "causes": {
+    "heading": "Tote und Vermisste nach Ursache",
+    "intro": "Von der IOM erfasste Tote und Vermisste, 2014 bis Oktober 2026 (2026 nicht vollständig). Das sind Mindestzahlen. Sie zeigen, was erfasst wurde, nicht wie gefährlich eine Route ist.",
+    "routes": {
+      "westernBalkans": "Westbalkanroute",
+      "turkiyeLand": "Landroute Türkei–Europa (inkl. Evros)"
+    },
+    "labels": {
+      "vehicle": "Fahrzeuge und gefährlicher Transport",
+      "drowning": "Ertrinken",
+      "harsh": "Kälte und widrige Bedingungen",
+      "violence": "Gewalt",
+      "unknown": "Gemischt oder unbekannt",
+      "accident": "Unfälle",
+      "sickness": "Krankheit, keine Versorgung",
+      "drowningHarsh": "Ertrinken und Kälte"
+    },
+    "total": "Gesamt:",
+    "source": "Quelle: IOM Missing Migrants Project"
   }
 }

@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, type KeyboardEvent } from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { FaFacebook, FaTwitter } from 'react-icons/fa'
@@ -9,6 +10,7 @@ import { asset } from '@/utils/asset'
 import { useMediaQuery } from '@/utils/use-media-query'
 import { TerrainCanvasClient } from '@/components/TerrainMap'
 import EuropeMap from '@/components/Map/europe-map'
+import CityDrawer from '@/components/Map/city-drawer'
 import CountryMap from './country-map'
 import RouteInfo from './route-info'
 
@@ -16,6 +18,7 @@ interface CityClientProps {
   city: City
 }
 
+const PARAGRAPH_KEYS = Array.from({ length: 12 }, (_, index) => `p${index + 1}`)
 const GRID_ORDER = [0, 1, 5, 3, 4, 5, 6, 3, 7, 3]
 
 export default function CityClient({ city }: CityClientProps) {
@@ -27,6 +30,19 @@ export default function CityClient({ city }: CityClientProps) {
   const floatRight = city.images[1]
   const region = getRegionForCity(city.slug)
   const desktop = useMediaQuery('(min-width: 768px)')
+  const tNames = useTranslations('cities.names')
+  const tMap = useTranslations('map')
+  const tDrawer = useTranslations('map.drawer')
+  const [poi, setPoi] = useState<string | null>(null)
+  const pois = region?.pois ?? []
+  const activePoi = pois.find(item => item.id === poi)
+
+  const onPoiKey = (event: KeyboardEvent<SVGGElement>, id: string) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      setPoi(id)
+    }
+  }
 
   return (
     <div className="md:grid md:grid-cols-2 md:items-start">
@@ -35,15 +51,30 @@ export default function CityClient({ city }: CityClientProps) {
           {city.slug === 'berlin' ? (
             <CountryMap cx={820} cy={470} />
           ) : (
-            <EuropeMap decorative preserveAspectRatio="xMidYMid meet" className="block h-full w-full animate-scale-up fill-land">
+            <EuropeMap decorative={pois.length === 0} preserveAspectRatio="xMidYMid meet" className="block h-full w-full animate-scale-up fill-land">
               <circle cx={city.cx} cy={city.cy} r={8} className="fill-teal opacity-50" />
               <circle cx={city.cx} cy={city.cy} r={5} className="fill-teal" />
+              {pois.map(item => (
+                <g
+                  key={item.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={tMap('dot.openCity', { city: tNames(item.id) })}
+                  aria-haspopup="dialog"
+                  className="cursor-pointer"
+                  onClick={() => setPoi(item.id)}
+                  onKeyDown={event => onPoiKey(event, item.id)}
+                >
+                  <circle cx={item.cx} cy={item.cy} r={14} className="fill-transparent" />
+                  <circle cx={item.cx} cy={item.cy} r={5} className="fill-red" />
+                </g>
+              ))}
             </EuropeMap>
           )}
         </div>
         {region && desktop && (
           <div className="absolute inset-0">
-            <TerrainCanvasClient regionId={region.id} zoom={false} />
+            <TerrainCanvasClient regionId={region.id} zoom={false} onPoiSelect={setPoi} />
           </div>
         )}
         {city.stat && <RouteInfo slug={city.slug} stat={city.stat} />}
@@ -65,10 +96,7 @@ export default function CityClient({ city }: CityClientProps) {
         </header>
         <div>
           <h2 className="mt-8 mb-4 text-[1.6rem]">{t('heading')}</h2>
-          <p>{t('p1')}</p>
-          <p>{t('p2')}</p>
-          {t.has('p3') && <p>{t('p3')}</p>}
-          {t.has('p4') && <p>{t('p4')}</p>}
+          {PARAGRAPH_KEYS.map(key => t.has(key) && <p key={key}>{t(key)}</p>)}
         </div>
         <div className="my-8 grid grid-cols-3 gap-x-3 gap-y-11">
           <div className="col-span-3">
@@ -85,6 +113,13 @@ export default function CityClient({ city }: CityClientProps) {
           <Image src={asset(floatRight)} alt={alt} width={0} height={0} sizes="(min-width: 768px) 25vw, 50vw" className="block h-auto w-full rounded-md" />
         </div>
       </article>
+      <CityDrawer
+        citySlug={poi}
+        title={poi ? tNames(poi) : ''}
+        imageSrc={activePoi?.image}
+        imageAlt={poi ? tDrawer(`images.${poi}`) : undefined}
+        onClose={() => setPoi(null)}
+      />
     </div>
   )
 }

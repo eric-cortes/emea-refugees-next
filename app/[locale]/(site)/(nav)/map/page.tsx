@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { MapClient } from '@/components/Map'
+import { CauseChart, MapClient } from '@/components/Map'
 import { isLocale } from '@/i18n/routing'
 import { buildPageMetadata } from '@/utils/seo'
 
@@ -41,15 +41,7 @@ export default async function MapPage({ params }: Props) {
               {t('project.link')}
             </a>
           </p>
-          <h2 className="mt-8 mb-4 text-[1.6rem]">{t('credits.heading')}</h2>
-          <ul>
-            <li>
-              <a href="https://www.vice.com/de/contributor/alexandra-stanic">Alexandra Stanic</a>
-            </li>
-            <li>
-              <a href="https://www.vice.com/de/contributor/alexandra-stanic">Simon de Beauvoir</a>
-            </li>
-          </ul>
+          <CauseChart />
         </section>
       </article>
     </>

@@ -54,6 +54,7 @@ export const CITIES: City[] = [
   { slug: 'budapest', cx: 301.75, cy: 208.17, type: 'stop', hasPage: false, images: [], video: VIDEO },
   { slug: 'prag', cx: 242.15, cy: 170.25, type: 'stop', hasPage: false, images: [], video: VIDEO },
   { slug: 'warsaw', cx: 309.75, cy: 136.17, type: 'stop', hasPage: false, images: [], video: VIDEO },
+  { slug: 'evros', cx: 404.75, cy: 310.28, type: 'stop', hasPage: false, images: [], lat: 40.88, lng: 26.17 },
 ]
 
 export const ROUTE_ORDER = ['lesbos', 'athen', 'sarajevo', 'vienna', 'berlin'] as const

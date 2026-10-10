@@ -4,7 +4,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, type Componen
 import { invalidate, useFrame, useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { MathUtils, Spherical, Vector3, type Group, type Object3D, type PerspectiveCamera } from 'three'
-import type { Region } from '@/constants/regions'
+import type { Region, RegionPoi } from '@/constants/regions'
 import { projectLaea } from '@/utils/laea'
 import { usePrefersReducedMotion } from '@/utils/use-prefers-reduced-motion'
 import { applyExaggeration, worldHeight, type TerrainGeometryData } from './build-terrain-geometry'
@@ -38,6 +38,8 @@ interface Props {
   resetSignal: number
   marker: MarkerSpec
   labelRef: RefObject<HTMLSpanElement | null>
+  pois?: RegionPoi[]
+  poiRefs?: RefObject<(HTMLButtonElement | null)[]>
   zoom?: boolean
   onViewChange?: (view: ViewState) => void
 }
@@ -92,11 +94,13 @@ function fitCamera(terrain: TerrainGeometryData, region: Region, fov: number, as
 
 const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2)
 
-export default function TerrainScene({ terrain, heightmap, region, exaggeration, resetSignal, marker, labelRef, zoom = true, onViewChange }: Props) {
+export default function TerrainScene({ terrain, heightmap, region, exaggeration, resetSignal, marker, labelRef, pois = [], poiRefs, zoom = true, onViewChange }: Props) {
   const reducedMotion = usePrefersReducedMotion()
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null)
   const markerGroup = useRef<Group>(null)
   const labelAnchor = useRef<Object3D>(null)
+  const poiGroups = useRef<(Group | null)[]>([])
+  const poiAnchors = useRef<(Object3D | null)[]>([])
   const labelPoint = useMemo(() => new Vector3(), [])
   const current = useRef(exaggeration)
   const animation = useRef<Animation | null>(null)
@@ -146,6 +150,21 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
     }
   }, [marker.lat, marker.lng, region, heightmap])
 
+  const poiSpots = useMemo(
+    () =>
+      pois.map(poi => {
+        const { x, y } = projectLaea(poi.lat, poi.lng)
+        const u = (x - region.minX) / region.metresPerPixel
+        const v = (region.maxY - y) / region.metresPerPixel
+        return {
+          x: (u - region.width / 2) * region.metresPerPixel / 1000,
+          z: (v - region.height / 2) * region.metresPerPixel / 1000,
+          elevation: sampleElevation(heightmap, u - 0.5, v - 0.5),
+        }
+      }),
+    [pois, region, heightmap]
+  )
+
   const fit = useMemo(
     () => fitCamera(terrain, region, camera.fov, size.width / Math.max(1, size.height)),
     [terrain, region, camera.fov, size.width, size.height]
@@ -155,12 +174,23 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
     current.current = k
     applyExaggeration(terrain, k)
     if (markerGroup.current) markerGroup.current.position.y = worldHeight(markerSpot.elevation, k)
+    poiSpots.forEach((spot, index) => {
+      const group = poiGroups.current[index]
+      if (group) group.position.y = worldHeight(spot.elevation, k)
+    })
     invalidate()
   }
 
   useLayoutEffect(() => {
     if (markerGroup.current) markerGroup.current.position.y = worldHeight(markerSpot.elevation, current.current)
   }, [markerSpot])
+
+  useLayoutEffect(() => {
+    poiSpots.forEach((spot, index) => {
+      const group = poiGroups.current[index]
+      if (group) group.position.y = worldHeight(spot.elevation, current.current)
+    })
+  }, [poiSpots])
 
   const fitted = useRef(false)
   useLayoutEffect(() => {
@@ -292,6 +322,20 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
     label.style.visibility = labelPoint.z < 1 ? 'visible' : 'hidden'
   })
 
+  useFrame(() => {
+    poiSpots.forEach((_, index) => {
+      const anchor = poiAnchors.current[index]
+      const button = poiRefs?.current[index]
+      if (!anchor || !button) return
+      camera.updateMatrixWorld()
+      anchor.getWorldPosition(labelPoint).project(camera)
+      const x = ((labelPoint.x + 1) / 2) * size.width
+      const y = ((1 - labelPoint.y) / 2) * size.height
+      button.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`
+      button.style.visibility = labelPoint.z < 1 ? 'visible' : 'hidden'
+    })
+  })
+
   const scale = regionScale(region)
 
   return (
@@ -314,6 +358,30 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
           <object3D ref={labelAnchor} position={[0, 10, 0]} />
         </group>
       </group>
+
+      {pois.map((poi, index) => (
+        <group
+          key={poi.id}
+          ref={node => {
+            poiGroups.current[index] = node
+          }}
+          position-x={poiSpots[index].x}
+          position-z={poiSpots[index].z}
+        >
+          <group scale={scale}>
+            <mesh position={[0, 4, 0]} rotation={[Math.PI, 0, 0]}>
+              <coneGeometry args={[2.2, 8, 20]} />
+              <meshStandardMaterial color="#fe6a6a" roughness={0.6} />
+            </mesh>
+            <object3D
+              ref={node => {
+                poiAnchors.current[index] = node
+              }}
+              position={[0, 10, 0]}
+            />
+          </group>
+        </group>
+      ))}
 
       <OrbitControls
         ref={controls}

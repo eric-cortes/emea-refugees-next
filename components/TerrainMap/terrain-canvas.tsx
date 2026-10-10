@@ -18,6 +18,7 @@ import TerrainStatus, { type TerrainStatusState } from './terrain-status'
 interface Props {
   regionId: string
   zoom?: boolean
+  onPoiSelect?: (id: string) => void
 }
 
 interface Loaded {
@@ -34,10 +35,11 @@ function supportsWebGL(): boolean {
   }
 }
 
-export default function TerrainCanvas({ regionId, zoom = true }: Props) {
+export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Props) {
   const t = useTranslations('mapTest')
   const tc = useTranslations('cities.names')
   const tn = useTranslations('mapTest.countries')
+  const tm = useTranslations('map')
   const region = getRegion(regionId)
   const city = region ? getCity(region.marker) : undefined
 
@@ -48,6 +50,7 @@ export default function TerrainCanvas({ regionId, zoom = true }: Props) {
   const [resetSignal, setResetSignal] = useState(0)
   const [view, setView] = useState<ViewState>({ azimuth: 0, kmPerPixel: 0 })
   const labelRef = useRef<HTMLSpanElement>(null)
+  const poiRefs = useRef<(HTMLButtonElement | null)[]>([])
 
   useEffect(() => {
     if (!region) return
@@ -104,6 +107,7 @@ export default function TerrainCanvas({ regionId, zoom = true }: Props) {
 
   const country = tn(region.id)
   const scale = regionScale(region)
+  const pois = region.pois ?? []
   const ready = state === 'ready' && loaded !== null
 
   return (
@@ -132,6 +136,8 @@ export default function TerrainCanvas({ regionId, zoom = true }: Props) {
             zoom={zoom}
             onViewChange={setView}
             labelRef={labelRef}
+            pois={pois}
+            poiRefs={poiRefs}
             marker={{ lat: city.lat, lng: city.lng }}
           />
         </Canvas>
@@ -148,6 +154,21 @@ export default function TerrainCanvas({ regionId, zoom = true }: Props) {
             {tc(city.slug)}
             <span aria-hidden className="h-2 w-2 rounded-full bg-teal" />
           </span>
+          {pois.map((poi, index) => (
+            <button
+              key={poi.id}
+              type="button"
+              ref={node => {
+                poiRefs.current[index] = node
+              }}
+              aria-label={tm('dot.openCity', { city: tc(poi.id) })}
+              onClick={() => onPoiSelect?.(poi.id)}
+              className="pointer-events-auto invisible absolute left-0 top-0 z-10 inline-flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full bg-black/70 px-2.5 py-0.5 text-xs text-white select-none"
+            >
+              {tc(poi.id)}
+              <span aria-hidden className="h-2 w-2 rounded-full bg-red" />
+            </button>
+          ))}
           <div className="pointer-events-none absolute left-0 top-0 z-20 p-4">
             <TerrainLegend />
           </div>

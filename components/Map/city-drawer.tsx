@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useRef, type KeyboardEvent } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
@@ -10,12 +11,14 @@ interface CityDrawerProps {
   citySlug: string | null
   title: string
   videoSrc?: string
+  imageSrc?: string
+  imageAlt?: string
   onClose: () => void
 }
 
 const FOCUSABLE = 'button, [href], video[controls], [tabindex]:not([tabindex="-1"])'
 
-export default function CityDrawer({ citySlug, title, videoSrc, onClose }: CityDrawerProps) {
+export default function CityDrawer({ citySlug, title, videoSrc, imageSrc, imageAlt, onClose }: CityDrawerProps) {
   const t = useTranslations('map.drawer')
   const reduceMotion = useReducedMotion()
   const panelRef = useRef<HTMLElement>(null)
@@ -107,6 +110,16 @@ export default function CityDrawer({ citySlug, title, videoSrc, onClose }: CityD
                 preload="none"
                 className="w-full bg-black"
                 src={asset(videoSrc)}
+              />
+            )}
+            {imageSrc && (
+              <Image
+                src={asset(imageSrc)}
+                alt={imageAlt ?? ''}
+                width={0}
+                height={0}
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="block h-auto w-full rounded-md"
               />
             )}
             {citySlug && t.has(`stories.${citySlug}.text`) && (
