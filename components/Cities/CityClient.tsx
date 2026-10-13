@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl'
 import { FaFacebook, FaTwitter } from 'react-icons/fa'
 import type { City } from '@/constants/cities'
 import { getRegionForCity } from '@/constants/regions'
-import { asset } from '@/utils/asset'
 import { useMediaQuery } from '@/utils/use-media-query'
 import { TerrainCanvasClient } from '@/components/TerrainMap'
 import EuropeMap from '@/components/Map/EuropeMap'
@@ -79,7 +78,7 @@ export default function CityClient({ city }: CityClientProps) {
         )}
         {city.stat && <RouteInfo slug={city.slug} stat={city.stat} />}
       </section>
-      <article className="mx-auto max-w-[44rem] px-5 py-16 leading-normal md:m-4 md:h-[calc(100dvh-2rem)] md:max-w-none md:overflow-y-auto md:relative md:z-[45] md:rounded-2xl md:bg-panel md:px-12 [&_a]:text-teal">
+      <article className="mx-auto max-w-176 px-5 py-16 leading-snug md:m-4 md:h-[calc(100dvh-2rem)] md:max-w-none md:overflow-y-auto md:relative md:z-45 md:rounded-2xl md:bg-panel md:px-12 [&_a]:text-teal">
         <header>
           <div className="flex gap-4">
             <a href="https://twitter.com/" aria-label={tShare('twitter')}>
@@ -100,17 +99,17 @@ export default function CityClient({ city }: CityClientProps) {
         </div>
         <div className="my-8 grid grid-cols-3 gap-x-3 gap-y-11">
           <div className="col-span-3">
-            <Image src={asset(hero)} alt={alt} width={0} height={0} loading="eager" sizes="(min-width: 768px) 50vw, 100vw" className="block h-auto w-full rounded-md" />
+            <Image src={hero} alt={alt} width={0} height={0} loading="eager" sizes="(min-width: 768px) 50vw, 100vw" className="block h-auto w-full rounded-md" />
           </div>
           {rest.map((src, index) => (
             <div key={index}>
-              <Image src={asset(src)} alt={alt} width={0} height={0} sizes="(min-width: 768px) 17vw, 33vw" className="block h-auto w-full rounded-md" />
+              <Image src={src} alt={alt} width={0} height={0} sizes="(min-width: 768px) 17vw, 33vw" className="block h-auto w-full rounded-md" />
             </div>
           ))}
         </div>
         <div className="mb-8 grid grid-cols-2 gap-x-3">
-          <Image src={asset(floatLeft)} alt={alt} width={0} height={0} sizes="(min-width: 768px) 25vw, 50vw" className="block h-auto w-full rounded-md" />
-          <Image src={asset(floatRight)} alt={alt} width={0} height={0} sizes="(min-width: 768px) 25vw, 50vw" className="block h-auto w-full rounded-md" />
+          <Image src={floatLeft} alt={alt} width={0} height={0} sizes="(min-width: 768px) 25vw, 50vw" className="block h-auto w-full rounded-md" />
+          <Image src={floatRight} alt={alt} width={0} height={0} sizes="(min-width: 768px) 25vw, 50vw" className="block h-auto w-full rounded-md" />
         </div>
       </article>
       <CityDrawer

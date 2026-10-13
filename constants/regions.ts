@@ -1,4 +1,3 @@
-import { asset } from '@/utils/asset'
 
 export interface RegionPoi {
   id: string
@@ -30,7 +29,7 @@ export interface Region {
 export const REGIONS: Region[] = [
   {
     id: 'germany',
-    heightmap: asset('/assets/images/map/heightmap-germany.png'),
+    heightmap: '/assets/images/map/heightmap-germany.png',
     width: 763,
     height: 1024,
     metresPerPixel: 867.2242332131668,
@@ -46,7 +45,7 @@ export const REGIONS: Region[] = [
   },
   {
     id: 'bosnia',
-    heightmap: asset('/assets/images/map/heightmap-bosnia.png'),
+    heightmap: '/assets/images/map/heightmap-bosnia.png',
     width: 1122,
     height: 1024,
     metresPerPixel: 301.204822115385,
@@ -63,7 +62,7 @@ export const REGIONS: Region[] = [
   },
   {
     id: 'bihac',
-    heightmap: asset('/assets/images/map/heightmap-bosnia.png'),
+    heightmap: '/assets/images/map/heightmap-bosnia.png',
     width: 1122,
     height: 1024,
     metresPerPixel: 301.204822115385,
@@ -79,7 +78,7 @@ export const REGIONS: Region[] = [
   },
   {
     id: 'austria',
-    heightmap: asset('/assets/images/map/heightmap-austria.png'),
+    heightmap: '/assets/images/map/heightmap-austria.png',
     width: 1200,
     height: 640,
     metresPerPixel: 490.82360225626036,
@@ -95,7 +94,7 @@ export const REGIONS: Region[] = [
   },
   {
     id: 'greece',
-    heightmap: asset('/assets/images/map/heightmap-greece.png'),
+    heightmap: '/assets/images/map/heightmap-greece.png',
     width: 1045,
     height: 1024,
     metresPerPixel: 791.6791478647151,
@@ -111,7 +110,7 @@ export const REGIONS: Region[] = [
   },
   {
     id: 'lesbos',
-    heightmap: asset('/assets/images/map/heightmap-lesbos.png'),
+    heightmap: '/assets/images/map/heightmap-lesbos.png',
     width: 1200,
     height: 855,
     metresPerPixel: 74.5556725652027,
@@ -127,7 +126,7 @@ export const REGIONS: Region[] = [
   },
   {
     id: 'syria',
-    heightmap: asset('/assets/images/map/heightmap-syria.png'),
+    heightmap: '/assets/images/map/heightmap-syria.png',
     width: 725,
     height: 1024,
     metresPerPixel: 721.3131911077762,

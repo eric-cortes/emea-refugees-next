@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { useCallback, useRef } from 'react'
 import { useTranslations } from 'next-intl'
 import { Drawer } from '@/components/UI'
-import { asset } from '@/utils/asset'
 
 interface CityDrawerProps {
   citySlug: string | null
@@ -39,12 +38,12 @@ export default function CityDrawer({ citySlug, title, videoSrc, imageSrc, imageA
           playsInline
           preload="none"
           className="w-full bg-black"
-          src={asset(videoSrc)}
+          src={videoSrc}
         />
       )}
       {imageSrc && (
         <Image
-          src={asset(imageSrc)}
+          src={imageSrc}
           alt={imageAlt ?? ''}
           width={0}
           height={0}
@@ -54,7 +53,7 @@ export default function CityDrawer({ citySlug, title, videoSrc, imageSrc, imageA
       )}
       {citySlug && t.has(`stories.${citySlug}.text`) && (
         <>
-          <p className="mt-6 leading-normal text-white/80">{t(`stories.${citySlug}.text`)}</p>
+          <p className="mt-6 leading-snug text-white/80">{t(`stories.${citySlug}.text`)}</p>
           <p className="mt-4 text-sm text-white/50">
             {t('source')} {t(`stories.${citySlug}.source`)}
           </p>

@@ -7,7 +7,6 @@ import { CITIES, getCity, getRoutePoints, type City } from '@/constants/cities'
 import { EUROPE_PATHS } from '@/constants/europe-paths'
 import TransitionLink from '@/components/Layout/TransitionLink'
 import { MapDot, Pill, PILL_CLASS, PILL_INTERACTIVE_CLASS } from '@/components/UI'
-import { asset } from '@/utils/asset'
 import { cn } from '@/utils/cn'
 import { usePrefersReducedMotion } from '@/utils/use-prefers-reduced-motion'
 import CityDrawer from './CityDrawer'
@@ -120,14 +119,14 @@ export default function MapClient() {
 
   return (
     <>
-      <div ref={container} className="relative h-dvh w-full overflow-hidden animate-fade-in bg-[url('/emea/assets/images/map/texture.jpg')] bg-fixed bg-cover bg-center bg-no-repeat">
+      <div ref={container} className="relative h-dvh w-full overflow-hidden animate-fade-in bg-[url('/assets/images/map/texture.jpg')] bg-fixed bg-cover bg-center bg-no-repeat">
         <EuropeMap className="block h-full w-full origin-center translate-y-16 scale-y-107 overflow-visible" preserveAspectRatio={aspect}>
           <clipPath id="hillshade-clip">
             {EUROPE_PATHS.map((p, i) => (
               <path key={p.id ?? i} d={p.d} />
             ))}
           </clipPath>
-          <image href={asset('/assets/images/map/hillshade.webp')} x={-55} y={-135} width={730} height={580} preserveAspectRatio="none" clipPath="url(#hillshade-clip)" className="pointer-events-none mix-blend-soft-light" aria-hidden="true" />
+          <image href={'/assets/images/map/hillshade.webp'} x={-55} y={-135} width={730} height={580} preserveAspectRatio="none" clipPath="url(#hillshade-clip)" className="pointer-events-none mix-blend-soft-light" aria-hidden="true" />
           <polyline ref={route} className="animate-draw fill-none stroke-teal opacity-80 [stroke-dasharray:2300] [stroke-dashoffset:2300] [stroke-width:0.7] motion-reduce:[stroke-dashoffset:0]" points={getRoutePoints()} onAnimationEnd={onDrawEnd} />
           {CITIES.map(city => (
             <circle key={city.slug} data-anchor={city.slug} className="pointer-events-none fill-transparent" cx={city.cx} cy={city.cy} r={0.01} />

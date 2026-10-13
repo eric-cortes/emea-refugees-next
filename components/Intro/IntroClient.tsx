@@ -3,7 +3,6 @@
 import { useTranslations } from 'next-intl'
 import TransitionLink from '@/components/Layout/TransitionLink'
 import { useRouteTransition } from '@/components/Layout/RouteTransitionBoundary'
-import { asset } from '@/utils/asset'
 
 export default function IntroClient() {
   const t = useTranslations('common')
@@ -12,7 +11,7 @@ export default function IntroClient() {
   return (
     <main className="fixed inset-0 bg-black">
       <video
-        src={asset('/assets/video/short.mp4')}
+        src={'/assets/video/short.mp4'}
         autoPlay
         muted
         playsInline

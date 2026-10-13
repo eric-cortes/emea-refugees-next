@@ -1,7 +1,6 @@
 import { routing, type Locale } from '@/i18n/routing'
-import { asset } from '@/utils/asset'
 
-export const SITE_URL = 'https://example.com/emea'
+export const SITE_URL = 'https://example.com'
 
 const DEFAULT_IMAGE = '/assets/images/map/texture.jpg'
 
@@ -29,7 +28,7 @@ export function buildPageMetadata(
   image: string = DEFAULT_IMAGE
 ) {
   const alternates = buildAlternates(locale, path)
-  const imageUrl = `${SITE_URL.replace(/\/emea$/, '')}${asset(image)}`
+  const imageUrl = `${SITE_URL}${image}`
   return {
     title,
     description,
