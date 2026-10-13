@@ -5,13 +5,19 @@ export interface CityStat {
   decimals?: number
 }
 
+export interface CityImage {
+  src: string
+  width: number
+  height: number
+}
+
 export interface City {
   slug: string
   cx: number
   cy: number
   type: CityType
   hasPage: boolean
-  images: string[]
+  images: CityImage[]
   video?: string
   stat?: CityStat
   lat?: number
@@ -20,15 +26,15 @@ export interface City {
 
 const VIDEO = '/assets/video/short.mp4'
 
-const BERLIN_IMAGES: string[] = [
-  '/assets/images/berlin/pic01.jpg',
-  '/assets/images/berlin/pic02.jpg',
-  '/assets/images/berlin/pic03.jpg',
-  '/assets/images/berlin/pic04.jpg',
-  '/assets/images/berlin/pic05.jpg',
-  '/assets/images/berlin/pic06.jpg',
-  '/assets/images/berlin/pic07.jpg',
-  '/assets/images/berlin/pic09.jpg',
+const BERLIN_IMAGES: CityImage[] = [
+  { src: '/assets/images/berlin/pic01.jpg', width: 1023, height: 683 },
+  { src: '/assets/images/berlin/pic02.jpg', width: 635, height: 357 },
+  { src: '/assets/images/berlin/pic03.jpg', width: 800, height: 542 },
+  { src: '/assets/images/berlin/pic04.jpg', width: 700, height: 394 },
+  { src: '/assets/images/berlin/pic05.jpg', width: 800, height: 450 },
+  { src: '/assets/images/berlin/pic06.jpg', width: 940, height: 529 },
+  { src: '/assets/images/berlin/pic07.jpg', width: 948, height: 536 },
+  { src: '/assets/images/berlin/pic09.jpg', width: 4103, height: 2310 },
 ]
 
 export const CITIES: City[] = [

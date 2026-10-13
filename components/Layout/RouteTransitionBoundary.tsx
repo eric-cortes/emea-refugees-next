@@ -1,13 +1,13 @@
 'use client'
 
 import type { ReactNode } from 'react'
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
+import { createContext, useCallback, useContext, useLayoutEffect, useMemo, useRef, useTransition } from 'react'
+import { animate } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { normalizePathname } from '@/utils/normalize-pathname'
 import { usePrefersReducedMotion } from '@/utils/use-prefers-reduced-motion'
 
-type TransitionPhase = 'idle' | 'fadingOut' | 'navigating' | 'fadingIn'
 type TransitionMode = 'push' | 'replace'
 
 type StartTransitionOptions = {
@@ -20,9 +20,7 @@ type RouteTransitionContextValue = {
   hasTransitionProvider: true
 }
 
-const FADE_OUT_SECONDS = 0.2
 const FADE_IN_SECONDS = 0.3
-const NAVIGATION_TIMEOUT_MS = 5000
 
 const RouteTransitionContext = createContext<RouteTransitionContextValue | undefined>(undefined)
 
@@ -48,17 +46,17 @@ export default function RouteTransitionBoundary({ children }: RouteTransitionBou
   const router = useRouter()
   const pathname = usePathname()
   const prefersReducedMotion = usePrefersReducedMotion()
-
-  const [phase, setPhase] = useState<TransitionPhase>('idle')
-  const [targetPath, setTargetPath] = useState<string | null>(null)
-  const [transitionMode, setTransitionMode] = useState<TransitionMode>('push')
+  const t = useTranslations('common')
+  const [isPending, startTransition] = useTransition()
+  const pageRef = useRef<HTMLDivElement>(null)
+  const previousPath = useRef(normalizePathname(pathname))
+  const fade = useRef<{ stop: () => void } | null>(null)
 
   const normalizedPathname = normalizePathname(pathname)
-  const isTransitioning = phase !== 'idle'
 
   const startRouteTransition = useCallback(
     (nextTargetPath: string, options?: StartTransitionOptions) => {
-      if (phase !== 'idle') {
+      if (isPending) {
         return
       }
 
@@ -70,96 +68,49 @@ export default function RouteTransitionBoundary({ children }: RouteTransitionBou
         return
       }
 
-      if (prefersReducedMotion) {
+      startTransition(() => {
         if (options?.mode === 'replace') router.replace(nextTargetPath)
         else router.push(nextTargetPath)
-        return
-      }
-
-      setTargetPath(nextTargetPath)
-      setTransitionMode(options?.mode ?? 'push')
-      setPhase('fadingOut')
+      })
     },
-    [normalizedPathname, phase, prefersReducedMotion, router]
+    [isPending, normalizedPathname, router]
   )
 
-  if (phase === 'navigating' && targetPath && normalizedPathname === normalizePathname(targetPath)) {
-    setPhase('fadingIn')
-  }
+  useLayoutEffect(() => {
+    if (previousPath.current === normalizedPathname) {
+      return
+    }
+    previousPath.current = normalizedPathname
 
-  useEffect(() => {
-    if (phase !== 'navigating') {
+    const element = pageRef.current
+    if (!element || prefersReducedMotion) {
       return
     }
 
-    const timeoutId = window.setTimeout(() => {
-      setPhase('fadingIn')
-    }, NAVIGATION_TIMEOUT_MS)
-
-    return () => {
-      window.clearTimeout(timeoutId)
-    }
-  }, [phase])
-
-  useEffect(() => {
-    if (phase === 'fadingOut' && targetPath) {
-      const delay = prefersReducedMotion ? 0 : FADE_OUT_SECONDS * 1000
-      const timeoutId = window.setTimeout(() => {
-        setPhase('navigating')
-        if (transitionMode === 'replace') {
-          router.replace(targetPath)
-        } else {
-          router.push(targetPath)
-        }
-      }, delay)
-      return () => window.clearTimeout(timeoutId)
-    }
-
-    if (phase === 'fadingIn') {
-      const delay = prefersReducedMotion ? 0 : FADE_IN_SECONDS * 1000
-      const timeoutId = window.setTimeout(() => {
-        setPhase('idle')
-        setTargetPath(null)
-      }, delay)
-      return () => window.clearTimeout(timeoutId)
-    }
-  }, [phase, prefersReducedMotion, router, targetPath, transitionMode])
+    fade.current?.stop()
+    element.style.opacity = '0'
+    const controls = animate(element, { opacity: 1 }, { duration: FADE_IN_SECONDS, ease: 'easeOut' })
+    fade.current = controls
+    controls.then(() => {
+      if (fade.current === controls) element.style.opacity = ''
+    })
+  }, [normalizedPathname, prefersReducedMotion])
 
   const contextValue = useMemo<RouteTransitionContextValue>(
     () => ({
       startRouteTransition,
-      isTransitioning,
+      isTransitioning: isPending,
       hasTransitionProvider: true,
     }),
-    [isTransitioning, startRouteTransition]
+    [isPending, startRouteTransition]
   )
 
   return (
     <RouteTransitionContext.Provider value={contextValue}>
-      {children}
-
-      <motion.div
-        aria-hidden
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: phase === 'fadingOut' || phase === 'navigating' ? 1 : 0,
-        }}
-        transition={{
-          duration: prefersReducedMotion
-            ? 0
-            : phase === 'fadingOut'
-              ? FADE_OUT_SECONDS
-              : FADE_IN_SECONDS,
-          ease: 'easeInOut',
-        }}
-        style={{
-          position: 'fixed',
-          inset: 0,
-          zIndex: 9999,
-          backgroundColor: '#000',
-          pointerEvents: isTransitioning ? 'auto' : 'none',
-        }}
-      />
+      <div ref={pageRef}>{children}</div>
+      <p role="status" aria-live="polite" className="sr-only">
+        {isPending ? t('routeLoading') : ''}
+      </p>
     </RouteTransitionContext.Provider>
   )
 }

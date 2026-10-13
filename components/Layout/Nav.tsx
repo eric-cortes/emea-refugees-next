@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { RxCross2, RxHamburgerMenu } from 'react-icons/rx'
 import { usePathname } from '@/i18n/navigation'
@@ -18,6 +18,24 @@ export default function Nav() {
   const routeKey = `${locale}:${currentPath}`
   const [openFor, setOpenFor] = useState<string | null>(null)
   const open = openFor === routeKey
+  const menuRef = useRef<HTMLDialogElement>(null)
+  const openerRef = useRef<HTMLButtonElement>(null)
+  const closeRef = useRef<HTMLButtonElement>(null)
+  const wasOpen = useRef(false)
+
+  useEffect(() => {
+    const menu = menuRef.current
+    if (!menu) return
+    if (open) {
+      if (!menu.open) menu.showModal()
+      closeRef.current?.focus()
+    } else {
+      if (menu.open) menu.close()
+      if (wasOpen.current) openerRef.current?.focus()
+    }
+    wasOpen.current = open
+  }, [open])
+
   const closeIfCurrent = (href: string) => {
     if (normalizePathname(href) === currentPath) {
       setOpenFor(null)
@@ -27,6 +45,7 @@ export default function Nav() {
   return (
     <nav aria-label={t('menu')}>
       <IconButton
+        ref={openerRef}
         variant="solid"
         onClick={() => setOpenFor(routeKey)}
         aria-expanded={open}
@@ -36,15 +55,18 @@ export default function Nav() {
       >
         <RxHamburgerMenu size={22} aria-hidden />
       </IconButton>
-      <div
+      <dialog
+        ref={menuRef}
         id="site-menu"
-        hidden={!open}
-        className={cn(
-          'fixed inset-0 z-[70] flex-col items-center justify-center gap-8 bg-black/90 text-white',
-          open ? 'flex' : 'hidden'
-        )}
+        aria-label={t('menu')}
+        onCancel={event => {
+          event.preventDefault()
+          setOpenFor(null)
+        }}
+        onClose={() => setOpenFor(null)}
+        className="fixed inset-0 m-0 hidden h-full max-h-none w-full max-w-none flex-col items-center justify-center gap-8 border-0 bg-black/90 p-0 text-white backdrop:bg-transparent open:flex"
       >
-        <IconButton variant="ghost" onClick={() => setOpenFor(null)} aria-label={t('close')} className="absolute top-4 right-4">
+        <IconButton ref={closeRef} variant="ghost" onClick={() => setOpenFor(null)} aria-label={t('close')} className="absolute top-4 right-4">
           <RxCross2 size={24} aria-hidden />
         </IconButton>
         <ul className="flex flex-col items-center gap-4 text-2xl uppercase tracking-[0.2em]">
@@ -94,7 +116,7 @@ export default function Nav() {
         >
           {t('sources')}
         </TransitionLink>
-      </div>
+      </dialog>
     </nav>
   )
 }

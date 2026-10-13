@@ -3,18 +3,19 @@
 import Image from 'next/image'
 import { useCallback, useRef } from 'react'
 import { useTranslations } from 'next-intl'
+import type { PoiImage } from '@/constants/regions'
 import { Drawer } from '@/components/UI'
 
 interface CityDrawerProps {
   citySlug: string | null
   title: string
   videoSrc?: string
-  imageSrc?: string
+  image?: PoiImage
   imageAlt?: string
   onClose: () => void
 }
 
-export default function CityDrawer({ citySlug, title, videoSrc, imageSrc, imageAlt, onClose }: CityDrawerProps) {
+export default function CityDrawer({ citySlug, title, videoSrc, image, imageAlt, onClose }: CityDrawerProps) {
   const t = useTranslations('map.drawer')
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -41,12 +42,12 @@ export default function CityDrawer({ citySlug, title, videoSrc, imageSrc, imageA
           src={videoSrc}
         />
       )}
-      {imageSrc && (
+      {image && (
         <Image
-          src={imageSrc}
+          src={image.src}
           alt={imageAlt ?? ''}
-          width={0}
-          height={0}
+          width={image.width}
+          height={image.height}
           sizes="(min-width: 768px) 40vw, 100vw"
           className="block h-auto w-full rounded-md"
         />

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { CityClient } from '@/components/Cities'
+import { CityView } from '@/components/Cities'
 import { getCity, PAGE_SLUGS } from '@/constants/cities'
 import { isLocale, routing } from '@/i18n/routing'
 import { buildPageMetadata } from '@/utils/seo'
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     `/cities/${slug}`,
     name,
     `${name}. ${t('meta.descriptionSuffix')}`,
-    city.images[0]
+    city.images[0]?.src
   )
 }
 
@@ -37,5 +37,5 @@ export default async function CityPage({ params }: Props) {
   if (!city?.hasPage) notFound()
   setRequestLocale(locale)
 
-  return <CityClient city={city} />
+  return <CityView city={city} />
 }

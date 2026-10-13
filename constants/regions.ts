@@ -1,11 +1,17 @@
 
+export interface PoiImage {
+  src: string
+  width: number
+  height: number
+}
+
 export interface RegionPoi {
   id: string
   lat: number
   lng: number
   cx: number
   cy: number
-  image: string
+  image: PoiImage
 }
 
 export interface Region {
@@ -58,7 +64,7 @@ export const REGIONS: Region[] = [
     exaggeration: 4,
     slabThickness: 14000,
     marker: 'sarajevo',
-    pois: [{ id: 'drina', lat: 44.19, lng: 19.37, cx: 313.83, cy: 260.82, image: '/assets/images/sarajevo/drina-placeholder.webp' }],
+    pois: [{ id: 'drina', lat: 44.19, lng: 19.37, cx: 313.83, cy: 260.82, image: { src: '/assets/images/sarajevo/drina-placeholder.webp', width: 992, height: 661 } }],
   },
   {
     id: 'bihac',

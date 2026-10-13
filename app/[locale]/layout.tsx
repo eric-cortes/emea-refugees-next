@@ -1,11 +1,33 @@
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
-import { NextIntlClientProvider } from 'next-intl'
+import { NextIntlClientProvider, type AbstractIntlMessages } from 'next-intl'
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { isLocale, routing } from '@/i18n/routing'
 import { buildPageMetadata } from '@/utils/seo'
 import './../globals.css'
+
+function pick(source: AbstractIntlMessages, keys: string[]): AbstractIntlMessages {
+  return Object.fromEntries(keys.filter(key => key in source).map(key => [key, source[key]]))
+}
+
+function pickClientMessages(messages: AbstractIntlMessages): AbstractIntlMessages {
+  const common = messages.common as AbstractIntlMessages
+  const map = messages.map as AbstractIntlMessages
+  const cities = messages.cities as AbstractIntlMessages
+  const stats = Object.fromEntries(
+    Object.entries(cities)
+      .filter(([, value]) => typeof value === 'object' && 'stat' in value)
+      .map(([slug, value]) => [slug, { stat: (value as AbstractIntlMessages).stat }])
+  )
+
+  return {
+    common: pick(common, ['nav', 'intro', 'site', 'routeLoading']),
+    map: pick(map, ['dot', 'drawer']),
+    mapTest: messages.mapTest,
+    cities: { ...pick(cities, ['names', 'statSourcePrefix']), ...stats },
+  }
+}
 
 interface Props {
   children: ReactNode
@@ -38,7 +60,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale}>
       <body suppressHydrationWarning>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={pickClientMessages(messages)}>
           {children}
         </NextIntlClientProvider>
       </body>

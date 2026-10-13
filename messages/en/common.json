@@ -35,5 +35,6 @@
     "back": "Back to the map"
   },
   "opensInNewTab": "(opens in a new tab)",
+  "routeLoading": "Loading page…",
   "floatingTitle": "Displaced Refugees"
 }

@@ -1,33 +1,23 @@
 'use client'
 
-import { useState, type KeyboardEvent } from 'react'
-import Image from 'next/image'
+import { useState, type KeyboardEvent, type ReactNode } from 'react'
 import { useTranslations } from 'next-intl'
-import { FaFacebook, FaTwitter } from 'react-icons/fa'
 import type { City } from '@/constants/cities'
 import { getRegionForCity } from '@/constants/regions'
 import { useMediaQuery } from '@/utils/use-media-query'
 import { TerrainCanvasClient } from '@/components/TerrainMap'
 import EuropeMap from '@/components/Map/EuropeMap'
 import CityDrawer from '@/components/Map/CityDrawer'
-import { MapDot, SectionHeading } from '@/components/UI'
+import { MapDot } from '@/components/UI'
 import CountryMap from './CountryMap'
 import RouteInfo from './RouteInfo'
 
-interface CityClientProps {
+interface CityMapProps {
   city: City
+  children: ReactNode
 }
 
-const PARAGRAPH_KEYS = Array.from({ length: 12 }, (_, index) => `p${index + 1}`)
-const GRID_ORDER = [0, 1, 5, 3, 4, 5, 6, 3, 7, 3]
-
-export default function CityClient({ city }: CityClientProps) {
-  const t = useTranslations(`cities.${city.slug}`)
-  const tShare = useTranslations('common.share')
-  const alt = t('imageAlt')
-  const [hero, ...rest] = GRID_ORDER.map(index => city.images[index % city.images.length])
-  const floatLeft = city.images[2]
-  const floatRight = city.images[1]
+export default function CityMap({ city, children }: CityMapProps) {
   const region = getRegionForCity(city.slug)
   const desktop = useMediaQuery('(min-width: 768px)')
   const tNames = useTranslations('cities.names')
@@ -78,44 +68,11 @@ export default function CityClient({ city }: CityClientProps) {
         )}
         {city.stat && <RouteInfo slug={city.slug} stat={city.stat} />}
       </section>
-      <article className="mx-auto max-w-176 px-5 py-16 leading-snug md:m-4 md:h-[calc(100dvh-2rem)] md:max-w-none md:overflow-y-auto md:relative md:z-45 md:rounded-2xl md:bg-panel md:px-12 [&_a]:text-teal">
-        <header>
-          <div className="flex gap-4">
-            <a href="https://twitter.com/" aria-label={tShare('twitter')}>
-              <FaTwitter size={22} aria-hidden />
-            </a>
-            <a href="https://facebook.com/" aria-label={tShare('facebook')}>
-              <FaFacebook size={22} aria-hidden />
-            </a>
-          </div>
-          <h1 className="my-2 text-[3rem]">{t('title')}</h1>
-          <p>
-            {t('byLabel')} <span className="text-teal">{t('author')}</span> | {t('date')}
-          </p>
-        </header>
-        <div>
-          <SectionHeading>{t('heading')}</SectionHeading>
-          <div className="space-y-4">{PARAGRAPH_KEYS.map(key => t.has(key) && <p key={key}>{t(key)}</p>)}</div>
-        </div>
-        <div className="my-8 grid grid-cols-3 gap-x-3 gap-y-11">
-          <div className="col-span-3">
-            <Image src={hero} alt={alt} width={0} height={0} loading="eager" sizes="(min-width: 768px) 50vw, 100vw" className="block h-auto w-full rounded-md" />
-          </div>
-          {rest.map((src, index) => (
-            <div key={index}>
-              <Image src={src} alt={alt} width={0} height={0} sizes="(min-width: 768px) 17vw, 33vw" className="block h-auto w-full rounded-md" />
-            </div>
-          ))}
-        </div>
-        <div className="mb-8 grid grid-cols-2 gap-x-3">
-          <Image src={floatLeft} alt={alt} width={0} height={0} sizes="(min-width: 768px) 25vw, 50vw" className="block h-auto w-full rounded-md" />
-          <Image src={floatRight} alt={alt} width={0} height={0} sizes="(min-width: 768px) 25vw, 50vw" className="block h-auto w-full rounded-md" />
-        </div>
-      </article>
+      {children}
       <CityDrawer
         citySlug={poi}
         title={poi ? tNames(poi) : ''}
-        imageSrc={activePoi?.image}
+        image={activePoi?.image}
         imageAlt={poi ? tDrawer(`images.${poi}`) : undefined}
         onClose={() => setPoi(null)}
       />
