@@ -38,7 +38,7 @@ export default function CityDrawer({ citySlug, title, videoSrc, image, imageAlt,
           controls
           playsInline
           preload="none"
-          className="w-full bg-black"
+          className="h-[60dvh] w-full bg-black object-cover"
           src={videoSrc}
         />
       )}

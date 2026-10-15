@@ -31,9 +31,6 @@ export default function CityArticle({ city }: CityArticleProps) {
           </a>
         </div>
         <h1 className="my-2 text-[3rem]">{t('title')}</h1>
-        <p>
-          {t('byLabel')} <span className="text-teal">{t('author')}</span> | {t('date')}
-        </p>
       </header>
       <div>
         <SectionHeading>{t('heading')}</SectionHeading>
