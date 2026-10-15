@@ -43,15 +43,8 @@
       }
     },
     "images": {
-      "drina": "Placeholder image, not the Drina"
+      "drina": "The Drina river seen from the air: the border between Serbia (left) and Bosnia and Herzegovina (right)"
     }
-  },
-  "project": {
-    "heading": "The Project",
-    "body1": "IOM, the UN migration agency, runs the Missing Migrants Project. It counts people who die or go missing on their way to another country, whatever their legal status. The work began after the shipwrecks off Lampedusa in October 2013. The count starts in 2014.",
-    "body2": "Since 2014, IOM has recorded 86,170 dead and missing worldwide (as of October 2026). These are minimum numbers: many deaths are never recorded. Each number is a person.",
-    "share": "Share this link & information:",
-    "link": "missingmigrants.iom.int"
   },
   "causes": {
     "heading": "Dead and missing by cause",
@@ -71,6 +64,7 @@
       "drowningHarsh": "Drowning and cold"
     },
     "total": "Total:",
-    "source": "Source: IOM Missing Migrants Project"
+    "source": "Source: IOM Missing Migrants Project",
+    "sourceLink": "missingmigrants.iom.int"
   }
 }

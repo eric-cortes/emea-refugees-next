@@ -19,12 +19,6 @@
     "explore": "Entdecken",
     "videoLabel": "Intro-Video"
   },
-  "footer": {
-    "copyright": "© VICE Media Ltd",
-    "social": "Soziale Netzwerke",
-    "imprint": "Impressum",
-    "sources": "Quellen"
-  },
   "share": {
     "twitter": "Auf Twitter teilen",
     "facebook": "Auf Facebook teilen"
@@ -35,6 +29,10 @@
     "back": "Zurück zur Karte"
   },
   "opensInNewTab": "(öffnet in neuem Tab)",
+  "photoCredit": {
+    "label": "Foto:",
+    "publicDomain": "Gemeinfrei"
+  },
   "routeLoading": "Seite wird geladen…",
   "floatingTitle": "Die Verdrängten Flüchtlinge"
 }

@@ -24,7 +24,12 @@
     "p3": "In 2015, 1.3 million people asked for asylum in Europe.",
     "p4": "Germany counted 476,649 asylum applications in 2015 and 745,545 in 2016. Its arrival system recorded about 1.1 million people in 2015; after removing double counts, the real number was around 890,000.",
     "p5": "According to the Border Violence Monitoring Network, Germany said in January 2016 that its capacity was exhausted and limited how many people it took in per day. This started a “domino effect”: one country after another along the route limited entry, until the corridor was gone.",
-    "imageAlt": "Photo from Berlin",
+    "images": {
+      "lageso-entrance": "Tents for asylum seekers at the entrance of LaGeSo on Turmstraße in Moabit, March 2016",
+      "lageso-waiting": "Refugees waiting next to a mobile X-ray unit at LaGeSo, March 2016",
+      "tempelhof-hangars": "The roofed apron in front of the hangars of the former Tempelhof airport, 2009",
+      "tempelhof-tempohome": "Container homes for refugees on the former Tempelhof airfield, 2019"
+    },
     "stat": {
       "suffix": " million",
       "label": "People who asked for asylum in Europe, 2015",
@@ -41,7 +46,12 @@
     "p4": "At Vienna’s main station, volunteers called themselves “Train of Hope”. They ran a kitchen, a first aid post, a legal desk and a missing persons desk. Their lists show 1,000 arrivals a day at the start of September 2015, rising to over 5,000. On 14 September alone, more than 5,000 people arrived.",
     "p5": "In 2015, Austria received 88,340 asylum applications, about three times as many as the year before. There were not enough places to sleep. Later, Austria built a fence at Spielfeld, on the border with Slovenia.",
     "p6": "A week earlier, on 27 August 2015, a truck was found parked on the A4 near Parndorf. Inside were 71 dead people: 59 men, 8 women and 4 children. They had suffocated.",
-    "imageAlt": "Photo from Vienna",
+    "images": {
+      "border-line": "Syrian refugees in a line at the border between Hungary and Austria, 6 September 2015",
+      "westbahnhof-welcome": "A welcome notice for refugees from the City of Vienna at Westbahnhof, September 2015",
+      "nickelsdorf": "An Austrian soldier hands out supplies to refugees in Nickelsdorf, September 2015",
+      "spielfeld": "An Austrian soldier at the Spielfeld border crossing as people walk past in the snow, January 2016"
+    },
     "stat": {
       "suffix": " days",
       "label": "From the Greek islands to Vienna through the 2015 corridor",
@@ -59,7 +69,11 @@
     "p5": "Few want to stay in Bosnia. The most named goals were Italy (29%), France (19%), Spain (15%) and Germany (12%). Afghans are turning away from Germany, which has become stricter about sending people back.",
     "p6": "70% of the people interviewed came to Bosnia through Serbia. The border between the two is the Drina river. On the night of 22 August 2024, a boat with about 30 people capsized there, near Ljubovija. IOM recorded 12 dead, one of them a child.",
     "p7": "“I wouldn’t wish this journey on my worst enemy,” said a person interviewed by the Mixed Migration Centre.",
-    "imageAlt": "Photo from Sarajevo",
+    "images": {
+      "panorama": "View over Sarajevo",
+      "old-town": "Sarajevo’s old town seen from Mount Trebević",
+      "railway-station": "Inside Sarajevo railway station"
+    },
     "stat": {
       "label": "Recorded violent pushbacks from Croatia into Bosnia, 2025",
       "source": "Mixed Migration Centre, 2026"
@@ -75,7 +89,12 @@
     "p4": "Camp Vučjak was built on a former landfill 10 km from Bihać, with no drinking water. It has since been closed. In 2019, more than 80% of the Border Violence Monitoring Network’s pushback reports showed torture or cruel treatment. On 23 December 2020, the Lipa camp near Bihać burned down; about 1,200 to 1,300 people had lived there.",
     "p5": "The border runs through mountains and forest. Many tried to cross over the Plješevica mountain. In January 2019, Croatian police rescued 15 people, six of them children, stuck in deep snow; police said they were “visibly hypothermic”. Since 2018, Bihać’s mountain rescue service has been searching for more and more lost people on the move. The forests also hide the war: Bosnia’s mine action centre suspects at least 20,000 mines in the Una-Sana canton. No person on the move has been reported killed by a mine in Bosnia. Across the border in Croatia, near Saborsko, a landmine killed a man from Pakistan in March 2021 and injured two others.",
     "p6": "In a corner of Bihać’s cemetery, about a dozen migrant graves are marked “NN”, for nomen nescio: name unknown. Lipa was rebuilt as a reception centre for 1,500 men. In April 2025, it was about 10% full; people stayed about ten days on average.",
-    "imageAlt": "Photo from Bihać",
+    "images": {
+      "una-river": "The Una river near Bihać",
+      "pljesevica": "The Plješevica mountain on the border between Croatia and Bosnia",
+      "pljesevica-view": "Forest seen from Plješevica near Bihać",
+      "lipa-village": "The village of Lipa near Bihać"
+    },
     "stat": {
       "label": "Pushback reports for Bosnia, 2019 (estimate, Centre for Peace Studies)",
       "source": "VICE, 16 March 2020"
@@ -92,7 +111,12 @@
     "p5": "On 24 May 2016, police began clearing Idomeni, home to about 8,400 people at the time. Buses took them to camps in old factory buildings near Thessaloniki. Two days later, about 4,000 were missing from the count: many had left on their own.",
     "p6": "In 2015, the EU promised to move 160,000 people from Greece and Italy to other EU countries. In the end, only 34,705 were moved, 21,999 of them from Greece.",
     "p7": "The route did not close. People looked for other, more dangerous ways. They call every try “the game”.",
-    "imageAlt": "Photo from Athens",
+    "images": {
+      "piraeus-camp": "Tents at gate E2 of the port of Piraeus, March 2016",
+      "idomeni-tents": "Tents in the mud at Idomeni, one painted with “Open the Border”, March 2016",
+      "idomeni-food-line": "Families wait in line for food at Idomeni, March 2016",
+      "diavata-camp": "Prefab shelters at the Diavata camp near Thessaloniki, July 2016"
+    },
     "stat": {
       "prefix": "~",
       "label": "People stuck in countries along the route after the borders closed, March 2016",
@@ -108,7 +132,12 @@
     "p3": "In 2015, 804 people died or went missing on the Eastern Mediterranean route. From September 2015 to January 2016 alone, it was 950. Near Lesbos, IOM recorded 295 dead and missing in 2015. These are minimum numbers: many deaths are never recorded.",
     "p4": "On some days in October 2015, up to 85 boats landed on Lesbos, most of them rubber boats with about 50 people each. At its narrowest, the water between Türkiye and the island’s north coast is only about 10 km wide. When the buses stopped, people walked the 70 km across the island to register at Moria.",
     "p5": "The registration site at Moria grew into a camp. By September 2020, about 13,000 people lived there, in a space built for just under 3,000. On the night of 8 September 2020, a fire destroyed most of it; thousands slept on the road to Mytilene.",
-    "imageAlt": "Photo from Lesbos",
+    "images": {
+      "boat-crossing": "Refugees in a rubber boat crossing from the Turkish coast to Lesbos, January 2016",
+      "boats-skala-sykamias": "Boats with refugees arriving at Skala Sykamias, Lesbos, October 2015",
+      "camp": "Refugees resting in the shade at a camp on Lesbos",
+      "moria-fence": "The fence on the outskirts of Moria camp, Lesbos, January 2017"
+    },
     "stat": {
       "label": "Dead and missing on the Eastern Mediterranean route, 2015",
       "source": "IOM Missing Migrants Project"

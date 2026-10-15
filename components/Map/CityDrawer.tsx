@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useCallback, useRef } from 'react'
 import { useTranslations } from 'next-intl'
 import type { PoiImage } from '@/constants/regions'
-import { Drawer } from '@/components/UI'
+import { Drawer, PhotoCredit } from '@/components/UI'
 
 interface CityDrawerProps {
   citySlug: string | null
@@ -43,14 +43,21 @@ export default function CityDrawer({ citySlug, title, videoSrc, image, imageAlt,
         />
       )}
       {image && (
-        <Image
-          src={image.src}
-          alt={imageAlt ?? ''}
-          width={image.width}
-          height={image.height}
-          sizes="(min-width: 768px) 40vw, 100vw"
-          className="block h-auto w-full rounded-md"
-        />
+        <figure>
+          <Image
+            src={image.src}
+            alt={imageAlt ?? ''}
+            width={image.width}
+            height={image.height}
+            sizes="(min-width: 768px) 40vw, 100vw"
+            className="block aspect-[3/2] h-auto w-full rounded-md object-cover"
+          />
+          {image.credit && (
+            <figcaption>
+              <PhotoCredit credit={image.credit} />
+            </figcaption>
+          )}
+        </figure>
       )}
       {citySlug && t.has(`stories.${citySlug}.text`) && (
         <>

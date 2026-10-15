@@ -1,8 +1,10 @@
+import type { PhotoCredit } from '@/constants/cities'
 
 export interface PoiImage {
   src: string
   width: number
   height: number
+  credit?: PhotoCredit
 }
 
 export interface RegionPoi {
@@ -64,7 +66,26 @@ export const REGIONS: Region[] = [
     exaggeration: 4,
     slabThickness: 14000,
     marker: 'sarajevo',
-    pois: [{ id: 'drina', lat: 44.19, lng: 19.37, cx: 313.83, cy: 260.82, image: { src: '/assets/images/sarajevo/drina-placeholder.webp', width: 992, height: 661 } }],
+    pois: [
+      {
+        id: 'drina',
+        lat: 44.19,
+        lng: 19.37,
+        cx: 313.83,
+        cy: 260.82,
+        image: {
+          src: '/assets/images/sarajevo/drina.jpg',
+          width: 1280,
+          height: 853,
+          credit: {
+            author: 'Vasilii Martynov',
+            license: 'CC0',
+            licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/deed.en',
+            source: 'https://commons.wikimedia.org/wiki/File:Drina_river_as_the_boundary_between_Serbia_(left)_and_Bosnia_and_Herzegovina_(right).jpg',
+          },
+        },
+      },
+    ],
   },
   {
     id: 'bihac',

@@ -19,12 +19,6 @@
     "explore": "Explore",
     "videoLabel": "Intro video"
   },
-  "footer": {
-    "copyright": "© VICE Media Ltd",
-    "social": "Social links",
-    "imprint": "Imprint",
-    "sources": "Sources"
-  },
   "share": {
     "twitter": "Share on Twitter",
     "facebook": "Share on Facebook"
@@ -35,6 +29,10 @@
     "back": "Back to the map"
   },
   "opensInNewTab": "(opens in a new tab)",
+  "photoCredit": {
+    "label": "Photo:",
+    "publicDomain": "Public domain"
+  },
   "routeLoading": "Loading page…",
   "floatingTitle": "Displaced Refugees"
 }

@@ -43,15 +43,8 @@
       }
     },
     "images": {
-      "drina": "Platzhalterbild, nicht die Drina"
+      "drina": "Die Drina aus der Luft: die Grenze zwischen Serbien (links) und Bosnien und Herzegowina (rechts)"
     }
-  },
-  "project": {
-    "heading": "Das Projekt",
-    "body1": "Die IOM, die UN-Organisation für Migration, betreibt das Missing Migrants Project. Es zählt Menschen, die auf dem Weg in ein anderes Land sterben oder vermisst werden, unabhängig von ihrem rechtlichen Status. Die Arbeit begann nach den Schiffbrüchen vor Lampedusa im Oktober 2013. Gezählt wird ab 2014.",
-    "body2": "Seit 2014 hat die IOM weltweit 86.170 Tote und Vermisste erfasst (Stand: Oktober 2026). Das sind Mindestzahlen: Viele Todesfälle werden nie erfasst. Hinter jeder Zahl steht ein Mensch.",
-    "share": "Diesen Link & diese Informationen teilen:",
-    "link": "missingmigrants.iom.int"
   },
   "causes": {
     "heading": "Tote und Vermisste nach Ursache",
@@ -71,6 +64,7 @@
       "drowningHarsh": "Ertrinken und Kälte"
     },
     "total": "Gesamt:",
-    "source": "Quelle: IOM Missing Migrants Project"
+    "source": "Quelle: IOM Missing Migrants Project",
+    "sourceLink": "missingmigrants.iom.int"
   }
 }

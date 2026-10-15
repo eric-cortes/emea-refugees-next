@@ -22,7 +22,7 @@ function pickClientMessages(messages: AbstractIntlMessages): AbstractIntlMessage
   )
 
   return {
-    common: pick(common, ['nav', 'intro', 'site', 'routeLoading']),
+    common: pick(common, ['nav', 'intro', 'site', 'routeLoading', 'photoCredit', 'opensInNewTab']),
     map: pick(map, ['dot', 'drawer']),
     mapTest: messages.mapTest,
     cities: { ...pick(cities, ['names', 'statSourcePrefix']), ...stats },

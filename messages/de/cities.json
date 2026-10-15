@@ -24,7 +24,12 @@
     "p3": "2015 suchten 1,3 Millionen Menschen in Europa Asyl.",
     "p4": "Deutschland zählte 2015 476.649 Asylanträge und 2016 745.545. Das Erfassungssystem registrierte 2015 rund 1,1 Millionen Ankünfte; ohne Doppelzählungen waren es etwa 890.000 Menschen.",
     "p5": "Laut dem Border Violence Monitoring Network erklärte Deutschland im Januar 2016, seine Kapazitäten seien erschöpft, und begrenzte die Zahl der Menschen, die es pro Tag aufnahm. Das löste einen „Dominoeffekt“ aus: Ein Land nach dem anderen entlang der Route schränkte die Einreise ein, bis es den Korridor nicht mehr gab.",
-    "imageAlt": "Foto aus Berlin",
+    "images": {
+      "lageso-entrance": "Zelte für Asylsuchende am Eingang des LaGeSo in der Turmstraße in Moabit, März 2016",
+      "lageso-waiting": "Geflüchtete warten neben einem Röntgenmobil am LaGeSo, März 2016",
+      "tempelhof-hangars": "Das überdachte Vorfeld vor den Hangars des ehemaligen Flughafens Tempelhof, 2009",
+      "tempelhof-tempohome": "Wohncontainer für Geflüchtete auf dem ehemaligen Flughafen Tempelhof, 2019"
+    },
     "stat": {
       "suffix": " Mio.",
       "label": "Asylsuchende in Europa, 2015",
@@ -41,7 +46,12 @@
     "p4": "Am Wiener Hauptbahnhof nannten sich Freiwillige „Train of Hope“. Sie betrieben eine Küche, eine Erste-Hilfe-Station, eine Rechtsberatung und einen Suchdienst für Vermisste. Ihre Listen zeigen Anfang September 2015 1.000 Ankünfte pro Tag, später über 5.000. Allein am 14. September kamen mehr als 5.000 Menschen an.",
     "p5": "2015 gingen in Österreich 88.340 Asylanträge ein, etwa dreimal so viele wie im Jahr davor. Es gab nicht genug Schlafplätze. Später baute Österreich einen Zaun in Spielfeld, an der Grenze zu Slowenien.",
     "p6": "Eine Woche davor, am 27. August 2015, wurde auf der A4 bei Parndorf ein abgestellter Lkw gefunden. Darin: 71 Tote, 59 Männer, 8 Frauen und 4 Kinder. Sie waren erstickt.",
-    "imageAlt": "Foto aus Wien",
+    "images": {
+      "border-line": "Syrische Geflüchtete in einer Schlange an der Grenze zwischen Ungarn und Österreich, 6. September 2015",
+      "westbahnhof-welcome": "Ein Willkommensaushang der Stadt Wien für Geflüchtete am Westbahnhof, September 2015",
+      "nickelsdorf": "Ein österreichischer Soldat verteilt Hilfsgüter an Geflüchtete in Nickelsdorf, September 2015",
+      "spielfeld": "Ein österreichischer Soldat am Grenzübergang Spielfeld, Menschen gehen im Schnee vorbei, Januar 2016"
+    },
     "stat": {
       "suffix": " Tage",
       "label": "Von den griechischen Inseln bis Wien über den Korridor 2015",
@@ -59,7 +69,11 @@
     "p5": "Kaum jemand will in Bosnien bleiben. Die meistgenannten Ziele waren Italien (29 %), Frankreich (19 %), Spanien (15 %) und Deutschland (12 %). Afghanen wenden sich von Deutschland ab, das bei Abschiebungen strenger geworden ist.",
     "p6": "70 % der Befragten kamen über Serbien nach Bosnien. Die Grenze zwischen beiden Ländern ist die Drina. In der Nacht zum 22. August 2024 kenterte dort bei Ljubovija ein Boot mit rund 30 Menschen. Die IOM zählte 12 Tote, darunter ein Kind.",
     "p7": "„Diese Reise würde ich nicht einmal meinem schlimmsten Feind wünschen“, sagte eine vom Mixed Migration Centre befragte Person.",
-    "imageAlt": "Foto aus Sarajevo",
+    "images": {
+      "panorama": "Blick über Sarajevo",
+      "old-town": "Sarajevos Altstadt vom Berg Trebević aus",
+      "railway-station": "Im Bahnhof von Sarajevo"
+    },
     "stat": {
       "label": "Erfasste gewaltsame Pushbacks aus Kroatien nach Bosnien, 2025",
       "source": "Mixed Migration Centre, 2026"
@@ -75,7 +89,12 @@
     "p4": "Das Camp Vučjak lag auf einer ehemaligen Mülldeponie 10 km von Bihać entfernt, ohne Trinkwasser. Es ist inzwischen geschlossen. 2019 zeigten über 80 % der Pushback-Berichte des Border Violence Monitoring Network Folter oder grausame Behandlung. Am 23. Dezember 2020 brannte das Camp Lipa bei Bihać ab; rund 1.200 bis 1.300 Menschen hatten dort gelebt.",
     "p5": "Die Grenze verläuft durch Berge und Wald. Viele versuchten, über den Berg Plješevica zu gehen. Im Januar 2019 rettete die kroatische Polizei 15 Menschen, darunter sechs Kinder, aus tiefem Schnee; laut Polizei waren sie „sichtlich unterkühlt“. Seit 2018 sucht die Bergrettung in Bihać immer öfter nach verirrten Menschen auf der Flucht. Die Wälder verbergen auch den Krieg: Bosniens Minenräumzentrum vermutet im Kanton Una-Sana mindestens 20.000 Minen. In Bosnien wurde bisher kein Mensch auf der Flucht durch eine Mine getötet gemeldet. Auf der kroatischen Seite, bei Saborsko, tötete im März 2021 eine Landmine einen Mann aus Pakistan und verletzte zwei weitere.",
     "p6": "In einer Ecke des Friedhofs von Bihać tragen rund ein Dutzend Gräber von Migranten die Buchstaben „NN“, für nomen nescio: Name unbekannt. Lipa wurde als Aufnahmezentrum für 1.500 Männer neu gebaut. Im April 2025 war es zu etwa 10 % belegt; die Menschen blieben im Schnitt rund zehn Tage.",
-    "imageAlt": "Foto aus Bihać",
+    "images": {
+      "una-river": "Die Una bei Bihać",
+      "pljesevica": "Das Plješevica-Gebirge an der Grenze zwischen Kroatien und Bosnien",
+      "pljesevica-view": "Wald, vom Plješevica-Gebirge bei Bihać aus gesehen",
+      "lipa-village": "Das Dorf Lipa bei Bihać"
+    },
     "stat": {
       "label": "Pushback-Berichte für Bosnien, 2019 (Schätzung, Centre for Peace Studies)",
       "source": "VICE, 16. März 2020"
@@ -92,7 +111,12 @@
     "p5": "Am 24. Mai 2016 begann die Polizei, Idomeni zu räumen, wo damals rund 8.400 Menschen lebten. Busse brachten sie in Lager in alten Industriegebäuden bei Thessaloniki. Zwei Tage später fehlten rund 4.000 Menschen in der Zählung: Viele waren auf eigene Faust gegangen.",
     "p6": "2015 versprach die EU, 160.000 Menschen aus Griechenland und Italien in andere EU-Länder umzusiedeln. Am Ende wurden nur 34.705 umgesiedelt, 21.999 davon aus Griechenland.",
     "p7": "Die Route war nicht geschlossen. Die Menschen suchten andere, gefährlichere Wege. Jeden Versuch nennen sie „das Game“.",
-    "imageAlt": "Foto aus Athen",
+    "images": {
+      "piraeus-camp": "Zelte am Tor E2 im Hafen von Piräus, März 2016",
+      "idomeni-tents": "Zelte im Schlamm in Idomeni, auf einem steht „Open the Border“, März 2016",
+      "idomeni-food-line": "Familien stehen in Idomeni für Essen an, März 2016",
+      "diavata-camp": "Fertigbau-Unterkünfte im Lager Diavata bei Thessaloniki, Juli 2016"
+    },
     "stat": {
       "prefix": "~",
       "label": "Festsitzende Menschen entlang der Route nach den Grenzschließungen, März 2016",
@@ -108,7 +132,12 @@
     "p3": "2015 starben auf der östlichen Mittelmeerroute 804 Menschen oder gelten als vermisst. Allein von September 2015 bis Januar 2016 waren es 950. Rund um Lesbos zählte die IOM 2015 295 Tote und Vermisste. Das sind Mindestzahlen: Viele Todesfälle werden nie erfasst.",
     "p4": "An manchen Tagen im Oktober 2015 landeten bis zu 85 Boote auf Lesbos, die meisten Schlauchboote mit rund 50 Menschen. An der engsten Stelle ist das Wasser zwischen der Türkei und der Nordküste der Insel nur etwa 10 km breit. Als keine Busse mehr fuhren, liefen Menschen 70 km quer über die Insel, um sich in Moria registrieren zu lassen.",
     "p5": "Aus der Registrierstelle Moria wurde ein Lager. Im September 2020 lebten dort rund 13.000 Menschen, auf einer Fläche für knapp 3.000. In der Nacht zum 9. September 2020 zerstörte ein Feuer den größten Teil davon; Tausende schliefen auf der Straße nach Mytilini.",
-    "imageAlt": "Foto aus Lesbos",
+    "images": {
+      "boat-crossing": "Geflüchtete in einem Schlauchboot auf dem Weg von der türkischen Küste nach Lesbos, Januar 2016",
+      "boats-skala-sykamias": "Boote mit Geflüchteten erreichen Skala Sykamias auf Lesbos, Oktober 2015",
+      "camp": "Geflüchtete ruhen sich in einem Lager auf Lesbos im Schatten aus",
+      "moria-fence": "Der Zaun am Rand des Lagers Moria auf Lesbos, Januar 2017"
+    },
     "stat": {
       "label": "Tote und Vermisste auf der östlichen Mittelmeerroute, 2015",
       "source": "IOM Missing Migrants Project"

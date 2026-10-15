@@ -1,10 +1,12 @@
-import { getFormatter, getTranslations } from 'next-intl/server'
-import { SectionHeading } from '@/components/UI'
+import { getTranslations } from 'next-intl/server'
+import { ExternalLink, SectionHeading } from '@/components/UI'
 import { ROUTE_CAUSES } from '@/constants/causes'
+import AnimatedBar from './AnimatedBar'
+import CountUp from './CountUp'
 
 export default async function CauseChart() {
   const t = await getTranslations('map.causes')
-  const format = await getFormatter()
+  const tc = await getTranslations('common')
 
   return (
     <section>
@@ -16,25 +18,30 @@ export default async function CauseChart() {
           <div key={route.key}>
             <h3 className="mt-6 mb-2 text-base font-semibold">{t(`routes.${route.key}`)}</h3>
             <ul className="m-0 list-none space-y-2 p-0">
-              {route.causes.map(cause => (
+              {route.causes.map((cause, index) => (
                 <li key={cause.key}>
                   <div className="flex justify-between gap-4">
                     <span className="text-sm">{t(`labels.${cause.key}`)}</span>
-                    <span className="text-sm tabular-nums">{format.number(cause.value)}</span>
+                    <span className="text-sm">
+                      <CountUp value={cause.value} delay={index * 80} />
+                    </span>
                   </div>
-                  <div aria-hidden className="h-2 w-full rounded-full bg-white/10">
-                    <div className="h-2 rounded-full bg-teal" style={{ width: `${(cause.value / max) * 100}%` }} />
-                  </div>
+                  <AnimatedBar percent={(cause.value / max) * 100} delay={index * 80} />
                 </li>
               ))}
             </ul>
-            <p className="text-sm opacity-70">
-              {t('total')} {format.number(route.total)}
+            <p className="mt-3 text-sm opacity-70">
+              {t('total')} <CountUp value={route.total} />
             </p>
           </div>
         )
       })}
-      <p className="text-xs opacity-60">{t('source')}</p>
+      <p className="mt-6 text-xs opacity-60">{t('source')}</p>
+      <p className="mt-1 text-xs">
+        <ExternalLink href="https://missingmigrants.iom.int/" newTabLabel={tc('opensInNewTab')}>
+          {t('sourceLink')}
+        </ExternalLink>
+      </p>
     </section>
   )
 }
