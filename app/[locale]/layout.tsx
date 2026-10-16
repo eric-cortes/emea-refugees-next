@@ -59,6 +59,9 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/fko0dwd.css" />
+      </head>
       <body suppressHydrationWarning>
         <NextIntlClientProvider locale={locale} messages={pickClientMessages(messages)}>
           {children}

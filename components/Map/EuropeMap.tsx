@@ -10,9 +10,9 @@ interface EuropeMapProps {
 }
 
 const FILL_BY_ID: Record<string, string> = {
-  DE: 'fill-[#181818]',
-  BA: 'fill-[#181818]',
-  SY: 'fill-[#181818]',
+  DE: 'fill-[#222]',
+  BA: 'fill-[#222]',
+  SY: 'fill-[#222]',
   AT: 'fill-[#222]',
   GR: 'fill-[#222]',
 }
