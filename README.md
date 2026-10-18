@@ -4,7 +4,7 @@ A bilingual (English and German) site about refugee routes across Europe, built 
 
 ## About
 
-The site is titled "#DieVerdrängtenFlüchtlinge" ("Displaced Refugees"). It is an interactive journey along the Balkan route, the refugee route from Lesbos to Berlin.
+The site is titled "#DieVerdrängtenFlüchtlinge" ("Displaced Refugees"). It is an interactive journey along the Balkan route, the refugee route from Lesbos to Berlin. It was initially made for Vice Media Global and the editorial team.
 
 - **Intro** (`/`): an intro page with a video.
 - **Map** (`/map/`): an interactive map of Europe. The main route follows the Balkan route through five cities in order: Lesbos, Athens, Sarajevo, Vienna, and Berlin. Extra stops (Damascus, Lampedusa, Rome, Budapest, Prague, Warsaw, Evros, and Drina) show a short fact and source in a drawer. A chart shows dead and missing people by cause on the Western Balkans route and the Türkiye–Europe land route, based on IOM Missing Migrants Project data.
