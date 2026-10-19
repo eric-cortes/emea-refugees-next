@@ -6,6 +6,8 @@ A bilingual (English and German) site about refugee routes across Europe, built 
 
 ![Sarajevo city page with a 3D terrain map of Bosnia and an article](./docs/2.png)
 
+![Berlin city page with a 3D terrain map of Germany and an article](./docs/3.png)
+
 ## About
 
 The site is titled "#DieVerdrängtenFlüchtlinge" ("Displaced Refugees"). It is an interactive journey along the Balkan route, the refugee route from Lesbos to Berlin. It was initially made for Vice Media Global and the editorial team.
