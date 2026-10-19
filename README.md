@@ -1,6 +1,10 @@
-# EMEA Refugees
+# EMEA Balkan route
 
 A bilingual (English and German) site about refugee routes across Europe, built with Next.js App Router, React, TypeScript, Tailwind CSS, next-intl, Framer Motion, and React Three Fiber.
+
+![Map of Europe with the Balkan route and a chart of dead and missing by cause](./docs/1.png)
+
+![Sarajevo city page with a 3D terrain map of Bosnia and an article](./docs/2.png)
 
 ## About
 
