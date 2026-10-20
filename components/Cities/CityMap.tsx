@@ -36,8 +36,8 @@ export default function CityMap({ city, children }: CityMapProps) {
 
   return (
     <div className="md:grid md:grid-cols-2 md:items-start">
-      <section className="relative h-[80vh] overflow-hidden bg-bg md:sticky md:top-0 md:h-dvh">
-        <div className={region ? 'absolute inset-0 overflow-hidden md:hidden' : 'absolute inset-0 overflow-hidden'}>
+      <section className="relative h-[80vh] bg-bg md:sticky md:top-0 md:h-dvh">
+        <div className={region ? 'absolute inset-0 md:hidden' : 'absolute inset-0'}>
           {city.slug === 'berlin' ? (
             <CountryMap cx={820} cy={470} />
           ) : (

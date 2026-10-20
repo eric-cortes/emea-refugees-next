@@ -23,7 +23,7 @@ export default function RouteInfo({ slug, stat }: RouteInfoProps) {
   }).format(stat.value)
 
   return (
-    <div className="pointer-events-none absolute bottom-8 left-1/2 z-3 flex w-[calc(100%-2rem)] max-w-[18rem] -translate-x-1/2 flex-col items-center text-center [overflow-wrap:anywhere]">
+    <div className="pointer-events-none absolute bottom-8 md:bottom-4 left-1/2 z-3 flex w-[calc(100%-2rem)] max-w-[18rem] -translate-x-1/2 flex-col items-center text-center [overflow-wrap:anywhere] rounded-2xl bg-black/50 px-4 py-3">
       <p className="m-0 text-[1.25rem] font-semibold">
         {t.has('prefix') && t('prefix')}
         <span aria-hidden="true">

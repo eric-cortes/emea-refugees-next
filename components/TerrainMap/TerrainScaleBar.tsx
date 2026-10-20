@@ -1,6 +1,7 @@
 'use client'
 
 import { useFormatter, useTranslations } from 'next-intl'
+import { Tooltip } from '@/components/UI'
 
 interface Props {
   kmPerPixel: number
@@ -30,10 +31,9 @@ export default function TerrainScaleBar({ kmPerPixel }: Props) {
 
   return (
     <div
-      title={t('label')}
       aria-label={t('label')}
       role="img"
-      className="w-44 rounded-2xl bg-black/70 p-3 text-xs text-white/80"
+      className="group pointer-events-auto relative w-44 rounded-2xl bg-black/70 p-3 text-xs text-white/80"
     >
       <div className="relative h-8 transition-opacity" style={{ width, opacity: valid ? 1 : 0 }}>
         <div className="flex h-2 border border-white">
@@ -52,6 +52,7 @@ export default function TerrainScaleBar({ kmPerPixel }: Props) {
           </span>
         ))}
       </div>
+      <Tooltip label={t('label')} />
     </div>
   )
 }

@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useTranslations } from 'next-intl'
-import { RxReset } from 'react-icons/rx'
+import { RxHand, RxReset } from 'react-icons/rx'
 import { getCity } from '@/constants/cities'
-import { IconButton, Pill, PILL_CLASS, PILL_INTERACTIVE_CLASS } from '@/components/UI'
+import { IconButton, Pill, PILL_CLASS, PILL_INTERACTIVE_CLASS, Tooltip } from '@/components/UI'
 import { getRegion } from '@/constants/regions'
 import { buildTerrainGeometry, type TerrainGeometryData } from './build-terrain-geometry'
 import { cn } from '@/utils/cn'
@@ -51,6 +51,7 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
   const [attempt, setAttempt] = useState(0)
   const [resetSignal, setResetSignal] = useState(0)
   const [view, setView] = useState<ViewState>({ azimuth: 0, kmPerPixel: 0 })
+  const [rotating, setRotating] = useState(false)
   const labelRef = useRef<HTMLSpanElement>(null)
   const poiRefs = useRef<(HTMLButtonElement | null)[]>([])
 
@@ -137,6 +138,7 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
             resetSignal={resetSignal}
             zoom={zoom}
             onViewChange={setView}
+            onRotateChange={setRotating}
             labelRef={labelRef}
             pois={pois}
             poiRefs={poiRefs}
@@ -170,6 +172,17 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
             <TerrainLegend />
           </div>
           <div className="pointer-events-none absolute right-0 top-0 z-20 flex items-center gap-2 p-4">
+            <div
+              role="img"
+              aria-label={t('rotateHint')}
+              className={cn(
+                'group pointer-events-auto relative flex h-12 w-12 items-center justify-center rounded-full bg-black/70 text-white/80 transition-opacity duration-300 motion-reduce:transition-none',
+                rotating ? 'opacity-50' : 'opacity-100'
+              )}
+            >
+              <RxHand aria-hidden />
+              <Tooltip label={t('rotateHint')} />
+            </div>
             <TerrainScaleBar kmPerPixel={view.kmPerPixel} />
             <TerrainCompass azimuth={view.azimuth} />
             <IconButton
@@ -177,10 +190,10 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
               size="lg"
               onClick={() => setResetSignal(value => value + 1)}
               aria-label={t('reset')}
-              title={t('reset')}
-              className="pointer-events-auto"
+              className="group pointer-events-auto relative"
             >
               <RxReset aria-hidden />
+              <Tooltip label={t('reset')} />
             </IconButton>
           </div>
         </>

@@ -13,6 +13,7 @@
     "syria": "Syria"
   },
   "reset": "Reset view",
+  "rotateHint": "Drag to rotate",
   "legend": {
     "title": "Elevation"
   },

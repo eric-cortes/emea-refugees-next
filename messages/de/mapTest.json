@@ -12,7 +12,8 @@
     "lesbos": "Lesbos",
     "syria": "Syrien"
   },
-  "reset": "Ansicht zurücksetzen",
+  "reset": "Zurücksetzen",
+  "rotateHint": "Ziehen zum Drehen",
   "legend": {
     "title": "Höhe"
   },

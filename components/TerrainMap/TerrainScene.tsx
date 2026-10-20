@@ -42,6 +42,7 @@ interface Props {
   poiRefs?: RefObject<(HTMLButtonElement | null)[]>
   zoom?: boolean
   onViewChange?: (view: ViewState) => void
+  onRotateChange?: (rotating: boolean) => void
 }
 
 interface Animation {
@@ -94,7 +95,7 @@ function fitCamera(terrain: TerrainGeometryData, region: Region, fov: number, as
 
 const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2)
 
-export default function TerrainScene({ terrain, heightmap, region, exaggeration, resetSignal, marker, labelRef, pois = [], poiRefs, zoom = true, onViewChange }: Props) {
+export default function TerrainScene({ terrain, heightmap, region, exaggeration, resetSignal, marker, labelRef, pois = [], poiRefs, zoom = true, onViewChange, onRotateChange }: Props) {
   const reducedMotion = usePrefersReducedMotion()
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null)
   const markerGroup = useRef<Group>(null)
@@ -393,6 +394,8 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
         enableDamping
         dampingFactor={0.08}
         maxPolarAngle={Math.PI / 2}
+        onStart={() => onRotateChange?.(true)}
+        onEnd={() => onRotateChange?.(false)}
       />
     </>
   )
