@@ -17,6 +17,22 @@
   "legend": {
     "title": "Elevation"
   },
+  "season": {
+    "label": "Map colouring",
+    "elevation": "Elevation",
+    "winter": "Winter",
+    "spring": "Spring",
+    "summer": "Summer",
+    "autumn": "Autumn",
+    "names": {
+      "winter": "Winter (Dec–Feb)",
+      "spring": "Spring (Mar–May)",
+      "summer": "Summer (Jun–Aug)",
+      "autumn": "Autumn (Sep–Nov)"
+    },
+    "legendTitle": "Usual temperature · {season}",
+    "lapseNote": "{value} °C per 1,000 m height"
+  },
   "compass": {
     "label": "North",
     "north": "N"

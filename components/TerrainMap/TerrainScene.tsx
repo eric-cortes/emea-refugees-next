@@ -10,6 +10,7 @@ import { usePrefersReducedMotion } from '@/utils/use-prefers-reduced-motion'
 import { applyExaggeration, worldHeight, type TerrainGeometryData } from './build-terrain-geometry'
 import { regionScale } from './region-scale'
 import { sampleElevation, type HeightmapData } from './load-heightmap'
+import { applySeasonColours, type Season } from './season-temperatures'
 
 const DURATION_MS = 600
 const RESET_DURATION_MS = 700
@@ -41,6 +42,7 @@ interface Props {
   pois?: RegionPoi[]
   poiRefs?: RefObject<(HTMLButtonElement | null)[]>
   zoom?: boolean
+  season?: Season | null
   onViewChange?: (view: ViewState) => void
   onRotateChange?: (rotating: boolean) => void
 }
@@ -95,7 +97,7 @@ function fitCamera(terrain: TerrainGeometryData, region: Region, fov: number, as
 
 const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2)
 
-export default function TerrainScene({ terrain, heightmap, region, exaggeration, resetSignal, marker, labelRef, pois = [], poiRefs, zoom = true, onViewChange, onRotateChange }: Props) {
+export default function TerrainScene({ terrain, heightmap, region, exaggeration, resetSignal, marker, labelRef, pois = [], poiRefs, zoom = true, season = null, onViewChange, onRotateChange }: Props) {
   const reducedMotion = usePrefersReducedMotion()
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null)
   const markerGroup = useRef<Group>(null)
@@ -192,6 +194,17 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
       if (group) group.position.y = worldHeight(spot.elevation, current.current)
     })
   }, [poiSpots])
+
+  const firstColours = useRef(true)
+  useLayoutEffect(() => {
+    // The geometry is built with elevation colours, so the first pass has nothing to do
+    if (firstColours.current) {
+      firstColours.current = false
+      if (!season) return
+    }
+    applySeasonColours(terrain, region.id, season)
+    invalidate()
+  }, [terrain, region.id, season])
 
   const fitted = useRef(false)
   useLayoutEffect(() => {

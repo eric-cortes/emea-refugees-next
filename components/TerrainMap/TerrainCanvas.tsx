@@ -11,9 +11,12 @@ import { buildTerrainGeometry, type TerrainGeometryData } from './build-terrain-
 import { cn } from '@/utils/cn'
 import { loadHeightmap, type HeightmapData } from './load-heightmap'
 import { regionScale } from './region-scale'
+import { bandRange, hasSeasonData, type Season } from './season-temperatures'
 import TerrainCompass from './TerrainCompass'
 import TerrainLegend from './TerrainLegend'
 import TerrainScaleBar from './TerrainScaleBar'
+import TerrainSeasonSwitch from './TerrainSeasonSwitch'
+import TerrainTemperatureLegend from './TerrainTemperatureLegend'
 import TerrainScene, { type ViewState } from './TerrainScene'
 import TerrainStatus, { type TerrainStatusState } from './TerrainStatus'
 
@@ -52,6 +55,7 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
   const [resetSignal, setResetSignal] = useState(0)
   const [view, setView] = useState<ViewState>({ azimuth: 0, kmPerPixel: 0 })
   const [rotating, setRotating] = useState(false)
+  const [season, setSeason] = useState<Season | null>(null)
   const labelRef = useRef<HTMLSpanElement>(null)
   const poiRefs = useRef<(HTMLButtonElement | null)[]>([])
 
@@ -97,6 +101,8 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
     return () => geometry?.dispose()
   }, [loaded])
 
+  const bands = loaded && season && hasSeasonData(regionId) ? bandRange(loaded.terrain, regionId, season) : null
+
   const retry = useCallback(() => {
     setLoaded(null)
     setState('loading')
@@ -112,6 +118,7 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
   const scale = regionScale(region)
   const pois = region.pois ?? []
   const ready = state === 'ready' && loaded !== null
+  const seasonal = hasSeasonData(region.id)
 
   return (
     <>
@@ -137,6 +144,7 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
             exaggeration={region.exaggeration}
             resetSignal={resetSignal}
             zoom={zoom}
+            season={seasonal ? season : null}
             onViewChange={setView}
             onRotateChange={setRotating}
             labelRef={labelRef}
@@ -168,10 +176,17 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
               <Pill name={tc(poi.id)} tone="red" />
             </button>
           ))}
-          <div className="pointer-events-none absolute left-0 top-0 z-20 p-4">
-            <TerrainLegend />
+          <div className="pointer-events-none absolute left-0 top-0 z-20 flex flex-col items-start gap-2 p-4">
+            {seasonal && <TerrainSeasonSwitch season={season} onChange={setSeason} />}
+            {seasonal && season && bands ? (
+              <TerrainTemperatureLegend season={season} first={bands.first} last={bands.last} />
+            ) : (
+              <TerrainLegend />
+            )}
           </div>
           <div className="pointer-events-none absolute right-0 top-0 z-20 flex items-center gap-2 p-4">
+            <TerrainScaleBar kmPerPixel={view.kmPerPixel} />
+            <TerrainCompass azimuth={view.azimuth} />
             <div
               role="img"
               aria-label={t('rotateHint')}
@@ -183,8 +198,6 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
               <RxHand aria-hidden />
               <Tooltip label={t('rotateHint')} />
             </div>
-            <TerrainScaleBar kmPerPixel={view.kmPerPixel} />
-            <TerrainCompass azimuth={view.azimuth} />
             <IconButton
               variant="solid"
               size="lg"

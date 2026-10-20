@@ -17,6 +17,22 @@
   "legend": {
     "title": "Höhe"
   },
+  "season": {
+    "label": "Kartenfärbung",
+    "elevation": "Höhe",
+    "winter": "Winter",
+    "spring": "Frühling",
+    "summer": "Sommer",
+    "autumn": "Herbst",
+    "names": {
+      "winter": "Winter (Dez–Feb)",
+      "spring": "Frühling (Mär–Mai)",
+      "summer": "Sommer (Jun–Aug)",
+      "autumn": "Herbst (Sep–Nov)"
+    },
+    "legendTitle": "Übliche Temperatur · {season}",
+    "lapseNote": "{value} °C pro 1.000 m Höhe"
+  },
   "compass": {
     "label": "Norden",
     "north": "N"
