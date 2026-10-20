@@ -178,7 +178,7 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
               <Pill name={tc(poi.id)} tone="red" />
             </button>
           ))}
-          <div className="pointer-events-none absolute left-0 top-0 z-20 flex flex-col items-start gap-2 p-4">
+          <div className="pointer-events-none absolute left-0 top-16 z-20 flex flex-col items-start gap-2 p-4 min-[1540px]:top-0">
             {seasonal && (
               <TerrainSeasonSwitch
                 season={season}
@@ -201,7 +201,7 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
               )}
             </TerrainLegendBox>
           </div>
-          <div className="pointer-events-none absolute right-0 top-0 z-20 flex items-center gap-2 p-4">
+          <div className="pointer-events-none absolute left-0 top-0 z-20 min-[1540px]:left-auto min-[1540px]:right-0 flex items-center gap-2 p-4">
             <TerrainScaleBar kmPerPixel={view.kmPerPixel} />
             <TerrainCompass azimuth={view.azimuth} />
             <div

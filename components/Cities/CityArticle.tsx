@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { FaFacebook, FaTwitter } from 'react-icons/fa'
 import type { City, CityImage } from '@/constants/cities'
 import { PhotoCredit, SectionHeading } from '@/components/UI'
+import ShareLinks from './ShareLinks'
 
 interface CityArticleProps {
   city: City
@@ -17,17 +17,10 @@ export default function CityArticle({ city }: CityArticleProps) {
   const getAlt = (image: CityImage) => t(`images.${image.altKey}`)
 
   return (
-    <article className="mx-auto max-w-176 px-5 py-16 text-[0.9375rem] leading-tight md:m-4 md:h-[calc(100dvh-2rem)] md:max-w-none md:overflow-y-auto md:relative md:z-45 md:rounded-2xl md:bg-panel md:px-12 [&_a]:text-teal">
+    <article className="animate-fade-in mx-auto max-w-176 px-5 py-16 text-[0.9375rem] leading-tight md:m-4 md:h-[calc(100dvh-2rem)] md:max-w-none md:overflow-y-auto md:relative md:z-45 md:rounded-2xl md:bg-panel md:px-12 [&_a]:text-teal">
       <header>
-        <div className="flex gap-3">
-          <a href="https://twitter.com/" aria-label={tShare('twitter')}>
-            <FaTwitter size={18} aria-hidden />
-          </a>
-          <a href="https://facebook.com/" aria-label={tShare('facebook')}>
-            <FaFacebook size={18} aria-hidden />
-          </a>
-        </div>
         <h1 className="my-2 text-[2.25rem]">{t('title')}</h1>
+        <ShareLinks text={t('title')} twitterLabel={tShare('twitter')} facebookLabel={tShare('facebook')} />
       </header>
       <div>
         <SectionHeading className="text-[1.3rem]">{t('heading')}</SectionHeading>
