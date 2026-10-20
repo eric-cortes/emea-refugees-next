@@ -13,7 +13,7 @@ export const SOURCE_GROUPS: { key: 'data' | 'reports' | 'reporting'; items: Sour
       { title: 'UNHCR – Italy sea arrivals, December 2016', url: 'https://data.unhcr.org/en/documents/download/53099' },
       { title: 'Eurostat – Temporary protection for persons fleeing Ukraine', url: 'https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20250910-1' },
       { title: 'EUAA – Asylum Report 2026', url: 'https://www.euaa.europa.eu/asylum-report-2026/box-4-temporary-protection-displaced-persons-ukraine' },
-      { title: 'DWD – Deutscher Wetterdienst, area-mean temperatures Germany 1991–2020', url: 'https://www.dwd.de/DE/leistungen/zeitreihen/zeitreihen.html' },
+      { title: 'Open-Meteo – Historical Weather API (ERA5 reanalysis), daily mean temperature 1991–2020', url: 'https://open-meteo.com/en/docs/historical-weather-api' },
       { title: 'bpb – Asylanträge in Deutschland', url: 'https://www.bpb.de/gesellschaft/migration/flucht/265708/asylantraege-und-asylsuchende' },
     ],
   },

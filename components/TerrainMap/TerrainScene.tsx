@@ -3,16 +3,17 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, type ComponentRef, type RefObject } from 'react'
 import { invalidate, useFrame, useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import { MathUtils, Spherical, Vector3, type Group, type Object3D, type PerspectiveCamera } from 'three'
+import { MathUtils, Spherical, Vector3, type BufferAttribute, type Group, type Object3D, type PerspectiveCamera } from 'three'
 import type { Region, RegionPoi } from '@/constants/regions'
 import { projectLaea } from '@/utils/laea'
 import { usePrefersReducedMotion } from '@/utils/use-prefers-reduced-motion'
 import { applyExaggeration, worldHeight, type TerrainGeometryData } from './build-terrain-geometry'
 import { regionScale } from './region-scale'
 import { sampleElevation, type HeightmapData } from './load-heightmap'
-import { applySeasonColours, type Season } from './season-temperatures'
+import { computeSeasonColours, type Season } from './season-temperatures'
 
 const DURATION_MS = 600
+const SEASON_FADE_MS = 700
 const RESET_DURATION_MS = 700
 const INTRO_DURATION_MS = 800
 const INTRO_DISTANCE = 1.15
@@ -195,6 +196,16 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
     })
   }, [poiSpots])
 
+  const seasonFade = useRef<{ from: Float32Array; to: Float32Array; start: number | null }>({
+    from: new Float32Array(0),
+    to: new Float32Array(0),
+    start: null,
+  })
+  useLayoutEffect(() => {
+    const size = terrain.surfaceCount * 3
+    seasonFade.current = { from: new Float32Array(size), to: new Float32Array(size), start: null }
+  }, [terrain])
+
   const firstColours = useRef(true)
   useLayoutEffect(() => {
     // The geometry is built with elevation colours, so the first pass has nothing to do
@@ -202,9 +213,21 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
       firstColours.current = false
       if (!season) return
     }
-    applySeasonColours(terrain, region.id, season)
+    const attribute = terrain.geometry.getAttribute('color') as BufferAttribute
+    const array = attribute.array as Float32Array
+    const { from, to } = seasonFade.current
+    computeSeasonColours(terrain, region.id, season, to)
+    if (reducedMotion) {
+      seasonFade.current.start = null
+      array.set(to)
+      attribute.needsUpdate = true
+    } else {
+      // Start from the colours currently shown, so a change mid-fade does not jump
+      from.set(array.subarray(0, from.length))
+      seasonFade.current.start = performance.now()
+    }
     invalidate()
-  }, [terrain, region.id, season])
+  }, [terrain, region.id, season, reducedMotion])
 
   const fitted = useRef(false)
   useLayoutEffect(() => {
@@ -314,6 +337,18 @@ export default function TerrainScene({ terrain, heightmap, region, exaggeration,
       orbit.target.lerpVectors(reset.fromTarget, startTarget.current, eased)
       orbit.update()
       if (progress >= 1) resetAnimation.current = null
+      else invalidate()
+    }
+
+    const fade = seasonFade.current
+    if (fade.start !== null) {
+      const progress = Math.min(1, (performance.now() - fade.start) / SEASON_FADE_MS)
+      const eased = easeInOut(progress)
+      const attribute = terrain.geometry.getAttribute('color') as BufferAttribute
+      const array = attribute.array as Float32Array
+      for (let i = 0; i < fade.to.length; i++) array[i] = fade.from[i] + (fade.to[i] - fade.from[i]) * eased
+      attribute.needsUpdate = true
+      if (progress >= 1) fade.start = null
       else invalidate()
     }
 

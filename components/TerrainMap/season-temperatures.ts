@@ -6,21 +6,26 @@ export type Season = 'winter' | 'spring' | 'summer' | 'autumn'
 
 export const SEASONS: readonly Season[] = ['winter', 'spring', 'summer', 'autumn']
 
-/** Area-mean temperatures per season, plus the mean elevation (m) they refer to. */
+/** Usual seasonal temperatures at a region's marker city, plus the elevation (m) of that data point. */
 interface SeasonClimate {
   referenceMetres: number
   means: Record<Season, number>
 }
 
 /**
- * Usual (1991–2020) area-mean seasonal temperatures in °C.
- * Source: DWD, Deutscher Wetterdienst, area-mean temperatures Germany (mean elevation about 263 m).
+ * Usual (1991–2020) seasonal mean temperatures in °C.
+ * Source: Open-Meteo Historical Weather API (ERA5 reanalysis), daily mean 2 m temperature,
+ * averaged per season (winter Dec–Feb, spring Mar–May, summer Jun–Aug, autumn Sep–Nov).
+ * Each region is anchored at its marker city; other heights use the 6.5 °C per 1000 m lapse rate.
  */
 export const SEASON_CLIMATE: Record<string, SeasonClimate> = {
-  germany: {
-    referenceMetres: 263,
-    means: { winter: 1.4, spring: 9.1, summer: 17.6, autumn: 9.3 },
-  },
+  germany: { referenceMetres: 37, means: { winter: 1.4, spring: 9.3, summer: 18.9, autumn: 10.1 } },
+  austria: { referenceMetres: 179, means: { winter: 0.9, spring: 10.6, summer: 20.5, autumn: 10.8 } },
+  bosnia: { referenceMetres: 543, means: { winter: 0.9, spring: 9.7, summer: 19.9, autumn: 11.2 } },
+  bihac: { referenceMetres: 225, means: { winter: 2.4, spring: 11.1, summer: 21.0, autumn: 12.2 } },
+  greece: { referenceMetres: 92, means: { winter: 9.2, spring: 15.6, summer: 26.8, autumn: 18.8 } },
+  lesbos: { referenceMetres: 18, means: { winter: 10.1, spring: 15.3, summer: 25.6, autumn: 18.7 } },
+  syria: { referenceMetres: 693, means: { winter: 7.0, spring: 15.9, summer: 26.3, autumn: 18.8 } },
 }
 
 /** Standard lapse rate: 6.5 °C per 1000 m. */
@@ -40,6 +45,8 @@ export const BAND_COLOURS: readonly string[] = [
   '#ffc766',
   '#f58a4b',
   '#d9483b',
+  '#b32a33',
+  '#7f1d2d',
 ]
 
 export const hasSeasonData = (regionId: string) => regionId in SEASON_CLIMATE
@@ -75,17 +82,21 @@ export function bandRange(terrain: TerrainGeometryData, regionId: string, season
 const bandColours = BAND_COLOURS.map(hex => new Color(hex))
 const colour = new Color()
 
-/** Recolours the top surface in place: stepped temperature bands, or elevation colours when `season` is null. */
-export function applySeasonColours(terrain: TerrainGeometryData, regionId: string, season: Season | null): void {
-  const { geometry, heights, surfaceCount } = terrain
-  const attribute = geometry.getAttribute('color') as BufferAttribute
-  const array = attribute.array as Float32Array
+/** Writes the top-surface colours for `season` (elevation colours when null) into `out`, three floats per vertex. */
+export function computeSeasonColours(terrain: TerrainGeometryData, regionId: string, season: Season | null, out: Float32Array): void {
+  const { heights, surfaceCount } = terrain
   for (let v = 0; v < surfaceCount; v++) {
     if (season) colour.copy(bandColours[bandIndex(temperatureAt(regionId, season, heights[v]))])
     else elevationColour(heights[v], colour)
-    array[v * 3] = colour.r
-    array[v * 3 + 1] = colour.g
-    array[v * 3 + 2] = colour.b
+    out[v * 3] = colour.r
+    out[v * 3 + 1] = colour.g
+    out[v * 3 + 2] = colour.b
   }
+}
+
+/** Recolours the top surface in place: stepped temperature bands, or elevation colours when `season` is null. */
+export function applySeasonColours(terrain: TerrainGeometryData, regionId: string, season: Season | null): void {
+  const attribute = terrain.geometry.getAttribute('color') as BufferAttribute
+  computeSeasonColours(terrain, regionId, season, attribute.array as Float32Array)
   attribute.needsUpdate = true
 }

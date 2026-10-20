@@ -14,6 +14,7 @@ import { regionScale } from './region-scale'
 import { bandRange, hasSeasonData, type Season } from './season-temperatures'
 import TerrainCompass from './TerrainCompass'
 import TerrainLegend from './TerrainLegend'
+import TerrainLegendBox from './TerrainLegendBox'
 import TerrainScaleBar from './TerrainScaleBar'
 import TerrainSeasonSwitch from './TerrainSeasonSwitch'
 import TerrainTemperatureLegend from './TerrainTemperatureLegend'
@@ -56,6 +57,7 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
   const [view, setView] = useState<ViewState>({ azimuth: 0, kmPerPixel: 0 })
   const [rotating, setRotating] = useState(false)
   const [season, setSeason] = useState<Season | null>(null)
+  const [legendAnimates, setLegendAnimates] = useState(false)
   const labelRef = useRef<HTMLSpanElement>(null)
   const poiRefs = useRef<(HTMLButtonElement | null)[]>([])
 
@@ -177,12 +179,27 @@ export default function TerrainCanvas({ regionId, zoom = true, onPoiSelect }: Pr
             </button>
           ))}
           <div className="pointer-events-none absolute left-0 top-0 z-20 flex flex-col items-start gap-2 p-4">
-            {seasonal && <TerrainSeasonSwitch season={season} onChange={setSeason} />}
-            {seasonal && season && bands ? (
-              <TerrainTemperatureLegend season={season} first={bands.first} last={bands.last} />
-            ) : (
-              <TerrainLegend />
+            {seasonal && (
+              <TerrainSeasonSwitch
+                season={season}
+                onChange={next => {
+                  setLegendAnimates(true)
+                  setSeason(next)
+                }}
+              />
             )}
+            <TerrainLegendBox>
+              {seasonal && season && bands ? (
+                <TerrainTemperatureLegend
+                  season={season}
+                  first={bands.first}
+                  last={bands.last}
+                  animateIn={legendAnimates}
+                />
+              ) : (
+                <TerrainLegend animateIn={legendAnimates} />
+              )}
+            </TerrainLegendBox>
           </div>
           <div className="pointer-events-none absolute right-0 top-0 z-20 flex items-center gap-2 p-4">
             <TerrainScaleBar kmPerPixel={view.kmPerPixel} />

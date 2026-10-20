@@ -30,7 +30,7 @@
       "summer": "Sommer (Jun–Aug)",
       "autumn": "Herbst (Sep–Nov)"
     },
-    "legendTitle": "Übliche Temperatur · {season}",
+    "legendTitle": "Übliche Temperatur",
     "lapseNote": "{value} °C pro 1.000 m Höhe"
   },
   "compass": {
