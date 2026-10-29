@@ -13,17 +13,48 @@
     "warsaw": "Warsaw",
     "bihac": "Bihać",
     "evros": "Evros",
-    "drina": "Drina"
+    "drina": "Drina",
+    "gevgelija": "Gevgelija",
+    "belgrade": "Belgrade",
+    "roszke": "Röszke",
+    "munich": "Munich",
+    "slavonski-brod": "Slavonski Brod",
+    "dobova": "Dobova",
+    "spielfeld": "Spielfeld",
+    "passau": "Passau",
+    "albania": "Albania",
+    "montenegro": "Montenegro",
+    "sofia": "Sofia",
+    "bulgaria-border": "Bulgaria–Türkiye border (approx.)",
+    "croatian-border": "Croatian border"
   },
   "berlin": {
     "country": "Germany",
     "title": "Berlin",
     "heading": "The limit",
-    "p1": "In autumn 2015, Berlin’s registration office, LaGeSo in Moabit, could not cope. People waited outside for days and weeks, from early morning, in the cold. Volunteers from “Moabit hilft” handed out food, water and medical help. In December 2015, the head of the office resigned.",
-    "p2": "Berlin housed people wherever it could. In January 2016, 2,500 people lived in the hangars of the old Tempelhof airport, the site of the 1948–49 Berlin Airlift. There was not enough water on site; buses took people to public pools to shower.",
-    "p3": "In 2015, 1.3 million people asked for asylum in Europe.",
-    "p4": "Germany counted 476,649 asylum applications in 2015 and 745,545 in 2016. Its arrival system recorded about 1.1 million people in 2015; after removing double counts, the real number was around 890,000.",
-    "p5": "According to the Border Violence Monitoring Network, Germany said in January 2016 that its capacity was exhausted and limited how many people it took in per day. This started a “domino effect”: one country after another along the route limited entry, until the corridor was gone.",
+    "p1": "In autumn 2015, Berlin’s registration office, LaGeSo in Moabit, could not cope. People waited outside for days and weeks, from early morning, in the cold.<fn>thelocal-lageso-boss</fn><fn>boell-lageso</fn> Volunteers from “Moabit hilft” handed out food, water and medical help.<fn>quartz-berlin-2016</fn><fn>thelocal-lageso-boss</fn> In December 2015, the head of the office resigned.<fn>thelocal-lageso-boss</fn>",
+    "p2": "Berlin housed people wherever it could. In January 2016, 2,500 people lived in the hangars of the old Tempelhof airport, the site of the 1948–49 Berlin Airlift. There was not enough water on site; buses took people to public pools to shower.<fn>thelocal-tempelhof</fn>",
+    "p3": "In 2015, 1.3 million people asked for asylum in Europe.<fn>bvmn-context</fn>",
+    "p4": "Germany counted 476,649 asylum applications in 2015 and 745,545 in 2016.<fn>bpb-asylantraege</fn> Its arrival system recorded about 1.1 million people in 2015; after removing double counts, the real number was around 890,000.<fn>bamf-migrationsbericht-2015</fn>",
+    "p5": "According to the Border Violence Monitoring Network, Germany said in January 2016 that its capacity was exhausted and limited how many people it took in per day. The network calls what followed a “domino effect”: one country after another along the route limited entry, until the corridor was gone.<fn>bvmn-context</fn>",
+    "actors": {
+      "a1": {
+        "name": "LaGeSo",
+        "role": "the registration office couldn’t cope; its head resigned"
+      },
+      "a2": {
+        "name": "Moabit hilft",
+        "role": "volunteers handed out food, water and help"
+      },
+      "a3": {
+        "name": "City of Berlin",
+        "role": "housed 2,500 people in the Tempelhof hangars"
+      },
+      "a4": {
+        "name": "Germany",
+        "role": "limited daily arrivals in January 2016, according to the Border Violence Monitoring Network"
+      }
+    },
     "images": {
       "lageso-entrance": "Tents for asylum seekers at the entrance of LaGeSo on Turmstraße in Moabit, March 2016",
       "lageso-waiting": "Refugees waiting next to a mobile X-ray unit at LaGeSo, March 2016",
@@ -40,12 +71,30 @@
     "country": "Austria",
     "title": "Vienna",
     "heading": "Four days",
-    "p1": "In September 2015, Hungary closed its border with Serbia: a fence, 4 metres tall and 175 km long, finished on 15 September. People turned west, to Croatia.",
-    "p2": "Then the countries along the route opened a “corridor”: Greece, North Macedonia, Serbia, Croatia, Slovenia and Austria. With transit papers, people could take buses and trains. From the Greek islands to Vienna took about four days. For a short time, the Border Violence Monitoring Network writes, it was “the only legalised gateway into the continent”.",
-    "p3": "On the night of 4 to 5 September 2015, Austria and Germany let in thousands of people who had been stuck at Budapest’s Keleti station.",
-    "p4": "At Vienna’s main station, volunteers called themselves “Train of Hope”. They ran a kitchen, a first aid post, a legal desk and a missing persons desk. Their lists show 1,000 arrivals a day at the start of September 2015, rising to over 5,000. On 14 September alone, more than 5,000 people arrived.",
-    "p5": "In 2015, Austria received 88,340 asylum applications, about three times as many as the year before. There were not enough places to sleep. Later, Austria built a fence at Spielfeld, on the border with Slovenia.",
-    "p6": "A week earlier, on 27 August 2015, a truck was found parked on the A4 near Parndorf. Inside were 71 dead people: 59 men, 8 women and 4 children. They had suffocated.",
+    "p1": "In September 2015, Hungary closed its border with Serbia: a fence, 4 metres tall and 175 km long, finished on 15 September.<fn>bvmn-context</fn><fn>rferl-hungary-croatia</fn> People turned west, to Croatia.<fn>euobserver-croatia-buses</fn>",
+    "p2": "Then the countries along the route opened a “corridor”: Greece, North Macedonia, Serbia, Croatia, Slovenia and Austria.<fn>bvmn-context</fn> With transit papers, people could take buses and trains.<fn>unicef-fyrom-serbia-2015</fn> From the Greek islands to Vienna took about four days. For a short time, the Border Violence Monitoring Network writes, it was “the only legalised gateway into the continent”.<fn>bvmn-context</fn>",
+    "p3": "On the night of 4 to 5 September 2015, Austria and Germany let in thousands of people who had been stuck at Budapest’s Keleti station.<fn>icmpd-2015-review</fn>",
+    "p4": "At Vienna’s main station, volunteers called themselves “Train of Hope”. They ran a kitchen, a first aid post, a legal desk and a missing persons desk. Their lists show 1,000 arrivals a day at the start of September 2015, rising to over 5,000. On 14 September alone, more than 5,000 people arrived.<fn>globalvoices-train-of-hope</fn>",
+    "p5": "In 2015, Austria received 88,340 asylum applications, about three times as many as the year before.<fn>viennaat-syrian-asylum</fn><fn>derstandard-asyl-2015</fn> In August 2015, about 1,500 people at the Traiskirchen reception centre had to sleep outside, Amnesty International found.<fn>amnesty-traiskirchen-2015</fn> Later, Austria built a fence at Spielfeld, on the border with Slovenia.<fn>viennaat-syrian-asylum</fn>",
+    "p6": "On 27 August 2015, a truck was found parked on the A4 near Parndorf. Inside were 71 dead people: 59 men, 8 women and 4 children. They had suffocated.<fn>viennaat-a4-tragedy</fn><fn>salzburg24-a4</fn>",
+    "actors": {
+      "a1": {
+        "name": "Hungary",
+        "role": "built the 175 km fence"
+      },
+      "a2": {
+        "name": "Austria and Germany",
+        "role": "let in thousands from Budapest; Austria later built the Spielfeld fence"
+      },
+      "a3": {
+        "name": "Train of Hope",
+        "role": "volunteers ran a kitchen, first aid, a legal desk and a missing persons desk"
+      },
+      "a4": {
+        "name": "Amnesty International",
+        "role": "found that about 1,500 people had to sleep outside at Traiskirchen in August 2015"
+      }
+    },
     "images": {
       "border-line": "Syrian refugees in a line at the border between Hungary and Austria, 6 September 2015",
       "westbahnhof-welcome": "A welcome notice for refugees from the City of Vienna at Westbahnhof, September 2015",
@@ -62,33 +111,81 @@
     "country": "Bosnia and Herzegovina",
     "title": "Sarajevo",
     "heading": "Still moving",
-    "p1": "Ten years after the peak, people still come. From November 2025 to February 2026, the Mixed Migration Centre interviewed 888 people in Sarajevo. 98% were men; 12% started their journey as children. In 2015, most came from Syria. Of the people interviewed, most came from Afghanistan (30%), Morocco (25%) and Algeria (15%). The survey is not representative of everyone on the route.",
-    "p2": "57% came through Bulgaria and Serbia; 88% of them reported danger in the Balkans. In 2025, 13,568 pushbacks from Bulgaria were recorded, and 1,017 violent pushbacks from Croatia into Bosnia.",
-    "p3": "The journey is expensive: on average about €3,800 for people who flew to Türkiye, about €8,800 for people who came overland. Most need smugglers.",
-    "p4": "Most people left for more than one reason: 81% named economic reasons, 28% violence or conflict. Of 42 people from Sudan, 40 said they fled violence.",
-    "p5": "Few want to stay in Bosnia. The most named goals were Italy (29%), France (19%), Spain (15%) and Germany (12%). Afghans are turning away from Germany, which has become stricter about sending people back.",
-    "p6": "70% of the people interviewed came to Bosnia through Serbia. The border between the two is the Drina river. On the night of 22 August 2024, a boat with about 30 people capsized there, near Ljubovija. IOM recorded 12 dead, one of them a child.",
-    "p7": "“I wouldn’t wish this journey on my worst enemy,” said a person interviewed by the Mixed Migration Centre.",
+    "p1": "Ten years after the peak, people still come. From November 2025 to February 2026, the Mixed Migration Centre interviewed 888 people in Sarajevo. 98% were men; 12% started their journey as children.<fn>mmc-bosnia-2026</fn> In 2015, the largest group arriving in Europe by sea came from Syria.<fn>business-standard-million</fn> Of the people interviewed, most came from Afghanistan (30%), Morocco (25%) and Algeria (15%). The survey is not representative of everyone on the route.<fn>mmc-bosnia-2026</fn>",
+    "p2": "57% came through Bulgaria and Serbia; 88% of them reported danger in the Balkans. In 2025, 13,568 pushbacks from Bulgaria were recorded, and 1,017 from Croatia into Bosnia. Aid workers and researchers described the pushbacks by Croatian police as violent.<fn>mmc-bosnia-2026</fn>",
+    "p3": "The journey is expensive: on average about €3,800 for people who flew to Türkiye, about €8,900 for people who came overland. Most need smugglers.<fn>mmc-bosnia-2026</fn>",
+    "p4": "Most people left for more than one reason: 81% named economic reasons, 28% violence or conflict. Of 42 people from Sudan, 40 said they fled violence.<fn>mmc-bosnia-2026</fn>",
+    "p5": "Few want to stay in Bosnia. The most named goals were Italy (29%), France (19%), Spain (15%) and Germany (12%). Afghans are turning away from Germany, which has become stricter about sending people back.<fn>mmc-bosnia-2026</fn>",
+    "p6": "70% of the people interviewed came to Bosnia through Serbia.<fn>mmc-bosnia-2026</fn> The border between the two is the Drina river. On the night of 22 August 2024, a boat with about 30 people capsized there, near Ljubovija.<fn>n1-drina-boat</fn> IOM recorded 12 dead, one of them a child.<fn>iom-mmp-data</fn>",
+    "p7": "“I wouldn’t wish this journey on my worst enemy,” said a person interviewed by the Mixed Migration Centre.<fn>mmc-bosnia-2026</fn>",
+    "actors": {
+      "a1": {
+        "name": "People on the move",
+        "role": "mostly men from Afghanistan, Morocco and Algeria; paid on average about €3,800 if they flew to Türkiye and about €8,900 if they came overland; most want to reach Italy, France, Spain or Germany"
+      },
+      "a2": {
+        "name": "Smugglers",
+        "role": "most people need them"
+      },
+      "a3": {
+        "name": "Croatian police",
+        "role": "pushed people back into Bosnia; aid workers and researchers called it violent"
+      },
+      "a4": {
+        "name": "Mixed Migration Centre",
+        "role": "interviewed 888 people"
+      },
+      "a5": {
+        "name": "IOM",
+        "role": "recorded the dead at the Drina"
+      }
+    },
     "images": {
       "panorama": "View over Sarajevo",
       "old-town": "Sarajevo’s old town seen from Mount Trebević",
       "railway-station": "Inside Sarajevo railway station"
     },
     "stat": {
-      "label": "Recorded violent pushbacks from Croatia into Bosnia, 2025",
-      "source": "Mixed Migration Centre, 2026"
+      "label": "Recorded pushbacks from Croatia into Bosnia, 2025",
+      "source": "Mixed Migration Centre, 2026, p. 12"
     }
   },
   "bihac": {
     "country": "Bosnia and Herzegovina",
     "title": "Bihać",
     "heading": "The game",
-    "p1": "After 2016, the route moved. From late 2017, it went through Bosnia and Herzegovina towards Croatia. In January 2018, UNHCR counted 237 new arrivals in Bosnia; in May 2018, 2,557.",
-    "p2": "From January 2018 to November 2019, about 40,000 people passed through Bosnia. Many stayed in the Una-Sana canton, around Bihać.",
-    "p3": "In February 2020, journalist Alexandra Stanic visited Bihać and Velika Kladuša. People told her that Croatian police beat them, took their phones, shoes and money, and pushed them back to Bosnia without letting them ask for asylum. Naseer, then 25, from Afghanistan, said he had tried 25 times: “I have never had such bad experiences with the police in any other country.”",
-    "p4": "Camp Vučjak was built on a former landfill 10 km from Bihać, with no drinking water. It has since been closed. In 2019, more than 80% of the Border Violence Monitoring Network’s pushback reports showed torture or cruel treatment. On 23 December 2020, the Lipa camp near Bihać burned down; about 1,200 to 1,300 people had lived there.",
-    "p5": "The border runs through mountains and forest. Many tried to cross over the Plješevica mountain. In January 2019, Croatian police rescued 15 people, six of them children, stuck in deep snow; police said they were “visibly hypothermic”. Since 2018, Bihać’s mountain rescue service has been searching for more and more lost people on the move. The forests also hide the war: Bosnia’s mine action centre suspects at least 20,000 mines in the Una-Sana canton. No person on the move has been reported killed by a mine in Bosnia. Across the border in Croatia, near Saborsko, a landmine killed a man from Pakistan in March 2021 and injured two others.",
-    "p6": "In a corner of Bihać’s cemetery, about a dozen migrant graves are marked “NN”, for nomen nescio: name unknown. Lipa was rebuilt as a reception centre for 1,500 men. In April 2025, it was about 10% full; people stayed about ten days on average.",
+    "p1": "After 2016, the route moved. From late 2017, it went through Bosnia and Herzegovina towards Croatia. In January 2018, UNHCR counted 237 new arrivals in Bosnia; in May 2018, 2,557.<fn>intellinews-western-balkans-2018</fn><fn>n1-bosnia-croatia-border-2018</fn>",
+    "p2": "From January 2018 to November 2019, about 40,000 people passed through Bosnia.<fn>vice-stanic-2020</fn> Many stayed in the Una-Sana canton, around Bihać.<fn>n1-bosnia-croatia-border-2018</fn>",
+    "p3": "In February 2020, journalist Alexandra Stanic visited Bihać and Velika Kladuša. People told her that Croatian police beat them, took their phones, shoes and money, and pushed them back to Bosnia without letting them ask for asylum. Naseer, then 25, from Afghanistan, said he had been pushed back 25 times: “I have never had such bad experiences with the police in any other country.”<fn>vice-stanic-2020</fn>",
+    "p4": "Camp Vučjak was built on a former landfill 10 km from Bihać, with no drinking water. It has since been closed.<fn>vice-stanic-2020</fn> In 2019, more than 80% of the Border Violence Monitoring Network’s pushback reports showed torture or cruel treatment.<fn>bvmn-context</fn> On 23 December 2020, the Lipa camp near Bihać burned down; more than 1,300 people were living there.<fn>n1-iom-lipa</fn><fn>euronews-lipa-fire</fn>",
+    "p5": "The border runs through mountains and forest. Many tried to cross over the Plješevica mountain. In January 2019, Croatian police rescued 15 people, six of them children, stuck in deep snow; police said they were “visibly hypothermic”.<fn>peninsula-croatia-snow</fn> Since 2018, Bihać’s mountain rescue service has been searching for more and more lost people on the move.<fn>epp-bosnia-mines</fn> The forests also hide the war: Bosnia’s mine action centre suspects at least 20,000 mines in the Una-Sana canton. No person on the move has been reported killed by a mine in Bosnia.<fn>epp-bosnia-mines</fn> Across the border in Croatia, near Saborsko, a landmine killed one person on the move in March 2021 and injured two men from Pakistan.<fn>n1-saborsko-mine</fn>",
+    "p6": "In a corner of Bihać’s cemetery, about a dozen migrant graves are marked “NN”, for nomen nescio: name unknown. Lipa was rebuilt as a reception centre for 1,500 men. In April 2025, it was about 10% full; people stayed about ten days on average.<fn>epp-bosnia-mines</fn>",
+    "actors": {
+      "a1": {
+        "name": "Naseer, then 25, from Afghanistan",
+        "role": "pushed back 25 times"
+      },
+      "a2": {
+        "name": "Croatian police",
+        "role": "people told a journalist the police beat them and sent them back without asylum<fn>vice-stanic-2020</fn>; the police also rescued 15 people from the snow in 2019<fn>peninsula-croatia-snow</fn>; Croatia’s interior ministry denied the claims for years<fn>voa-croatia-denies-2018</fn><fn>n1-minister-denies-2019</fn>; in October 2021, after journalists published videos, it suspended three officers and called their behaviour unacceptable<fn>n1-officers-suspended-2021</fn><fn>thenational-croatia-admits-2021</fn>"
+      },
+      "a3": {
+        "name": "Alexandra Stanic, VICE",
+        "role": "reported from Bihać"
+      },
+      "a4": {
+        "name": "Border Violence Monitoring Network",
+        "role": "documented pushbacks; in 2019, over 80% of its pushback reports showed torture or cruel treatment"
+      },
+      "a5": {
+        "name": "Bihać mountain rescue",
+        "role": "searches for lost people"
+      },
+      "a6": {
+        "name": "UNHCR",
+        "role": "counted arrivals"
+      }
+    },
     "images": {
       "una-river": "The Una river near Bihać",
       "pljesevica": "The Plješevica mountain on the border between Croatia and Bosnia",
@@ -104,13 +201,35 @@
     "country": "Greece",
     "title": "Athens",
     "heading": "Stuck",
-    "p1": "From November 2015, crossing got harder. Countries decided day by day how many people to let through, and from which countries.",
-    "p2": "In March 2016, North Macedonia, Croatia and Slovenia closed their borders to people in transit within a few weeks. On 18 March 2016, the EU and Türkiye signed their deal. About 60,000 people were left stuck in the countries along the route.",
-    "p3": "At Idomeni, on the border between Greece and North Macedonia, about 10,000 people were waiting on 2 March. A week later, up to 14,000.",
-    "p4": "In spring 2016, people also camped at the port of Piraeus, about 5,000 in March. By May, the Greek government estimated that over 54,000 people were stuck in Greece.",
-    "p5": "On 24 May 2016, police began clearing Idomeni, home to about 8,400 people at the time. Buses took them to camps in old factory buildings near Thessaloniki. Two days later, about 4,000 were missing from the count: many had left on their own.",
-    "p6": "In 2015, the EU promised to move 160,000 people from Greece and Italy to other EU countries. In the end, only 34,705 were moved, 21,999 of them from Greece.",
-    "p7": "The route did not close. People looked for other, more dangerous ways. They call every try “the game”.",
+    "p1": "From November 2015, crossing got harder. Countries decided day by day how many people to let through, and from which countries.<fn>bvmn-context</fn>",
+    "p2": "In March 2016, North Macedonia, Croatia and Slovenia closed their borders to people in transit within a few weeks.<fn>bvmn-context</fn> On 18 March 2016, the EU and Türkiye agreed on their deal.<fn>european-council-eu-turkey</fn> About 60,000 people were left stuck in the countries along the route.<fn>bvmn-context</fn>",
+    "p3": "At Idomeni, on the border between Greece and North Macedonia, about 10,000 people were waiting on 2 March.<fn>tovima-idomeni-10000</fn> A week later, up to 14,000.<fn>jakarta-post-closed-border</fn>",
+    "p4": "In spring 2016, people also camped at the port of Piraeus, about 5,000 in March.<fn>jakarta-post-closed-border</fn> By May, the Greek government estimated that over 54,000 people were stuck in Greece.<fn>tovima-54341-greece</fn>",
+    "p5": "On 24 May 2016, police began clearing Idomeni, home to about 8,400 people at the time. Buses took them to camps in old factory buildings near Thessaloniki.<fn>peninsula-idomeni-evacuation</fn> Two days later, about 4,000 were missing from the count: many had left on their own.<fn>tovima-idomeni-evacuation</fn>",
+    "p6": "In 2015, the EU promised to move 160,000 people from Greece and Italy to other EU countries. In the end, only 34,705 were moved, 21,999 of them from Greece.<fn>eca-greece-italy-2019</fn>",
+    "p7": "The route did not close. People looked for other, more dangerous ways.<fn>bvmn-context</fn> They call every try “the game”.<fn>vice-stanic-2020</fn>",
+    "actors": {
+      "a1": {
+        "name": "People on the move",
+        "role": "waited at Idomeni and Piraeus, left camps on their own, and call every try “the game”"
+      },
+      "a2": {
+        "name": "North Macedonia, Croatia, Slovenia",
+        "role": "closed their borders to people in transit, March 2016"
+      },
+      "a3": {
+        "name": "EU and Türkiye",
+        "role": "agreed on their deal on 18 March 2016"
+      },
+      "a4": {
+        "name": "EU",
+        "role": "promised to move 160,000 people and moved 34,705"
+      },
+      "a5": {
+        "name": "Greek government and police",
+        "role": "the government estimated that over 54,000 people were stuck; police cleared Idomeni"
+      }
+    },
     "images": {
       "piraeus-camp": "Tents at gate E2 of the port of Piraeus, March 2016",
       "idomeni-tents": "Tents in the mud at Idomeni, one painted with “Open the Border”, March 2016",
@@ -127,11 +246,21 @@
     "country": "Greece",
     "title": "Lesbos",
     "heading": "The crossing",
-    "p1": "In 2015, most people on the Balkan route started with a short, dangerous boat trip from Türkiye to the Greek islands. In the summer of 2015, more people crossed the Aegean Sea than the central Mediterranean. Most came from Syria, later more from Afghanistan, Iraq and Iran.",
-    "p2": "October 2015 was the record month: 218,394 people reached Europe by sea, about as many as in all of 2014. By 20 October, Greece had passed 500,000 arrivals that year.",
-    "p3": "In 2015, 804 people died or went missing on the Eastern Mediterranean route. From September 2015 to January 2016 alone, it was 950. Near Lesbos, IOM recorded 295 dead and missing in 2015. These are minimum numbers: many deaths are never recorded.",
-    "p4": "On some days in October 2015, up to 85 boats landed on Lesbos, most of them rubber boats with about 50 people each. At its narrowest, the water between Türkiye and the island’s north coast is only about 10 km wide. When the buses stopped, people walked the 70 km across the island to register at Moria.",
-    "p5": "The registration site at Moria grew into a camp. By September 2020, about 13,000 people lived there, in a space built for just under 3,000. On the night of 8 September 2020, a fire destroyed most of it; thousands slept on the road to Mytilene.",
+    "p1": "In 2015, most people on the Balkan route started with a short, dangerous boat trip from Türkiye to the Greek islands.<fn>unhcr-lesvos-2015</fn> In the summer of 2015, more people crossed the Aegean Sea than the central Mediterranean.<fn>greekreporter-un-greece-entry</fn> The largest group came from Syria, followed by Afghanistan and Iraq.<fn>business-standard-million</fn>",
+    "p2": "October 2015 was the record month: 218,394 people reached Europe by sea, about as many as in all of 2014.<fn>nbc-october-arrivals</fn> By 20 October, Greece had passed 500,000 arrivals that year.<fn>nbc-october-arrivals</fn>",
+    "p3": "In 2015, 804 people died or went missing on the Eastern Mediterranean route. Near Lesbos, IOM recorded 295 dead and missing in 2015. These are minimum numbers: many deaths are never recorded.<fn>iom-mmp-data</fn>",
+    "p4": "On some days in October 2015, up to 85 boats landed on Lesbos, most of them rubber boats with about 50 people each. At its narrowest, the water between Türkiye and the island’s north coast is only about 10 km wide. When the buses stopped, people walked the 70 km across the island to register at Moria.<fn>unhcr-lesvos-2015</fn>",
+    "p5": "The registration site at Moria grew into a camp. By September 2020, about 13,000 people lived there, in a space built for just under 3,000. On the night of 8 September 2020, a fire destroyed most of it; thousands slept on the road to Mytilene.<fn>aljazeera-moria-fire</fn>",
+    "actors": {
+      "a1": {
+        "name": "People on the move",
+        "role": "crossed from Türkiye in rubber boats and walked 70 km to register at Moria"
+      },
+      "a2": {
+        "name": "IOM",
+        "role": "recorded the dead and missing"
+      }
+    },
     "images": {
       "boat-crossing": "Refugees in a rubber boat crossing from the Turkish coast to Lesbos, January 2016",
       "boats-skala-sykamias": "Boats with refugees arriving at Skala Sykamias, Lesbos, October 2015",
@@ -146,5 +275,13 @@
   "meta": {
     "descriptionSuffix": "Part of the journey from Lesbos to Berlin."
   },
-  "statSourcePrefix": "Source:"
+  "statSourcePrefix": "Source:",
+  "actorsTitle": "Who was involved",
+  "chapterNav": {
+    "label": "Chapters",
+    "previous": "Previous chapter: {city}",
+    "next": "Next chapter: {city}"
+  },
+  "footnoteLabel": "Source {number}",
+  "footnotesTitle": "Sources"
 }

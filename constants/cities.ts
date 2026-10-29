@@ -29,6 +29,7 @@ export interface City {
   images: CityImage[]
   video?: string
   stat?: CityStat
+  years?: string
   lat?: number
   lng?: number
 }
@@ -217,6 +218,7 @@ const LESBOS_IMAGES: CityImage[] = [
 export const CITIES: City[] = [
   {
     slug: 'berlin',
+    years: '2015–2016',
     cx: 219.94,
     cy: 133.38,
     type: 'route',
@@ -226,11 +228,11 @@ export const CITIES: City[] = [
     lat: 52.52,
     lng: 13.405,
   },
-  { slug: 'vienna', cx: 272.93, cy: 197.4, type: 'route', hasPage: true, images: VIENNA_IMAGES, stat: { value: 4 }, lat: 48.2082, lng: 16.3738 },
-  { slug: 'sarajevo', cx: 302.96, cy: 267.37, type: 'route', hasPage: true, images: SARAJEVO_IMAGES, stat: { value: 1017 }, lat: 43.8563, lng: 18.4131 },
-  { slug: 'bihac', cx: 269.28, cy: 252.21, type: 'route', hasPage: true, images: BIHAC_IMAGES, stat: { value: 6000 }, lat: 44.8169, lng: 15.8708 },
-  { slug: 'athen', cx: 379.96, cy: 356.37, type: 'route', hasPage: true, images: ATHENS_IMAGES, stat: { value: 60000 }, lat: 37.9838, lng: 23.7275 },
-  { slug: 'lesbos', cx: 410.95, cy: 337.38, type: 'route', hasPage: true, images: LESBOS_IMAGES, stat: { value: 804 }, lat: 39.1067, lng: 26.555 },
+  { slug: 'vienna', years: '2015–2016', cx: 272.93, cy: 197.4, type: 'route', hasPage: true, images: VIENNA_IMAGES, stat: { value: 4 }, lat: 48.2082, lng: 16.3738 },
+  { slug: 'sarajevo', years: '2024–2026', cx: 302.96, cy: 267.37, type: 'route', hasPage: true, images: SARAJEVO_IMAGES, stat: { value: 1017 }, lat: 43.8563, lng: 18.4131 },
+  { slug: 'bihac', years: '2017–2025', cx: 269.28, cy: 252.21, type: 'route', hasPage: true, images: BIHAC_IMAGES, stat: { value: 6000 }, lat: 44.8169, lng: 15.8708 },
+  { slug: 'athen', years: '2015–2016', cx: 379.96, cy: 356.37, type: 'route', hasPage: true, images: ATHENS_IMAGES, stat: { value: 60000 }, lat: 37.9838, lng: 23.7275 },
+  { slug: 'lesbos', years: '2015–2020', cx: 410.95, cy: 337.38, type: 'route', hasPage: true, images: LESBOS_IMAGES, stat: { value: 804 }, lat: 39.1067, lng: 26.555 },
   { slug: 'damascus', cx: 545.94, cy: 422.38, type: 'stop', hasPage: false, images: [], video: VIDEO, lat: 33.5138, lng: 36.2765 },
   { slug: 'lampedusa', cx: 236.2, cy: 391.4, type: 'stop', hasPage: false, images: [], video: VIDEO },
   { slug: 'rome', cx: 226.69, cy: 292.38, type: 'stop', hasPage: false, images: [], video: VIDEO },
@@ -240,17 +242,10 @@ export const CITIES: City[] = [
   { slug: 'evros', cx: 404.75, cy: 310.28, type: 'stop', hasPage: false, images: [], lat: 40.88, lng: 26.17 },
 ]
 
-export const ROUTE_ORDER = ['lesbos', 'athen', 'sarajevo', 'vienna', 'berlin'] as const
+export const CHAPTER_ORDER: string[] = ['lesbos', 'athen', 'sarajevo', 'bihac', 'vienna', 'berlin']
 
 export const PAGE_SLUGS: string[] = CITIES.filter(city => city.hasPage).map(city => city.slug)
 
 export function getCity(slug: string): City | undefined {
   return CITIES.find(city => city.slug === slug)
-}
-
-export function getRoutePoints(): string {
-  return ROUTE_ORDER.map(slug => {
-    const city = getCity(slug)
-    return city ? `${city.cx} ${city.cy}` : ''
-  }).join(' ')
 }

@@ -7,12 +7,18 @@ import { normalizePathname } from '@/utils/normalize-pathname'
 
 type TransitionLinkProps = ComponentProps<typeof Link>
 
+function splitHref(href: string): [string, string] {
+  const index = href.search(/[?#]/)
+  return index === -1 ? [href, ''] : [href.slice(0, index), href.slice(index)]
+}
+
 export default function TransitionLink({ href, onClick, replace, ...rest }: TransitionLinkProps) {
   const pathname = usePathname()
   const { startRouteTransition, isTransitioning, hasTransitionProvider } = useRouteTransition()
+  const [hrefPath, hrefSuffix] = typeof href === 'string' ? splitHref(href) : ['', '']
   const normalizedHref =
-    typeof href === 'string' && href.startsWith('/') && href !== '/' && !href.endsWith('/')
-      ? `${href}/`
+    typeof href === 'string' && hrefPath.startsWith('/') && hrefPath !== '/' && !hrefPath.endsWith('/')
+      ? `${hrefPath}/${hrefSuffix}`
       : href
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -45,7 +51,7 @@ export default function TransitionLink({ href, onClick, replace, ...rest }: Tran
       return
     }
 
-    if (normalizePathname(pathname) === normalizePathname(normalizedHref)) {
+    if (normalizePathname(pathname) === normalizePathname(typeof normalizedHref === 'string' ? splitHref(normalizedHref)[0] : normalizedHref)) {
       return
     }
 

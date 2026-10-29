@@ -1,6 +1,42 @@
 {
   "title": "Die Route",
   "returnToMap": "Zurück zur Karte",
+  "period": {
+    "label": "Zeitraum der Route",
+    "summer2015": {
+      "label": "Sommer 2015 (bis 15. Sep.)",
+      "short": "2015 I",
+      "text": "Im Sommer 2015 setzten viele Menschen von der Türkei auf die griechischen Inseln über und zogen dann über Land nach Norden, durch Nordmazedonien, Serbien und Ungarn. In der Nacht vom 4. auf den 5. September ließen Österreich und Deutschland Tausende ein, die in Budapest festsaßen.",
+      "source": "UNICEF, ECRE, Border Violence Monitoring Network"
+    },
+    "winter2015": {
+      "label": "Okt. 2015 – März 2016",
+      "short": "2015/16",
+      "text": "Ungarn schloss am 15. September 2015 seine Grenze zu Serbien und am 16. Oktober die zu Kroatien. Die Route verlagerte sich nach Kroatien und Slowenien. Busse und Züge brachten die Menschen durch einen offiziellen Korridor.",
+      "source": "RFE/RL, OSW, Border Violence Monitoring Network"
+    },
+    "y2018": {
+      "label": "2018–2020",
+      "short": "2018–20",
+      "text": "Nachdem der Transitkorridor im März 2016 geschlossen wurde, verlagerte sich die Route. Ab Ende 2017 kamen Menschen über Serbien oder über Albanien und Montenegro nach Bosnien und versuchten, bei Bihać nach Kroatien zu gelangen.",
+      "source": "UNHCR, IntelliNews, N1"
+    },
+    "y2025": {
+      "label": "2025",
+      "short": "2025",
+      "text": "In einer Befragung von 888 Menschen in Sarajevo (Nov. 2025 – Feb. 2026) kamen 57 % über Bulgarien und Serbien, 27 % über Nordmazedonien und 16 % über Albanien und Montenegro. Von denen, die durch Bulgarien kamen, nannten 64 % das Land gefährlich. Die Befragung steht nicht für alle Menschen auf der Route.",
+      "source": "Mixed Migration Centre, 2026, S. 6, 9, 13"
+    }
+  },
+  "note": "Ausgewählte Routen, nicht die Reise eines einzelnen Menschen.",
+  "legend": {
+    "chapter": "Kapitel (öffnet eine Seite)",
+    "story": "Kurzgeschichte (öffnet ein Fenster)",
+    "waypoint": "Wegpunkt",
+    "main": "Hauptroute",
+    "branch": "Weitere Route",
+    "attempt": "Versuchter Grenzübertritt"
+  },
   "dot": {
     "openCity": "{city} öffnen",
     "goToCity": "Zu {city}"
@@ -66,5 +102,7 @@
     "total": "Gesamt:",
     "source": "Quelle: IOM Missing Migrants Project",
     "sourceLink": "missingmigrants.iom.int"
-  }
+  },
+  "resetView": "Ansicht zurücksetzen",
+  "zoomHint": "Strg/⌘ + Scrollen zum Zoomen"
 }

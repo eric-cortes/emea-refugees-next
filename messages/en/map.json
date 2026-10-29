@@ -1,6 +1,42 @@
 {
   "title": "The Route",
   "returnToMap": "Return to Map",
+  "period": {
+    "label": "Route period",
+    "summer2015": {
+      "label": "Summer 2015 (until 15 Sep)",
+      "short": "2015 I",
+      "text": "In summer 2015, many people crossed from Türkiye to the Greek islands, then went north by land through North Macedonia, Serbia and Hungary. On the night of 4 to 5 September, Austria and Germany let in thousands stuck in Budapest.",
+      "source": "UNICEF, ECRE, Border Violence Monitoring Network"
+    },
+    "winter2015": {
+      "label": "Oct 2015 – Mar 2016",
+      "short": "2015/16",
+      "text": "Hungary closed its border with Serbia on 15 September 2015, and with Croatia on 16 October. The route moved to Croatia and Slovenia. Buses and trains carried people along an official corridor.",
+      "source": "RFE/RL, OSW, Border Violence Monitoring Network"
+    },
+    "y2018": {
+      "label": "2018–2020",
+      "short": "2018–20",
+      "text": "After the transit corridor closed in March 2016, the route moved. From late 2017, people came to Bosnia through Serbia or through Albania and Montenegro, and tried to cross into Croatia near Bihać.",
+      "source": "UNHCR, IntelliNews, N1"
+    },
+    "y2025": {
+      "label": "2025",
+      "short": "2025",
+      "text": "In a survey of 888 people in Sarajevo (Nov 2025 – Feb 2026), 57% came through Bulgaria and Serbia, 27% through North Macedonia and 16% through Albania and Montenegro. Of those who passed through Bulgaria, 64% said it was dangerous. The survey does not speak for everyone on the route.",
+      "source": "Mixed Migration Centre, 2026, pp. 6, 9, 13"
+    }
+  },
+  "note": "Selected routes, not one person’s journey.",
+  "legend": {
+    "chapter": "Chapter (opens a page)",
+    "story": "Short story (opens a panel)",
+    "waypoint": "Waypoint",
+    "main": "Main route",
+    "branch": "Other route",
+    "attempt": "Attempted crossing"
+  },
   "dot": {
     "openCity": "Open {city}",
     "goToCity": "Go to {city}"
@@ -66,5 +102,7 @@
     "total": "Total:",
     "source": "Source: IOM Missing Migrants Project",
     "sourceLink": "missingmigrants.iom.int"
-  }
+  },
+  "resetView": "Reset view",
+  "zoomHint": "Ctrl/⌘ + scroll to zoom"
 }
